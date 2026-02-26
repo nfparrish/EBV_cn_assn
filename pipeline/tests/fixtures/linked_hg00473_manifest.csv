@@ -1,0 +1,2 @@
+sample_id,dataset,population,sex,sequence_lab,read1_path,read2_path,rna_read1_path,rna_read2_path,bam_path,md5,notes
+HG00473,1000G_PHASE3,CHS,F,1000G_FTP,pipeline/tests/data/wgs_fastq_real/HG00473/ERR016097/ERR016097_1.filt.fastq.gz,pipeline/tests/data/wgs_fastq_real/HG00473/ERR016097/ERR016097_2.filt.fastq.gz,pipeline/tests/data/rna_fastq_real/SRR19762925/subset/SRR19762925_1.subset_5k.fastq.gz,pipeline/tests/data/rna_fastq_real/SRR19762925/subset/SRR19762925_2.subset_5k.fastq.gz,,,Linked HG00473 WGS+RNA manifest for variant-confirming smoke test

@@ -13,6 +13,10 @@ This mode enables direct ingestion of raw RNA-seq FASTQ files, alignment to a co
 - `--rna_reference_fasta <combined_host_ebv.fa>`
 - `--rna_reference_gtf <combined_host_ebv.gtf>`
 
+Manifest FASTQ columns used in this mode:
+- preferred: `rna_read1_path`, `rna_read2_path`
+- fallback: `read1_path`, `read2_path`
+
 ## Required tools
 - `minimap2`
 - `samtools`

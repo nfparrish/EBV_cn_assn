@@ -275,11 +275,11 @@ def align_and_count(rows, reference_fasta, reference_gtf, threads, work_dir, man
 
     for row in rows:
         sample_id = row['sample_id'].strip()
-        read1 = (row.get('read1_path') or '').strip()
-        read2 = (row.get('read2_path') or '').strip()
+        read1 = (row.get('rna_read1_path') or row.get('read1_path') or '').strip()
+        read2 = (row.get('rna_read2_path') or row.get('read2_path') or '').strip()
 
         if not read1:
-            raise ValueError(f"Sample {sample_id} missing read1_path for FASTQ RNA counting mode")
+            raise ValueError(f"Sample {sample_id} missing rna_read1_path/read1_path for FASTQ RNA counting mode")
 
         read1_path = resolve_input_path(read1, manifest_dir, project_dir)
         read2_path = resolve_input_path(read2, manifest_dir, project_dir) if read2 else None

@@ -22,6 +22,7 @@ Optional:
 
 - `md5` — checksum string for source file validation
 - `notes` — free-text provenance annotations
+- `rna_read1_path`, `rna_read2_path` — optional RNA-specific FASTQ paths used by RNA recount workflows; when present, these are preferred over `read1_path`/`read2_path` for RNA ingestion.
 
 ## Behavior
 

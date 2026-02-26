@@ -3,3 +3,4 @@ get-shit-done/
 .nextflow/
 .nextflow.log*
 work/
+pipeline/tests/data/
