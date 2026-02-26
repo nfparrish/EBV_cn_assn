@@ -1,0 +1,16 @@
+{
+  "sample_count": 2,
+  "status_counts": {
+    "processed": 2,
+    "skipped": 0
+  },
+  "metrics": {
+    "q30_rate_mean": 0.878,
+    "mapping_rate_mean": 0.9578,
+    "mean_coverage_mean": 29.81
+  },
+  "warning_counts": {
+    "low_coverage": 0,
+    "low_q30": 1
+  }
+}

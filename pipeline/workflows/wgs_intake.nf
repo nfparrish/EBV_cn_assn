@@ -18,30 +18,7 @@ process BUILD_STATUS_SUMMARY {
 
   script:
   """
-  python3 - <<'PY'
-  import glob
-  import json
-  import pathlib
-
-  rows = []
-  for file_path in glob.glob('*.status.json'):
-      rows.append(json.loads(pathlib.Path(file_path).read_text()))
-
-  rows = sorted(rows, key=lambda item: item["sample_id"])
-
-  header = ["sample_id", "status", "reason", "dataset", "population", "sequence_lab"]
-  with pathlib.Path("sample_status_registry.tsv").open("w") as handle:
-      handle.write("\t".join(header) + "\n")
-      for row in rows:
-          handle.write("\t".join(str(row.get(col, "")) for col in header) + "\n")
-
-  summary = {
-      "total": len(rows),
-      "processed": sum(1 for row in rows if row.get("status") == "processed"),
-      "skipped": sum(1 for row in rows if row.get("status") == "skipped"),
-  }
-  pathlib.Path("sample_status_summary.json").write_text(json.dumps(summary, indent=2))
-  PY
+  python3 ${projectDir}/scripts/build_status_summary.py
   """
 }
 
@@ -58,9 +35,9 @@ workflow WGS_INTAKE {
     staged = STAGE_INPUTS(manifest_rows)
     statuses = SAMPLE_STATUS(staged.staged)
     qc_sample = QC_SAMPLE(staged.staged.join(statuses.status, by: 0))
-    qc_cohort = QC_COHORT(qc_sample.qc.collect())
+    qc_cohort = QC_COHORT(qc_sample.qc.map { it[1] }.collect())
 
-    BUILD_STATUS_SUMMARY(statuses.status.collect())
+    BUILD_STATUS_SUMMARY(statuses.status.map { it[1] }.collect())
 
   emit:
     validated_manifest = validation.validated_manifest

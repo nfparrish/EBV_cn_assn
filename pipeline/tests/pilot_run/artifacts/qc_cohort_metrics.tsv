@@ -1,0 +1,3 @@
+sample_id	status	dataset	population	sequence_lab	read_count	q30_rate	mapping_rate	mean_coverage	warnings
+HG00096	processed	1000G_PHASE3	GBR	1000G_FTP	47213531	0.8956	0.9573	26.93	
+HG00097	processed	1000G_PHASE3	GBR	1000G_FTP	22364100	0.8603	0.9582	32.69	low_q30

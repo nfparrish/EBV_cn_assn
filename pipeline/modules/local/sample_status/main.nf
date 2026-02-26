@@ -6,7 +6,7 @@ process SAMPLE_STATUS {
     tuple val(sample_id), path(staged_json)
 
   output:
-    path("${sample_id}.status.json"), emit: status
+    tuple val(sample_id), path("${sample_id}.status.json"), emit: status
 
   script:
   """
@@ -20,7 +20,7 @@ process SAMPLE_STATUS {
   staged_path = pathlib.Path("${staged_json}")
   staged_payload = json.loads(staged_path.read_text())
 
-  registry = os.environ.get("GSD_STATUS_REGISTRY")
+  registry = "${params.status_registry ?: ''}".strip()
   prior_status = None
 
   if registry and pathlib.Path(registry).exists():
@@ -51,5 +51,4 @@ process SAMPLE_STATUS {
   PY
   """
 
-  env.GSD_STATUS_REGISTRY = params.status_registry ?: ''
 }

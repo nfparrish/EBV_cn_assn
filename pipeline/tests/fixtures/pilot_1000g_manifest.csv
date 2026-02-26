@@ -1,0 +1,3 @@
+sample_id,dataset,population,sex,sequence_lab,read1_path,read2_path,bam_path,md5
+HG00096,1000G_PHASE3,GBR,M,1000G_FTP,ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/HG00096_1.filt.fastq.gz,ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/HG00096_2.filt.fastq.gz,,0123456789abcdef0123456789abcdef
+HG00097,1000G_PHASE3,GBR,F,1000G_FTP,ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00097/sequence_read/HG00097_1.filt.fastq.gz,ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00097/sequence_read/HG00097_2.filt.fastq.gz,,fedcba9876543210fedcba9876543210
