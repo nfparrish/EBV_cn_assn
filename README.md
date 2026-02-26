@@ -4,6 +4,11 @@
 
 End-to-end Nextflow DSL2 pipeline for EBV copy-number and association analysis across WGS and RNA-seq, including reporting, dashboard generation, and reproducibility artifacts.
 
+## HPC quick start (Duke DCC)
+
+- Run 10-sample WGS test set via sbatch wrapper: [pipeline/scripts/dcc_wgs10_testset.sbatch](pipeline/scripts/dcc_wgs10_testset.sbatch)
+- Usage and submit options: [pipeline/docs/hpc-portability.md](pipeline/docs/hpc-portability.md)
+
 ## Status
 
 This repository contains the complete Phase 1–6 implementation:
