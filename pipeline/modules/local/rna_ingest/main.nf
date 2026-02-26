@@ -16,6 +16,7 @@ process RNA_INGEST {
     ${manifest_file} \
     '${params.rna_expression_input ?: ""}' \
     '${params.rna_metadata_input ?: ""}' \
-    ${projectDir}
+    ${projectDir} \
+    ${params.rna_require_ebv_genes}
   """
 }

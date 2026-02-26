@@ -12,6 +12,7 @@ Optional inputs:
 
 - `--rna_expression_input <expression.tsv>`
 - `--rna_metadata_input <rna_metadata.tsv>`
+- `--rna_require_ebv_genes <true|false>` (default: `true`)
 
 If optional inputs are omitted, deterministic fallback artifacts are generated for pilot execution.
 
@@ -20,6 +21,8 @@ If optional inputs are omitted, deterministic fallback artifacts are generated f
 - `rna_expression_canonical.tsv`
 - `rna_sample_map.tsv`
 - `rna_ingest_report.json`
+
+By default, ingest enforces EBV expression presence. If no EBV-like gene rows are detected in the canonical matrix, the ingest step fails unless `--rna_require_ebv_genes false` is set.
 
 ### `rna_expression_canonical.tsv`
 
@@ -62,6 +65,14 @@ Tab-delimited table with at least:
 Optional metadata fields used when present:
 
 - `rna_batch`, `library_size`, `mapping_rate`, `sex`, `sequence_lab`
+
+## EBV coverage and ingest report fields
+
+`rna_ingest_report.json` includes:
+
+- `ebv_gene_count`
+- `non_ebv_gene_count`
+- `ebv_gene_required`
 
 ## Notes
 

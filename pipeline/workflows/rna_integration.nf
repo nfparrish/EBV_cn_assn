@@ -10,6 +10,7 @@ include { RNA_ASSOC_CN as RNA_ASSOC_CN_QUANT } from '../modules/local/rna_assoc_
 include { RNA_ASSOC_VARIANT as RNA_ASSOC_VARIANT_LOG2 } from '../modules/local/rna_assoc_variant/main'
 include { RNA_ASSOC_VARIANT as RNA_ASSOC_VARIANT_QUANT } from '../modules/local/rna_assoc_variant/main'
 include { RNA_ASSOC_QC } from '../modules/local/rna_assoc_qc/main'
+include { RNA_VARIANT_PRESENCE_QC } from '../modules/local/rna_variant_presence_qc/main'
 
 workflow RNA_INTEGRATION {
   take:
@@ -23,6 +24,7 @@ workflow RNA_INTEGRATION {
     sample_variants = EBV_VARIANT_CALL(manifest_rows, reference.reference)
     ebv_variant_inputs = sample_variants.variant_tsv.map { it[1] }.collect()
     ingest = RNA_INGEST(manifest_file)
+    variant_presence = RNA_VARIANT_PRESENCE_QC(ebv_variant_inputs, ingest.sample_map)
     normalized = RNA_NORMALIZE(ingest.expression_canonical)
     cn_assoc_log2 = RNA_ASSOC_CN_LOG2(cn_outputs.cn_normalized_table, normalized.expression_log2, ingest.sample_map, 'log2_tpm_plus_1')
     cn_assoc_quant = RNA_ASSOC_CN_QUANT(cn_outputs.cn_normalized_table, normalized.expression_quantile, ingest.sample_map, 'quantile_normalized')
@@ -43,6 +45,9 @@ workflow RNA_INTEGRATION {
     rna_expression_canonical = ingest.expression_canonical
     rna_sample_map = ingest.sample_map
     rna_ingest_report = ingest.ingest_report
+    rna_variant_presence_checks = variant_presence.checks
+    rna_variant_presence_summary = variant_presence.summary
+    rna_variant_presence_report = variant_presence.report
     rna_expression_log2tpm = normalized.expression_log2
     rna_expression_quantile = normalized.expression_quantile
     rna_normalization_report = normalized.normalization_report

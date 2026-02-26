@@ -5,6 +5,23 @@ import random
 import sys
 
 
+def parse_bool(value):
+    return str(value).strip().lower() in {'1', 'true', 'yes', 'y'}
+
+
+def is_ebv_gene(gene_id):
+    gid = (gene_id or '').strip().upper()
+    return (
+        gid.startswith('EBV_')
+        or gid.startswith('EBER')
+        or gid.startswith('BART')
+        or 'NC_007605' in gid
+        or gid.startswith('LF')
+        or gid.startswith('BZLF')
+        or gid.startswith('BRLF')
+    )
+
+
 def resolve_path(path_value, project_dir):
     if not path_value:
         return None
@@ -20,6 +37,7 @@ manifest_arg = sys.argv[1]
 expression_arg = sys.argv[2] if len(sys.argv) > 2 else ''
 metadata_arg = sys.argv[3] if len(sys.argv) > 3 else ''
 project_dir = sys.argv[4] if len(sys.argv) > 4 else '.'
+require_ebv_genes = parse_bool(sys.argv[5]) if len(sys.argv) > 5 else True
 
 manifest_path = resolve_path(manifest_arg, project_dir)
 if manifest_path is None or not manifest_path.exists():
@@ -88,6 +106,14 @@ if not genes:
             rng = random.Random(seed)
             expression_values[gene][sid] = round(rng.uniform(0.5, 120.0), 6)
 
+ebv_genes = [gene for gene in genes if is_ebv_gene(gene)]
+if require_ebv_genes and len(ebv_genes) == 0:
+    raise ValueError(
+        'RNA input does not contain detectable EBV gene rows. '
+        'Provide an expression matrix with EBV genes (e.g., EBV_*, EBER*, BART*, NC_007605 features) '
+        'or disable this check via --rna_require_ebv_genes false.'
+    )
+
 with pathlib.Path('rna_expression_canonical.tsv').open('w') as handle:
     header = ['gene_id'] + manifest_samples
     handle.write('\t'.join(header) + '\n')
@@ -130,6 +156,9 @@ report = {
     'manifest_sample_count': len(manifest_samples),
     'sample_map_count': len(manifest_samples),
     'gene_count': len(genes),
+    'ebv_gene_count': len(ebv_genes),
+    'non_ebv_gene_count': max(len(genes) - len(ebv_genes), 0),
+    'ebv_gene_required': require_ebv_genes,
     'metadata_source': 'input_table' if metadata_path else 'generated_fallback',
     'sample_overlap_with_metadata': len(set(manifest_samples).intersection(set(rna_meta.keys()))),
 }
