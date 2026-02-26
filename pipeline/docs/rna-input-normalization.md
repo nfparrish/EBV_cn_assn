@@ -14,6 +14,17 @@ Optional inputs:
 - `--rna_metadata_input <rna_metadata.tsv>`
 - `--rna_require_ebv_genes <true|false>` (default: `true`)
 
+Input mode:
+- `--rna_input_mode auto|matrix|fastq` (default: `auto`)
+	- `matrix`: use provided/derived matrix ingestion path
+	- `fastq`: force raw FASTQ alignment + recount path
+	- `auto`: use `fastq` when no `--rna_expression_input` is set and both reference files are provided; otherwise `matrix`
+
+FASTQ recount mode requires:
+- `--rna_reference_fasta <combined_host_ebv.fa>`
+- `--rna_reference_gtf <combined_host_ebv.gtf>`
+- `minimap2`, `samtools`, and `featureCounts` available on `PATH`
+
 If optional inputs are omitted, deterministic fallback artifacts are generated for pilot execution.
 
 ## Ingestion outputs
@@ -21,6 +32,7 @@ If optional inputs are omitted, deterministic fallback artifacts are generated f
 - `rna_expression_canonical.tsv`
 - `rna_sample_map.tsv`
 - `rna_ingest_report.json`
+- `rna_fastq_count_report.json` (only in FASTQ recount mode)
 
 By default, ingest enforces EBV expression presence. If no EBV-like gene rows are detected in the canonical matrix, the ingest step fails unless `--rna_require_ebv_genes false` is set.
 
