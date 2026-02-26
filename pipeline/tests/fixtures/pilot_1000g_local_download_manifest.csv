@@ -1,0 +1,2 @@
+sample_id,dataset,population,sex,sequence_lab,read1_path,read2_path,bam_path,md5
+HG00096_LOCAL,1000G_PHASE3,GBR,M,1000G_FTP,/Users/nfp8/Downloads/GSD/pipeline/tests/data/1000g_hg00096/SRR062641.filt.fastq.gz,/Users/nfp8/Downloads/GSD/pipeline/tests/data/1000g_hg00096/SRR062635.filt.fastq.gz,,
