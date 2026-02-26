@@ -36,3 +36,11 @@ created: 2026-02-26
 ## Phase Boundary
 
 Phase 1 delivers only reliable data intake and quality-control foundations. It does not compute EBV copy number yet, but it must produce validated sample metadata and QC artifacts that make CN computation and statistical modeling straightforward in subsequent phases.
+
+## Pre-Implementation Checklist
+
+- [ ] Confirm pilot manifest subset for smoke tests (coverage/diversity representative).
+- [ ] Confirm container strategy per environment (Docker local, Singularity/Apptainer on HPC).
+- [ ] Confirm initial QC policy (warning-first thresholds, hard filters deferred).
+- [ ] Confirm scheduler profiles to support first (at minimum base + Slurm; add PBS profile if required now).
+- [ ] Confirm output contract for Phase 1 artifacts (sample status table, per-sample QC files, cohort summary report).
