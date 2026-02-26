@@ -23,6 +23,24 @@ def resolve_path(path_value, project_dir):
     return pathlib.Path(project_dir) / candidate
 
 
+def resolve_input_path(path_value, manifest_dir, project_dir):
+    candidate = pathlib.Path(path_value)
+    if candidate.is_absolute() and candidate.exists():
+        return candidate
+    if candidate.exists():
+        return candidate
+
+    manifest_relative = manifest_dir / candidate
+    if manifest_relative.exists():
+        return manifest_relative
+
+    project_relative = pathlib.Path(project_dir) / candidate
+    if project_relative.exists():
+        return project_relative
+
+    return candidate
+
+
 def is_ebv_contig(name):
     key = (name or '').upper()
     return 'NC_007605' in key or 'EBV' in key or 'HHV4' in key
@@ -135,6 +153,97 @@ def ensure_tool(binary_name):
         )
 
 
+def parse_cigar_ref_span(cigar):
+    num = ''
+    ref_len = 0
+    for ch in cigar:
+        if ch.isdigit():
+            num += ch
+            continue
+        if not num:
+            continue
+        value = int(num)
+        if ch in {'M', 'D', 'N', '=', 'X'}:
+            ref_len += value
+        num = ''
+    return ref_len
+
+
+def build_gene_intervals(reference_gtf):
+    intervals = {}
+    genes = set()
+    with reference_gtf.open() as handle:
+        for line in handle:
+            if not line or line.startswith('#'):
+                continue
+            parts = line.rstrip('\n').split('\t')
+            if len(parts) < 9:
+                continue
+            feature = parts[2]
+            if feature not in {'gene', 'exon'}:
+                continue
+            contig = parts[0]
+            start = int(parts[3])
+            end = int(parts[4])
+            attrs = parts[8]
+            gene_id = ''
+            for token in attrs.split(';'):
+                token = token.strip()
+                if token.startswith('gene_id'):
+                    chunks = token.split('"')
+                    if len(chunks) >= 2:
+                        gene_id = chunks[1]
+                    break
+            if not gene_id:
+                continue
+            genes.add(gene_id)
+            intervals.setdefault(contig, []).append((start, end, gene_id))
+
+    for contig in intervals:
+        intervals[contig].sort(key=lambda x: (x[0], x[1], x[2]))
+
+    return intervals, sorted(genes)
+
+
+def count_with_builtin_counter(bam_paths, reference_gtf):
+    gene_intervals, genes = build_gene_intervals(reference_gtf)
+    counts = {gene: {} for gene in genes}
+
+    for sample_id, bam_path in bam_paths:
+        for gene in genes:
+            counts[gene][sample_id] = 0.0
+
+        view_cmd = ['samtools', 'view', '-F', '4', str(bam_path)]
+        proc = subprocess.Popen(view_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        out, err = proc.communicate()
+        if proc.returncode != 0:
+            raise RuntimeError(f"samtools view failed for {sample_id}: {err}")
+
+        for line in out.splitlines():
+            fields = line.split('\t')
+            if len(fields) < 6:
+                continue
+            rname = fields[2]
+            if rname == '*':
+                continue
+            pos = int(fields[3])
+            cigar = fields[5]
+            ref_span = parse_cigar_ref_span(cigar)
+            if ref_span <= 0:
+                continue
+            aln_start = pos
+            aln_end = pos + ref_span - 1
+
+            for start, end, gene_id in gene_intervals.get(rname, []):
+                if end < aln_start:
+                    continue
+                if start > aln_end:
+                    break
+                counts[gene_id][sample_id] += 1.0
+
+    return genes, counts
+
+
 def maybe_gzip_open(path):
     if str(path).endswith('.gz'):
         return gzip.open(path, 'rt')
@@ -157,10 +266,9 @@ def run_command(command):
     return proc.stdout
 
 
-def align_and_count(rows, reference_fasta, reference_gtf, threads, work_dir):
+def align_and_count(rows, reference_fasta, reference_gtf, threads, work_dir, manifest_dir, project_dir, counter):
     ensure_tool('minimap2')
     ensure_tool('samtools')
-    ensure_tool('featureCounts')
 
     bam_paths = []
     sample_metrics = {}
@@ -173,8 +281,8 @@ def align_and_count(rows, reference_fasta, reference_gtf, threads, work_dir):
         if not read1:
             raise ValueError(f"Sample {sample_id} missing read1_path for FASTQ RNA counting mode")
 
-        read1_path = pathlib.Path(read1)
-        read2_path = pathlib.Path(read2) if read2 else None
+        read1_path = resolve_input_path(read1, manifest_dir, project_dir)
+        read2_path = resolve_input_path(read2, manifest_dir, project_dir) if read2 else None
 
         if not read1_path.exists():
             raise FileNotFoundError(f"FASTQ not found: {read1_path}")
@@ -227,17 +335,24 @@ def align_and_count(rows, reference_fasta, reference_gtf, threads, work_dir):
 
         bam_paths.append((sample_id, bam_path))
 
-    fc_out = work_dir / 'featurecounts.txt'
-    fc_cmd = [
-        'featureCounts',
-        '-T', str(threads),
-        '-a', str(reference_gtf),
-        '-o', str(fc_out),
-    ] + [str(x[1]) for x in bam_paths]
-    run_command(fc_cmd)
+    if counter == 'featureCounts':
+        ensure_tool('featureCounts')
+        fc_out = work_dir / 'featurecounts.txt'
+        fc_cmd = [
+            'featureCounts',
+            '-T', str(threads),
+            '-a', str(reference_gtf),
+            '-o', str(fc_out),
+        ] + [str(x[1]) for x in bam_paths]
+        run_command(fc_cmd)
+        data_path = work_dir / 'featurecounts.txt'
+        return bam_paths, sample_metrics, data_path, None, None
 
-    data_path = work_dir / 'featurecounts.txt'
-    return bam_paths, sample_metrics, data_path
+    if counter == 'builtin':
+        genes, counts = count_with_builtin_counter(bam_paths, reference_gtf)
+        return bam_paths, sample_metrics, None, genes, counts
+
+    raise ValueError(f"Unsupported counter mode: {counter}")
 
 
 def parse_featurecounts_matrix(path, sample_order):
@@ -345,18 +460,22 @@ def main():
     metadata_arg = sys.argv[2] if len(sys.argv) > 2 else ''
     reference_fasta_arg = sys.argv[3] if len(sys.argv) > 3 else ''
     reference_gtf_arg = sys.argv[4] if len(sys.argv) > 4 else ''
-    project_dir = sys.argv[5] if len(sys.argv) > 5 else '.'
-    require_ebv_genes = parse_bool(sys.argv[6]) if len(sys.argv) > 6 else True
-    threads = int(sys.argv[7]) if len(sys.argv) > 7 else 2
-    aligner = sys.argv[8] if len(sys.argv) > 8 else 'minimap2'
-    counter = sys.argv[9] if len(sys.argv) > 9 else 'featureCounts'
+    manifest_source_arg = sys.argv[5] if len(sys.argv) > 5 else ''
+    project_dir = sys.argv[6] if len(sys.argv) > 6 else '.'
+    require_ebv_genes = parse_bool(sys.argv[7]) if len(sys.argv) > 7 else True
+    threads = int(sys.argv[8]) if len(sys.argv) > 8 else 2
+    aligner = sys.argv[9] if len(sys.argv) > 9 else 'minimap2'
+    counter = sys.argv[10] if len(sys.argv) > 10 else 'auto'
 
     if aligner != 'minimap2':
         raise ValueError(f"Unsupported rna_aligner '{aligner}'. Supported: minimap2")
-    if counter != 'featureCounts':
-        raise ValueError(f"Unsupported rna_counter '{counter}'. Supported: featureCounts")
+    if counter == 'auto':
+        counter = 'featureCounts' if shutil.which('featureCounts') else 'builtin'
+    if counter not in {'featureCounts', 'builtin'}:
+        raise ValueError(f"Unsupported rna_counter '{counter}'. Supported: auto, featureCounts, builtin")
 
     manifest_path = resolve_path(manifest_arg, project_dir)
+    manifest_source_path = resolve_path(manifest_source_arg, project_dir) if manifest_source_arg else manifest_path
     metadata_path = resolve_path(metadata_arg, project_dir) if metadata_arg else None
     reference_fasta = resolve_path(reference_fasta_arg, project_dir) if reference_fasta_arg else None
     reference_gtf = resolve_path(reference_gtf_arg, project_dir) if reference_gtf_arg else None
@@ -380,16 +499,24 @@ def main():
     work_dir = pathlib.Path('rna_fastq_work')
     work_dir.mkdir(parents=True, exist_ok=True)
 
-    bam_paths, sample_metrics, featurecounts_matrix = align_and_count(
+    bam_paths, sample_metrics, featurecounts_matrix, builtin_genes, builtin_counts = align_and_count(
         rows=rows,
         reference_fasta=reference_fasta,
         reference_gtf=reference_gtf,
         threads=max(1, threads),
         work_dir=work_dir,
+        manifest_dir=manifest_source_path.parent if manifest_source_path else manifest_path.parent,
+        project_dir=project_dir,
+        counter=counter,
     )
 
     sample_order = [row['sample_id'].strip() for row in rows]
-    genes, samples, matrix = parse_featurecounts_matrix(featurecounts_matrix, sample_order)
+    if counter == 'featureCounts':
+        genes, samples, matrix = parse_featurecounts_matrix(featurecounts_matrix, sample_order)
+    else:
+        genes = builtin_genes or []
+        samples = sample_order
+        matrix = builtin_counts or {}
 
     ebv_genes = [gene for gene in genes if is_ebv_gene(gene)]
     if require_ebv_genes and len(ebv_genes) == 0:

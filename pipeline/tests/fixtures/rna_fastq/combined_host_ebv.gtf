@@ -1,0 +1,4 @@
+chrHostMini	fixture	gene	1	120	.	+	.	gene_id "HOST_GENE1";
+chrHostMini	fixture	exon	1	120	.	+	.	gene_id "HOST_GENE1";
+NC_007605	fixture	gene	1	120	.	+	.	gene_id "EBV_BZLF1";
+NC_007605	fixture	exon	1	120	.	+	.	gene_id "EBV_BZLF1";

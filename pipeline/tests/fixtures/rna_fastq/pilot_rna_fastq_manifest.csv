@@ -1,0 +1,3 @@
+sample_id,dataset,population,sex,sequence_lab,read1_path,read2_path,bam_path,md5
+HG00096,1000G_PHASE3,GBR,M,FIXTURE_LAB,HG00096_R1.fastq,HG00096_R2.fastq,,
+HG00097,1000G_PHASE3,GBR,F,FIXTURE_LAB,HG00097_R1.fastq,HG00097_R2.fastq,,

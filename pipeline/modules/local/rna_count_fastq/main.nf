@@ -18,10 +18,11 @@ process RNA_COUNT_FASTQ {
     '${params.rna_metadata_input ?: ""}' \
     '${params.rna_reference_fasta ?: ""}' \
     '${params.rna_reference_gtf ?: ""}' \
-    ${projectDir} \
+    '${params.manifest ?: ""}' \
+    ${launchDir} \
     ${params.rna_require_ebv_genes} \
     ${params.rna_threads} \
     '${params.rna_aligner ?: "minimap2"}' \
-    '${params.rna_counter ?: "featureCounts"}'
+    '${params.rna_counter ?: "auto"}'
   """
 }

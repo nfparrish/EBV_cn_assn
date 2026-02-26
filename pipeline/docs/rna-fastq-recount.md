@@ -16,7 +16,12 @@ This mode enables direct ingestion of raw RNA-seq FASTQ files, alignment to a co
 ## Required tools
 - `minimap2`
 - `samtools`
-- `featureCounts`
+
+Counter backends:
+- `featureCounts` (if available)
+- built-in fallback counter (BAM + GTF overlap counting) when `featureCounts` is unavailable
+
+Use `--rna_counter auto` (default) to auto-select best available backend.
 
 ## Combined reference validation
 The recount step validates that references include both host and EBV content:
