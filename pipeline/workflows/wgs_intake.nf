@@ -3,6 +3,8 @@ nextflow.enable.dsl = 2
 include { VALIDATE_MANIFEST } from '../modules/local/validate_manifest/main'
 include { STAGE_INPUTS } from '../modules/local/stage_inputs/main'
 include { SAMPLE_STATUS } from '../modules/local/sample_status/main'
+include { QC_SAMPLE } from '../modules/local/qc_sample/main'
+include { QC_COHORT } from '../modules/local/qc_cohort/main'
 
 process BUILD_STATUS_SUMMARY {
   label 'status_tracking'
@@ -55,6 +57,8 @@ workflow WGS_INTAKE {
     manifest_rows = validation.validated_manifest.splitCsv(header: true)
     staged = STAGE_INPUTS(manifest_rows)
     statuses = SAMPLE_STATUS(staged.staged)
+    qc_sample = QC_SAMPLE(staged.staged.join(statuses.status, by: 0))
+    qc_cohort = QC_COHORT(qc_sample.qc.collect())
 
     BUILD_STATUS_SUMMARY(statuses.status.collect())
 
@@ -63,4 +67,7 @@ workflow WGS_INTAKE {
     validation_report = validation.report
     status_registry = BUILD_STATUS_SUMMARY.out.registry
     status_summary = BUILD_STATUS_SUMMARY.out.summary
+    qc_metrics = qc_cohort.metrics_tsv
+    qc_summary = qc_cohort.summary_json
+    qc_report = qc_cohort.report_md
 }

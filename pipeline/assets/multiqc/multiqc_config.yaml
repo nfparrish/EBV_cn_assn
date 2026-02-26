@@ -1,0 +1,16 @@
+title: "GSD EBV Pipeline - Phase 1 Cohort QC"
+subtitle: "Data intake and pre-CN quality assessment"
+intro_text: "This MultiQC profile is used to harmonize cohort QC output before EBV copy-number analysis."
+
+report_comment: "Phase 1 output contract: per-sample metrics + cohort summary"
+
+custom_data:
+  gsd_phase1_qc:
+    id: "gsd_phase1_qc"
+    section_name: "GSD Phase 1 Cohort QC"
+    description: "Aggregated per-sample metrics for intake validation"
+    plot_type: "table"
+
+sp:
+  gsd_phase1_qc:
+    fn: "qc_cohort_metrics.tsv"
