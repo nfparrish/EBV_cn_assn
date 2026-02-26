@@ -60,6 +60,22 @@ Use a different partition:
 
 `nextflow run pipeline/main.nf --workflow report --manifest <manifest.csv> --host_variant_input <host.tsv> -profile dcc --slurm_account <your_account> --slurm_partition <allowed_partition> --slurm_qos <qos_if_required> --hpc_work_dir /work/<netid>/gsd/work --hpc_singularity_cache /work/<netid>/gsd/singularity-cache --outdir /work/<netid>/gsd/results/release`
 
+## DCC sbatch wrapper (10 WGS test samples)
+
+Use [pipeline/scripts/dcc_wgs10_testset.sbatch](pipeline/scripts/dcc_wgs10_testset.sbatch) to run an end-to-end test that:
+- discovers paired WGS FASTQ runs from ENA study `PRJNA41139`
+- downloads 10 samples to `/work`
+- builds a valid manifest and host variant file
+- launches `--workflow report` with the `dcc` profile
+
+Submit example:
+
+`sbatch --account <your_account> --partition common pipeline/scripts/dcc_wgs10_testset.sbatch`
+
+Optional overrides at submit time:
+
+`sbatch --account <your_account> --partition common --export=ALL,TESTSET_SIZE=10,STUDY_ACCESSION=PRJNA41139,WORK_BASE=/work/<netid>/gsd_wgs10,QOS=<optional_qos> pipeline/scripts/dcc_wgs10_testset.sbatch`
+
 ## Resource tuning
 
 Edit process labels in [pipeline/conf/base.config](pipeline/conf/base.config):
