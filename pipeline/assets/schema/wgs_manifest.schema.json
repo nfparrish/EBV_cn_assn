@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gsd.local/schemas/wgs_manifest.schema.json",
+  "title": "WGS Manifest Row",
+  "description": "Canonical sample row for public WGS intake",
+  "type": "object",
+  "required": [
+    "sample_id",
+    "dataset",
+    "population",
+    "sex",
+    "sequence_lab"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "dataset": {
+      "type": "string",
+      "enum": [
+        "1000G_PHASE3",
+        "OTHER_PUBLIC"
+      ]
+    },
+    "population": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sex": {
+      "type": "string",
+      "enum": [
+        "M",
+        "F",
+        "U"
+      ]
+    },
+    "sequence_lab": {
+      "type": "string",
+      "minLength": 1
+    },
+    "read1_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "read2_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bam_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cram_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "md5": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{32}$"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "required": [
+            "read1_path",
+            "read2_path"
+          ]
+        },
+        {
+          "required": [
+            "bam_path"
+          ]
+        },
+        {
+          "required": [
+            "cram_path"
+          ]
+        }
+      ]
+    }
+  ],
+  "additionalProperties": true
+}
