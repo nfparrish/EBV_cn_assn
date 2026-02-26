@@ -82,6 +82,8 @@ Tracked core implementation files currently include:
 
 ## Documentation index
 
+- Canonical docs index: `pipeline/docs/INDEX.md`
+
 - Manifest spec: `pipeline/docs/manifest-spec.md`
 - CN outputs: `pipeline/docs/ebv-cn-output-contract.md`
 - Variant layer: `pipeline/docs/ebv-variant-calling.md`, `pipeline/docs/variant-filtering.md`
