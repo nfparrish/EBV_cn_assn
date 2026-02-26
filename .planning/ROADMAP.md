@@ -6,12 +6,12 @@ This roadmap progresses from reliable data intake and EBV copy-number estimation
 
 ## Phases
 
-- [ ] **Phase 1: Data Intake & Cohort QC** - Build robust WGS ingest, manifest handling, and cohort/sample QC foundations.
-- [ ] **Phase 2: EBV Copy Number Engine** - Implement and validate per-sample EBV copy-number estimation.
-- [ ] **Phase 3: Variant Calling Layer** - Produce EBV and host variant datasets with filtering and provenance.
-- [ ] **Phase 4: WGS Association Modeling** - Run covariate-adjusted association analysis for EBV CN with variant features.
-- [ ] **Phase 5: RNA-seq Integration** - Connect EBV CN and EBV variants to EBV gene expression in public RNA-seq cohorts.
-- [ ] **Phase 6: Reporting & HPC Portability** - Deliver dashboard/figures/reports and scheduler-agnostic operational packaging.
+- [x] **Phase 1: Data Intake & Cohort QC** - Build robust WGS ingest, manifest handling, and cohort/sample QC foundations.
+- [x] **Phase 2: EBV Copy Number Engine** - Implement and validate per-sample EBV copy-number estimation.
+- [x] **Phase 3: Variant Calling Layer** - Produce EBV and host variant datasets with filtering and provenance.
+- [x] **Phase 4: WGS Association Modeling** - Run covariate-adjusted association analysis for EBV CN with variant features.
+- [x] **Phase 5: RNA-seq Integration** - Connect EBV CN and EBV variants to EBV gene expression in public RNA-seq cohorts.
+- [x] **Phase 6: Reporting & HPC Portability** - Deliver dashboard/figures/reports and scheduler-agnostic operational packaging.
 
 ## Phase Details
 
@@ -26,9 +26,9 @@ This roadmap progresses from reliable data intake and EBV copy-number estimation
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Define canonical manifests, metadata schema, and validation checks.
-- [ ] 01-02: Implement Nextflow ingestion and resumable sample-level execution.
-- [ ] 01-03: Add QC metrics computation and report generation.
+- [x] 01-01: Define canonical manifests, metadata schema, and validation checks.
+- [x] 01-02: Implement Nextflow ingestion and resumable sample-level execution.
+- [x] 01-03: Add QC metrics computation and report generation.
 
 ### Phase 2: EBV Copy Number Engine
 **Goal**: Produce trusted per-sample EBV copy-number values with quality/confidence annotations.
@@ -41,9 +41,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Implement EBV reference handling and copy-number algorithm process.
-- [ ] 02-02: Add normalization and metadata harmonization for CN outputs.
-- [ ] 02-03: Validate CN output quality on a pilot subset.
+- [x] 02-01: Implement EBV reference handling and copy-number algorithm process.
+- [x] 02-02: Add normalization and metadata harmonization for CN outputs.
+- [x] 02-03: Validate CN output quality on a pilot subset.
 
 ### Phase 3: Variant Calling Layer
 **Goal**: Generate analysis-ready EBV and host variant datasets with filtering provenance.
@@ -56,9 +56,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: Implement EBV variant calling and aggregation outputs.
-- [ ] 03-02: Integrate host variant call/input pathway.
-- [ ] 03-03: Add filtering configuration and variant provenance reports.
+- [x] 03-01: Implement EBV variant calling and aggregation outputs.
+- [x] 03-02: Integrate host variant call/input pathway.
+- [x] 03-03: Add filtering configuration and variant provenance reports.
 
 ### Phase 4: WGS Association Modeling
 **Goal**: Deliver baseline linear association analyses linking variants and EBV copy number.
@@ -71,9 +71,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Build covariate harmonization and model-ready matrices.
-- [ ] 04-02: Implement EBV and host variant association workflows.
-- [ ] 04-03: Add diagnostics and statistical QC artifacts.
+- [x] 04-01: Build covariate harmonization and model-ready matrices.
+- [x] 04-02: Implement EBV and host variant association workflows.
+- [x] 04-03: Add diagnostics and statistical QC artifacts.
 
 ### Phase 5: RNA-seq Integration
 **Goal**: Quantify relationships between EBV CN/EBV variants and EBV gene expression.
@@ -86,9 +86,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: Define RNA-seq cohort ingestion and normalization pathway.
-- [ ] 05-02: Implement CN-expression association models.
-- [ ] 05-03: Implement EBV variant-expression association models.
+- [x] 05-01: Define RNA-seq cohort ingestion and normalization pathway.
+- [x] 05-02: Implement CN-expression association models.
+- [x] 05-03: Implement EBV variant-expression association models.
 
 ### Phase 6: Reporting & HPC Portability
 **Goal**: Produce publication-oriented outputs and make execution portable across HPC systems.
@@ -101,17 +101,17 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: Implement reporting bundle (figures, tables, narrative summary).
-- [ ] 06-02: Build interactive dashboard output package.
-- [ ] 06-03: Finalize scheduler profiles, deployment docs, and reproducibility checks.
+- [x] 06-01: Implement reporting bundle (figures, tables, narrative summary).
+- [x] 06-02: Build interactive dashboard output package.
+- [x] 06-03: Finalize scheduler profiles, deployment docs, and reproducibility checks.
 
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Intake & Cohort QC | 0/3 | Not started | - |
-| 2. EBV Copy Number Engine | 0/3 | Not started | - |
-| 3. Variant Calling Layer | 0/3 | Not started | - |
-| 4. WGS Association Modeling | 0/3 | Not started | - |
-| 5. RNA-seq Integration | 0/3 | Not started | - |
-| 6. Reporting & HPC Portability | 0/3 | Not started | - |
+| 1. Data Intake & Cohort QC | 3/3 | Complete | 2026-02-26 |
+| 2. EBV Copy Number Engine | 3/3 | Complete | 2026-02-26 |
+| 3. Variant Calling Layer | 3/3 | Complete | 2026-02-26 |
+| 4. WGS Association Modeling | 3/3 | Complete | 2026-02-26 |
+| 5. RNA-seq Integration | 3/3 | Complete | 2026-02-26 |
+| 6. Reporting & HPC Portability | 3/3 | Complete | 2026-02-26 |
