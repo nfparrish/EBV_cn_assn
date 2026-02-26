@@ -4,6 +4,7 @@ include { WGS_INTAKE } from './workflows/wgs_intake'
 include { EBV_CN_ENGINE } from './workflows/ebv_cn_engine'
 include { EBV_VARIANT_LAYER } from './workflows/ebv_variant_layer'
 include { WGS_ASSOCIATION } from './workflows/wgs_association'
+include { RNA_INTEGRATION } from './workflows/rna_integration'
 
 workflow {
   if (!params.manifest) {
@@ -22,7 +23,10 @@ workflow {
   else if (params.workflow == 'assoc') {
     WGS_ASSOCIATION(params.manifest)
   }
+  else if (params.workflow == 'rna') {
+    RNA_INTEGRATION(params.manifest)
+  }
   else {
-    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', or 'assoc'."
+    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', 'assoc', or 'rna'."
   }
 }
