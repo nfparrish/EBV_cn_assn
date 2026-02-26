@@ -6,6 +6,8 @@ include { ASSOC_COVARIATE_HARMONIZE } from '../modules/local/assoc_covariate_har
 include { ASSOC_CN_PREPARE } from '../modules/local/assoc_cn_prepare/main'
 include { ASSOC_RUN_EBV } from '../modules/local/assoc_run_ebv/main'
 include { ASSOC_RUN_HOST } from '../modules/local/assoc_run_host/main'
+include { ASSOC_DIAGNOSTICS } from '../modules/local/assoc_diagnostics/main'
+include { ASSOC_QC_SUMMARY } from '../modules/local/assoc_qc_summary/main'
 
 workflow WGS_ASSOCIATION {
   take:
@@ -23,6 +25,8 @@ workflow WGS_ASSOCIATION {
     prepared = ASSOC_CN_PREPARE(cn_outputs.cn_normalized_table, covariates.covariates)
     ebv_assoc = ASSOC_RUN_EBV(prepared.model_input, variant_outputs.ebv_variant_filtered)
     host_assoc = ASSOC_RUN_HOST(prepared.model_input, variant_outputs.host_variant_filtered)
+    diagnostics = ASSOC_DIAGNOSTICS(ebv_assoc.results, host_assoc.results)
+    qc = ASSOC_QC_SUMMARY(diagnostics.diagnostics_summary, ebv_assoc.results, host_assoc.results)
 
   emit:
     cn_normalized_table = cn_outputs.cn_normalized_table
@@ -35,4 +39,9 @@ workflow WGS_ASSOCIATION {
     assoc_ebv_report = ebv_assoc.report
     assoc_host_results = host_assoc.results
     assoc_host_report = host_assoc.report
+    assoc_diagnostics_tsv = diagnostics.diagnostics_tsv
+    assoc_diagnostics_summary = diagnostics.diagnostics_summary
+    assoc_qc_summary = qc.qc_summary
+    assoc_qc_report = qc.qc_report
+    assoc_qc_top_hits = qc.top_hits
 }
