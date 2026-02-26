@@ -1,0 +1,6 @@
+sample_id	variant_id	chrom	pos	ref	alt	gt	dosage
+HG00096	rsHost001	1	55516888	A	G	0/1	1
+HG00096	rsHost002	2	169991231	C	T	1/1	2
+HG00097	rsHost001	1	55516888	A	G	0/0	0
+HG00097	rsHost003	5	12088911	G	A	0/1	1
+HG00999	rsHost002	2	169991231	C	T	0/1	1
