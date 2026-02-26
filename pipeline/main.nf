@@ -1,11 +1,20 @@
 nextflow.enable.dsl = 2
 
 include { WGS_INTAKE } from './workflows/wgs_intake'
+include { EBV_CN_ENGINE } from './workflows/ebv_cn_engine'
 
 workflow {
   if (!params.manifest) {
     error "Missing required parameter: --manifest <path/to/manifest.csv>"
   }
 
-  WGS_INTAKE(params.manifest)
+  if (params.workflow == 'intake') {
+    WGS_INTAKE(params.manifest)
+  }
+  else if (params.workflow == 'cn') {
+    EBV_CN_ENGINE(params.manifest)
+  }
+  else {
+    error "Unsupported --workflow '${params.workflow}'. Use 'intake' or 'cn'."
+  }
 }

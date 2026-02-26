@@ -1,2 +1,5 @@
 .codex/
 get-shit-done/
+.nextflow/
+.nextflow.log*
+work/
