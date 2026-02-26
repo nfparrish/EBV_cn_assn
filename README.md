@@ -1,5 +1,7 @@
 # EBV_cn_assn
 
+[![Docs](https://img.shields.io/badge/docs-index-blue)](pipeline/docs/INDEX.md)
+
 End-to-end Nextflow DSL2 pipeline for EBV copy-number and association analysis across WGS and RNA-seq, including reporting, dashboard generation, and reproducibility artifacts.
 
 ## Status
