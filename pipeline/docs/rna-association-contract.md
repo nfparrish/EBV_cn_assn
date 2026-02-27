@@ -51,9 +51,11 @@ Columns in result TSV:
 
 - Linear model baseline with gaussian/identity defaults.
 - Multiple testing uses Benjamini-Hochberg FDR.
-- Covariate set includes PCs, sex, batch, and library metrics (with deterministic fallback values for pilot fixtures).
+- Covariate set includes empirically available PCs, sex, batch, and library metrics; missing covariates are not synthesized.
 
 ## Notes
 
 Wave 2 establishes reproducible CN-expression association outputs for both normalization tracks.
 Wave 3 extends RNA integration with EBV variant→expression associations and QC aggregation.
+
+If `--wgs_only true` is used in `RNA_INTEGRATION`, RNA association steps in this contract are skipped by design.

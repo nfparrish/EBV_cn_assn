@@ -24,6 +24,7 @@ workflow EBV_CN_ENGINE {
 
   emit:
     reference_manifest = reference.reference
+    depth_files = depth.depth
     cn_raw_table = cn_norm.raw_table
     cn_normalized_table = cn_norm.normalized_table
     cn_summary = cn_norm.summary

@@ -1,7 +1,6 @@
 import csv
 import json
 import pathlib
-import random
 import sys
 
 
@@ -73,38 +72,43 @@ if metadata_path:
 
 genes = []
 expression_values = {}
-expression_source = 'generated_demo'
+expression_source = 'input_matrix'
 
-if expression_path:
-    with expression_path.open() as handle:
-        reader = csv.DictReader(handle, delimiter='\t')
-        headers = reader.fieldnames or []
-        if 'gene_id' not in headers:
-            raise ValueError("RNA expression input must contain a 'gene_id' column")
+if not expression_path:
+    raise ValueError(
+        'Empirical RNA expression input is required in matrix mode. '
+        'Provide --rna_expression_input with a tab-delimited matrix containing gene_id and sample columns.'
+    )
 
-        for row in reader:
-            gene_id = (row.get('gene_id') or '').strip()
-            if not gene_id:
-                continue
-            genes.append(gene_id)
-            expression_values[gene_id] = {}
-            for sid in manifest_samples:
-                value = row.get(sid)
-                try:
-                    expression_values[gene_id][sid] = float(value) if value not in (None, '') else 0.0
-                except Exception:
-                    expression_values[gene_id][sid] = 0.0
+with expression_path.open() as handle:
+    reader = csv.DictReader(handle, delimiter='\t')
+    headers = reader.fieldnames or []
+    if 'gene_id' not in headers:
+        raise ValueError("RNA expression input must contain a 'gene_id' column")
 
-    expression_source = 'input_matrix'
+    missing_samples = [sid for sid in manifest_samples if sid not in headers]
+    if missing_samples:
+        raise ValueError(
+            'RNA expression matrix is missing manifest sample columns: '
+            + ', '.join(missing_samples[:20])
+            + (' ...' if len(missing_samples) > 20 else '')
+        )
+
+    for row in reader:
+        gene_id = (row.get('gene_id') or '').strip()
+        if not gene_id:
+            continue
+        genes.append(gene_id)
+        expression_values[gene_id] = {}
+        for sid in manifest_samples:
+            value = row.get(sid)
+            try:
+                expression_values[gene_id][sid] = float(value) if value not in (None, '') else 0.0
+            except Exception:
+                expression_values[gene_id][sid] = 0.0
 
 if not genes:
-    genes = ['EBV_BZLF1', 'EBV_BRLF1', 'EBV_BLLF1', 'EBV_EBER1', 'EBV_EBER2']
-    for gene_idx, gene in enumerate(genes):
-        expression_values[gene] = {}
-        for sid in manifest_samples:
-            seed = sum(ord(c) for c in sid) + gene_idx * 17 + 5001
-            rng = random.Random(seed)
-            expression_values[gene][sid] = round(rng.uniform(0.5, 120.0), 6)
+    raise ValueError('RNA expression matrix contained no valid gene rows')
 
 ebv_genes = [gene for gene in genes if is_ebv_gene(gene)]
 if require_ebv_genes and len(ebv_genes) == 0:
@@ -131,12 +135,10 @@ with pathlib.Path('rna_sample_map.tsv').open('w') as handle:
     for sid in manifest_samples:
         m = manifest_by_sample[sid]
         r = rna_meta.get(sid, {})
-        seed = sum(ord(c) for c in sid) + 710
-        rng = random.Random(seed)
 
-        rna_batch = (r.get('rna_batch') or '').strip() or f"rna_batch_{(seed % 3) + 1}"
-        library_size = (r.get('library_size') or '').strip() or str(int(rng.uniform(15_000_000, 80_000_000)))
-        mapping_rate = (r.get('mapping_rate') or '').strip() or f"{rng.uniform(0.75, 0.99):.4f}"
+        rna_batch = (r.get('rna_batch') or '').strip()
+        library_size = (r.get('library_size') or '').strip()
+        mapping_rate = (r.get('mapping_rate') or '').strip()
 
         values = [
             sid,
@@ -159,7 +161,7 @@ report = {
     'ebv_gene_count': len(ebv_genes),
     'non_ebv_gene_count': max(len(genes) - len(ebv_genes), 0),
     'ebv_gene_required': require_ebv_genes,
-    'metadata_source': 'input_table' if metadata_path else 'generated_fallback',
+    'metadata_source': 'input_table' if metadata_path else 'manifest_only',
     'sample_overlap_with_metadata': len(set(manifest_samples).intersection(set(rna_meta.keys()))),
 }
 pathlib.Path('rna_ingest_report.json').write_text(json.dumps(report, indent=2))

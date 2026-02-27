@@ -1,7 +1,6 @@
 import csv
 import json
 import pathlib
-import random
 import sys
 
 
@@ -40,16 +39,28 @@ manifest_by_sample = {r['sample_id'].strip(): r for r in manifest_rows}
 manifest_samples = sorted(manifest_by_sample.keys())
 
 source_rows = {}
-source_mode = 'generated_from_manifest'
+source_mode = 'input_table'
 
-if covariates_path:
-    with covariates_path.open() as handle:
-        reader = csv.DictReader(handle, delimiter='\t')
-        for row in reader:
-            sid = (row.get('sample_id') or '').strip()
-            if sid:
-                source_rows[sid] = row
-    source_mode = 'input_table'
+if not covariates_path:
+    raise ValueError(
+        'Empirical association covariates are required. '
+        'Provide --association_covariates_input with sample-level covariates including pc1..pc5.'
+    )
+
+with covariates_path.open() as handle:
+    reader = csv.DictReader(handle, delimiter='\t')
+    for row in reader:
+        sid = (row.get('sample_id') or '').strip()
+        if sid:
+            source_rows[sid] = row
+
+missing_covariate_samples = [sid for sid in manifest_samples if sid not in source_rows]
+if missing_covariate_samples:
+    raise ValueError(
+        'Covariate table is missing manifest samples: '
+        + ', '.join(missing_covariate_samples[:20])
+        + (' ...' if len(missing_covariate_samples) > 20 else '')
+    )
 
 header = [
     'sample_id', 'dataset', 'population', 'sex',
@@ -63,36 +74,40 @@ for sid in manifest_samples:
     manifest_meta = manifest_by_sample[sid]
     base = source_rows.get(sid, {})
 
-    seed = sum(ord(c) for c in sid) + 401
-    rng = random.Random(seed)
-
     sex = (base.get('sex') or manifest_meta.get('sex') or 'U').strip() or 'U'
     sequence_lab = (base.get('sequence_lab') or manifest_meta.get('sequence_lab') or '').strip()
     batch = (base.get('batch') or '').strip()
 
-    if not batch:
-        batch = f"batch_{(seed % 3) + 1}"
-
     lab_batch = (base.get('lab_batch') or '').strip()
     if not lab_batch:
-        left = sequence_lab if sequence_lab else 'UNKNOWN_LAB'
-        right = batch if batch else 'UNKNOWN_BATCH'
-        lab_batch = f"{left}__{right}"
+        left = sequence_lab if sequence_lab else ''
+        right = batch if batch else ''
+        lab_batch = f"{left}__{right}" if (left or right) else ''
+
+    pc_values = {}
+    for field in ['pc1', 'pc2', 'pc3', 'pc4', 'pc5']:
+        raw = (base.get(field) or '').strip()
+        if raw == '':
+            raise ValueError(f"Missing required covariate '{field}' for sample {sid}")
+        try:
+            pc_values[field] = f"{float(raw):.6f}"
+        except ValueError as exc:
+            raise ValueError(f"Invalid numeric covariate '{field}' for sample {sid}: {raw}") from exc
 
     row = {
         'sample_id': sid,
         'dataset': manifest_meta.get('dataset', ''),
         'population': manifest_meta.get('population', ''),
         'sex': sex,
-        'pc1': base.get('pc1') or f"{rng.uniform(-0.2, 0.2):.6f}",
-        'pc2': base.get('pc2') or f"{rng.uniform(-0.2, 0.2):.6f}",
-        'pc3': base.get('pc3') or f"{rng.uniform(-0.2, 0.2):.6f}",
-        'pc4': base.get('pc4') or f"{rng.uniform(-0.2, 0.2):.6f}",
-        'pc5': base.get('pc5') or f"{rng.uniform(-0.2, 0.2):.6f}",
+        'pc1': pc_values['pc1'],
+        'pc2': pc_values['pc2'],
+        'pc3': pc_values['pc3'],
+        'pc4': pc_values['pc4'],
+        'pc5': pc_values['pc5'],
         'sequence_lab': sequence_lab,
         'batch': batch,
         'lab_batch': lab_batch,
-        'covariate_mode': 'separate_if_available_else_combined',
+        'covariate_mode': 'empirical_input',
     }
     output_rows.append(row)
 
@@ -106,7 +121,7 @@ summary = {
     'source_mode': source_mode,
     'manifest_sample_count': len(manifest_samples),
     'covariate_sample_count': len(output_rows),
-    'missing_from_covariates_count': sum(1 for sid in manifest_samples if sid not in source_rows),
+    'missing_from_covariates_count': 0,
     'fields': header,
 }
 pathlib.Path('association_covariates_report.json').write_text(json.dumps(summary, indent=2))

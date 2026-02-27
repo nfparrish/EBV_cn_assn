@@ -8,7 +8,7 @@ This mode enables direct ingestion of raw RNA-seq FASTQ files, alignment to a co
 - Generate gene-level count table for downstream normalization and association
 
 ## Required parameters
-- `--workflow rna`
+- `--workflow rna` (RNA-enabled mode)
 - `--rna_input_mode fastq` (or `auto` with references and no `rna_expression_input`)
 - `--rna_reference_fasta <combined_host_ebv.fa>`
 - `--rna_reference_gtf <combined_host_ebv.gtf>`

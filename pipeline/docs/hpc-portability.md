@@ -43,7 +43,7 @@ Run examples:
 - Prefer `/work` for `--outdir`, Nextflow `work` directory, and container cache to avoid filling `/hpc/home` (25 GB quota).
 - Use `common` for general CPU runs when available to all accounts; use lab partitions when required by your allocation.
 - Set `--slurm_account` explicitly for consistent charging and scheduling behavior.
-- Start with workflow-specific runs (`intake`, `cn`, `variant`, `assoc`, `rna`) before full `report` on large cohorts.
+- Start with workflow-specific runs (`intake`, `cn`, `variant`, `assoc`, `wgs_only`, `rna`) before full `report` on large cohorts.
 - Keep walltimes under partition limits (`common` up to 90d default; `gpu-common` up to 2d; `scavenger-gpu` up to 7d).
 
 ## DCC examples
@@ -52,7 +52,7 @@ Pilot on CPU partition:
 
 `nextflow run pipeline/main.nf --workflow report --manifest pipeline/tests/fixtures/pilot_1000g_manifest.csv --host_variant_input pipeline/tests/fixtures/host_variants.tsv -profile dcc --slurm_account <your_account> --slurm_partition common --hpc_work_dir /work/<netid>/gsd/work --hpc_singularity_cache /work/<netid>/gsd/singularity-cache --outdir /work/<netid>/gsd/results/pilot_report`
 
-RNA FASTQ recount on CPU partition:
+RNA FASTQ recount on CPU partition (RNA-enabled mode):
 
 `nextflow run pipeline/main.nf --workflow rna --manifest <manifest.csv> --rna_input_mode fastq --rna_reference_fasta <combined_host_ebv.fa> --rna_reference_gtf <combined_host_ebv.gtf> -profile dcc --slurm_account <your_account> --slurm_partition common --hpc_work_dir /work/<netid>/gsd/work --hpc_singularity_cache /work/<netid>/gsd/singularity-cache --outdir /work/<netid>/gsd/results/rna_fastq`
 

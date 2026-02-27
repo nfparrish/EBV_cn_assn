@@ -37,12 +37,6 @@ def bh_fdr(pvalues):
     return adjusted
 
 
-def deterministic_pc(sample_id, pc_index):
-    seed = sum(ord(c) for c in sample_id) + (pc_index + 1) * 113
-    rng = np.random.default_rng(seed)
-    return float(rng.uniform(-0.2, 0.2))
-
-
 def read_assoc_cn(cn_path):
     cn = {}
     with pathlib.Path(cn_path).open() as handle:
@@ -88,33 +82,45 @@ def read_expression(path):
 
 def build_covariates(sample_ids, sample_map):
     pcs = []
-    sex_f = []
+    sex_labels = []
     batches = []
     library_size = []
     mapping_rate = []
 
     for sid in sample_ids:
         m = sample_map.get(sid, {})
-        pcs.append([
-            to_float(m.get('pc1'), deterministic_pc(sid, 0)),
-            to_float(m.get('pc2'), deterministic_pc(sid, 1)),
-            to_float(m.get('pc3'), deterministic_pc(sid, 2)),
-            to_float(m.get('pc4'), deterministic_pc(sid, 3)),
-            to_float(m.get('pc5'), deterministic_pc(sid, 4)),
-        ])
-        sex_f.append(1.0 if (m.get('sex', '').upper() == 'F') else 0.0)
+        pcs.append([m.get('pc1'), m.get('pc2'), m.get('pc3'), m.get('pc4'), m.get('pc5')])
+        sex_labels.append((m.get('sex') or '').upper())
         batches.append((m.get('rna_batch') or m.get('batch') or '').strip())
-        library_size.append(to_float(m.get('library_size'), 0.0))
-        mapping_rate.append(to_float(m.get('mapping_rate'), 0.0))
+        library_size.append(m.get('library_size'))
+        mapping_rate.append(m.get('mapping_rate'))
+
+    def parse_optional_float(value):
+        if value in (None, ''):
+            return None
+        try:
+            out = float(value)
+            if math.isnan(out) or math.isinf(out):
+                return None
+            return out
+        except Exception:
+            return None
+
+    parsed_pcs = []
+    for pc_row in pcs:
+        parsed_pcs.append([parse_optional_float(v) for v in pc_row])
+
+    parsed_library = [parse_optional_float(v) for v in library_size]
+    parsed_mapping = [parse_optional_float(v) for v in mapping_rate]
 
     unique_batches = sorted({b for b in batches if b})
     batch_cols = unique_batches[1:] if len(unique_batches) > 1 else []
 
     n_samples = len(sample_ids)
-    include_pcs = n_samples >= 8
-    include_library_metrics = n_samples >= 6
-    include_batch = n_samples >= 10
-    include_sex = n_samples >= 3
+    include_pcs = n_samples >= 8 and all(all(v is not None for v in row) for row in parsed_pcs)
+    include_library_metrics = n_samples >= 6 and all(v is not None for v in parsed_library) and all(v is not None for v in parsed_mapping)
+    include_batch = n_samples >= 10 and all(bool(b) for b in batches)
+    include_sex = n_samples >= 3 and all(s in {'M', 'F'} for s in sex_labels)
 
     headers = ['intercept']
     if include_pcs:
@@ -130,11 +136,11 @@ def build_covariates(sample_ids, sample_map):
     for i, sid in enumerate(sample_ids):
         row = [1.0]
         if include_pcs:
-            row += pcs[i]
+            row += parsed_pcs[i]
         if include_sex:
-            row += [sex_f[i]]
+            row += [1.0 if sex_labels[i] == 'F' else 0.0]
         if include_library_metrics:
-            row += [library_size[i], mapping_rate[i]]
+            row += [parsed_library[i], parsed_mapping[i]]
         if include_batch:
             row += [1.0 if batches[i] == b else 0.0 for b in batch_cols]
         cov.append(row)

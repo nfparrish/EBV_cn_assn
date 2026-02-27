@@ -24,13 +24,16 @@ workflow {
   else if (params.workflow == 'assoc') {
     WGS_ASSOCIATION(params.manifest)
   }
+  else if (params.workflow == 'wgs_only') {
+    RNA_INTEGRATION(params.manifest, true)
+  }
   else if (params.workflow == 'rna') {
-    RNA_INTEGRATION(params.manifest)
+    RNA_INTEGRATION(params.manifest, false)
   }
   else if (params.workflow == 'report') {
     REPORTING_BUNDLE(params.manifest)
   }
   else {
-    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', 'assoc', 'rna', or 'report'."
+    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', 'assoc', 'wgs_only', 'rna', or 'report'."
   }
 }

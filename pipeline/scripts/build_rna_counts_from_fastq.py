@@ -2,7 +2,6 @@ import csv
 import gzip
 import json
 import pathlib
-import random
 import shutil
 import subprocess
 import sys
@@ -417,13 +416,11 @@ def write_sample_map(rows, metadata, sample_metrics):
         for row in rows:
             sid = row['sample_id'].strip()
             m = metadata.get(sid, {})
-            seed = sum(ord(c) for c in sid) + 710
-            rng = random.Random(seed)
 
             defaults = sample_metrics.get(sid, {})
-            library_size = m.get('library_size') or str(defaults.get('library_size', int(rng.uniform(15000000, 80000000))))
-            mapping_rate = m.get('mapping_rate') or f"{defaults.get('mapping_rate', rng.uniform(0.75, 0.99)):.4f}"
-            rna_batch = (m.get('rna_batch') or '').strip() or f"rna_batch_{(seed % 3) + 1}"
+            library_size = m.get('library_size') or defaults.get('library_size') or ''
+            mapping_rate = m.get('mapping_rate') or defaults.get('mapping_rate') or ''
+            rna_batch = (m.get('rna_batch') or '').strip()
 
             values = [
                 sid,
@@ -448,7 +445,7 @@ def write_reports(rows, genes, require_ebv_genes, ebv_genes, count_report):
         'ebv_gene_count': len(ebv_genes),
         'non_ebv_gene_count': max(len(genes) - len(ebv_genes), 0),
         'ebv_gene_required': require_ebv_genes,
-        'metadata_source': 'input_table' if count_report.get('metadata_used') else 'generated_fallback',
+        'metadata_source': 'input_table' if count_report.get('metadata_used') else 'alignment_metrics_only',
         'sample_overlap_with_metadata': count_report.get('metadata_overlap_count', 0),
     }
     pathlib.Path('rna_ingest_report.json').write_text(json.dumps(ingest_report, indent=2))

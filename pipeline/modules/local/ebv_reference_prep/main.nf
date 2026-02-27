@@ -10,6 +10,6 @@ process EBV_REFERENCE_PREP {
 
   script:
   """
-  python3 ${projectDir}/scripts/build_ebv_reference_manifest.py '${params.reference_accession}' '${params.viral_reference_fasta ?: ""}'
+  python3 ${projectDir}/scripts/build_ebv_reference_manifest.py '${params.reference_accession}' '${params.viral_reference_fasta ?: "${projectDir}/data/reference/ebv/NC_007605.1.fa"}'
   """
 }

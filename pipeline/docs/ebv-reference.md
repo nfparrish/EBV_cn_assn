@@ -4,8 +4,9 @@
 
 The EBV CN workflow supports two reference selection modes:
 
-1. **Default accession mode** (`params.viral_reference_fasta` unset)
-   - Uses `params.reference_accession` (default: `NC_007605`).
+1. **Bundled FASTA default mode** (`params.viral_reference_fasta` unset)
+   - Uses the repository-bundled NCBI EBV FASTA at `pipeline/data/reference/ebv/NC_007605.1.fa`.
+   - `reference_accession` remains recorded (default: `NC_007605`).
 2. **User FASTA mode** (`params.viral_reference_fasta` set)
    - Uses the user-provided viral FASTA path and records that source.
 
@@ -16,8 +17,8 @@ The EBV CN workflow supports two reference selection modes:
 `ebv_reference_manifest.json`
 
 - `reference_accession`: configured accession identifier.
-- `source_type`: one of `default_accession` or `user_fasta`.
-- `source`: accession ID or FASTA path depending on mode.
+- `source_type`: one of `user_fasta` or `default_accession` (legacy).
+- `source`: FASTA path (bundled default or user-provided), or accession ID in legacy mode.
 
 ## Reproducibility notes
 

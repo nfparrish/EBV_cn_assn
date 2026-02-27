@@ -28,8 +28,9 @@ Optional external covariates input:
 
 Auto fallback policy:
 
-- If `sequence_lab` and `batch` are available, both are retained.
-- If either is missing, `lab_batch` is synthesized from available values.
+- No random/synthetic covariates are generated.
+- `--association_covariates_input` is required for empirical association covariates (including `pc1`..`pc5` for all manifest samples).
+- `lab_batch` is emitted from provided `sequence_lab`/`batch` values when available.
 
 `association_covariates_report.json` records source mode, overlap counts, and schema fields.
 
@@ -50,7 +51,7 @@ Auto fallback policy:
 
 ## Relevant params
 
-- `association_covariates_input` (optional)
+- `association_covariates_input` (required for empirical association runs)
 - `association_cn_column` (default `depth_ratio_cn_norm`)
 - `association_model_family` (planning default for downstream wave)
 - `association_model_link` (planning default for downstream wave)

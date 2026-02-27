@@ -6,13 +6,22 @@ Phase 5 Wave 1 introduces RNA-seq ingestion and dual normalization outputs.
 
 Run with:
 
-`nextflow run pipeline/main.nf --workflow rna --manifest <manifest.csv> -profile standard`
+`nextflow run pipeline/main.nf --workflow wgs_only --manifest <manifest.csv> -profile standard`
 
 Optional inputs:
 
 - `--rna_expression_input <expression.tsv>`
 - `--rna_metadata_input <rna_metadata.tsv>`
 - `--rna_require_ebv_genes <true|false>` (default: `true`)
+- `--wgs_only <true|false>` (default: `false`)
+
+WGS-only mode:
+- Set `--workflow wgs_only` to run EBV depth/CN + EBV variant calling only.
+- In this mode, RNA ingest/normalization/association modules are skipped.
+- EBV outputs remain available via workflow emits (`ebv_depth_files`, `ebv_variant_tsv`, CN outputs).
+
+RNA-enabled mode:
+- Use `--workflow rna` when RNA ingest/normalization/association should execute.
 
 Input mode:
 - `--rna_input_mode auto|matrix|fastq` (default: `auto`)
@@ -25,7 +34,8 @@ FASTQ recount mode requires:
 - `--rna_reference_gtf <combined_host_ebv.gtf>`
 - `minimap2`, `samtools`, and `featureCounts` available on `PATH`
 
-If optional inputs are omitted, deterministic fallback artifacts are generated for pilot execution.
+No deterministic fallback artifacts are generated.
+Matrix mode is empirical-only: `--rna_expression_input` is required and synthetic expression/metadata values are never generated.
 
 ## Ingestion outputs
 
@@ -33,6 +43,8 @@ If optional inputs are omitted, deterministic fallback artifacts are generated f
 - `rna_sample_map.tsv`
 - `rna_ingest_report.json`
 - `rna_fastq_count_report.json` (only in FASTQ recount mode)
+
+When `--wgs_only true`, RNA ingestion outputs are not produced.
 
 By default, ingest enforces EBV expression presence. If no EBV-like gene rows are detected in the canonical matrix, the ingest step fails unless `--rna_require_ebv_genes false` is set.
 
@@ -59,6 +71,8 @@ Fields:
 
 Both normalized outputs preserve canonical gene/sample dimensions.
 
+When `--wgs_only true`, RNA normalization and RNA association outputs are skipped.
+
 ## Input expectations
 
 ### Expression input (optional)
@@ -77,6 +91,8 @@ Tab-delimited table with at least:
 Optional metadata fields used when present:
 
 - `rna_batch`, `library_size`, `mapping_rate`, `sex`, `sequence_lab`
+
+No random or synthetic fallback values are generated for missing metadata fields.
 
 ## EBV coverage and ingest report fields
 

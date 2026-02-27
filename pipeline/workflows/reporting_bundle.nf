@@ -12,7 +12,7 @@ workflow REPORTING_BUNDLE {
 
   main:
     assoc = WGS_ASSOCIATION(manifest_path)
-    rna = RNA_INTEGRATION(manifest_path)
+    rna = RNA_INTEGRATION(manifest_path, false)
     report = REPORT_BUNDLE(
       assoc.assoc_diagnostics_summary,
       assoc.assoc_qc_summary,
