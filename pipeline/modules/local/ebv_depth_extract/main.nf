@@ -10,7 +10,8 @@ process EBV_DEPTH_EXTRACT {
     tuple val(sample_row.sample_id), path("${sample_row.sample_id}.ebv_depth.json"), emit: depth
 
   script:
+  def cram_ref = params.cram_reference_fasta ? params.cram_reference_fasta : ''
   """
-  python3 ${projectDir}/scripts/compute_ebv_depth.py '${groovy.json.JsonOutput.toJson(sample_row)}' ${reference_manifest}
+  CRAM_REFERENCE='${cram_ref}' python3 ${projectDir}/scripts/compute_ebv_depth.py '${groovy.json.JsonOutput.toJson(sample_row)}' ${reference_manifest} '${cram_ref}'
   """
 }

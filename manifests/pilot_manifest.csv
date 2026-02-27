@@ -1,0 +1,2 @@
+sample_id,dataset,population,sex,sequence_lab,cram_path
+HG00096,1000G_PHASE3,GBR,M,NYGC,/home/nick/cram_local/HG00096.final.cram

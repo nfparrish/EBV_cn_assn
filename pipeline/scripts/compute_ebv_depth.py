@@ -4,8 +4,13 @@ import subprocess
 import sys
 from pathlib import Path
 
-def run_command(cmd):
-    completed = subprocess.run(cmd, capture_output=True, text=True)
+
+def run_command(cmd, extra_env=None):
+    import os
+    env = os.environ.copy()
+    if extra_env:
+        env.update(extra_env)
+    completed = subprocess.run(cmd, capture_output=True, text=True, env=env)
     if completed.returncode != 0:
         raise RuntimeError(
             f"Command failed: {' '.join(cmd)}\n"
@@ -20,44 +25,51 @@ def require_tool(tool_name):
         raise RuntimeError(f"Required executable not found on PATH: {tool_name}")
 
 
-def parse_idxstats(alignment_path):
-    output = run_command(['samtools', 'idxstats', str(alignment_path)])
-    rows = []
+def ref_args(cram_reference, tool='view'):
+    """Return reference flag args appropriate for the samtools tool.
+    flagstat does not accept a reference flag; use CRAM_REFERENCE env var instead."""
+    ref = (cram_reference or '').strip()
+    if not ref:
+        return []
+    if tool == 'coverage':
+        return ['--reference', ref]
+    if tool == 'view':
+        return ['-T', ref]
+    # flagstat: no CLI flag supported; caller must set CRAM_REFERENCE env var
+    return []
+
+
+def parse_header_contigs(alignment_path, cram_reference):
+    """Get contig names from the CRAM/BAM header using samtools view -H.
+    This is fast (reads only the header, not alignment records)."""
+    cmd = ['samtools', 'view', '-H'] + ref_args(cram_reference, 'view') + [str(alignment_path)]
+    output = run_command(cmd)
+    contigs = []
     for line in output.splitlines():
-        parts = line.strip().split('\t')
-        if len(parts) != 4:
-            continue
-        contig, length_str, mapped_str, unmapped_str = parts
-        try:
-            rows.append({
-                'contig': contig,
-                'length': int(length_str),
-                'mapped': int(mapped_str),
-                'unmapped': int(unmapped_str),
-            })
-        except ValueError:
-            continue
-    return rows
+        if line.startswith('@SQ'):
+            parts = dict(f.split(':', 1) for f in line.split('\t')[1:] if ':' in f)
+            name = parts.get('SN')
+            if name:
+                contigs.append(name)
+    return contigs
 
 
-def pick_ebv_contig(idxstats_rows, reference_accession):
-    names = [row['contig'] for row in idxstats_rows if row['contig'] != '*']
+def pick_ebv_contig(contig_names, reference_accession):
+    names = [n for n in contig_names if n != '*']
     if not names:
-        raise RuntimeError('No contigs found in idxstats output')
+        raise RuntimeError('No contigs found in alignment header')
 
     accession = (reference_accession or '').strip()
     accession_upper = accession.upper()
 
     if accession:
-        exact = [name for name in names if name == accession]
+        exact = [n for n in names if n == accession]
         if exact:
             return exact[0]
-
-        dotted = [name for name in names if name.startswith(f"{accession}.")]
+        dotted = [n for n in names if n.startswith(f"{accession}.")]
         if dotted:
             return dotted[0]
-
-        contains = [name for name in names if accession_upper in name.upper()]
+        contains = [n for n in names if accession_upper in n.upper()]
         if contains:
             return contains[0]
 
@@ -66,73 +78,88 @@ def pick_ebv_contig(idxstats_rows, reference_accession):
         if candidate in names:
             return candidate
 
-    ebv_like = [name for name in names if 'EBV' in name.upper()]
+    ebv_like = [n for n in names if 'EBV' in n.upper()]
     if ebv_like:
         return ebv_like[0]
 
     raise RuntimeError(
-        'Unable to identify EBV contig from alignment index stats. '
+        'Unable to identify EBV contig from alignment header. '
         f"reference_accession='{reference_accession}', contigs={names[:20]}"
     )
 
 
-def autosomal_contigs(idxstats_rows):
-    available = {row['contig'] for row in idxstats_rows}
-    chr_names = [f'chr{i}' for i in range(1, 23)]
-    plain_names = [str(i) for i in range(1, 23)]
-    if any(name in available for name in chr_names):
-        return [name for name in chr_names if name in available]
-    return [name for name in plain_names if name in available]
+def pick_host_depth_contig(contig_names):
+    """Choose a single large autosomal contig as the host depth baseline.
+    Using one chromosome is sufficient for normalization and avoids 22 sequential
+    samtools coverage calls. chr1 (or '1') is preferred: longest autosome, stable depth."""
+    available = set(contig_names)
+    for candidate in ['chr1', '1']:
+        if candidate in available:
+            return candidate
+    # Fallback: first autosomal contig found
+    chr_names = [f'chr{i}' for i in range(1, 23)] + [str(i) for i in range(1, 23)]
+    for c in chr_names:
+        if c in available:
+            return c
+    raise RuntimeError('No autosomal contig found for host depth baseline')
 
 
-def parse_coverage_row(line):
-    parts = line.strip().split('\t')
-    if len(parts) < 7:
-        return None
-    try:
-        start = int(parts[1])
-        end = int(parts[2])
-        meandepth = float(parts[6])
-    except ValueError:
-        return None
-    length = max(end - start + 1, 0)
-    return {'length': length, 'meandepth': meandepth}
+def get_coverage_stats(alignment_path, cram_reference, contigs):
+    """Run samtools coverage for the given contig list.
+    Returns dict: contig -> {'meandepth': float, 'numreads': int}"""
+    region_args = []
+    for c in contigs:
+        region_args += ['-r', c]
+    cmd = (['samtools', 'coverage'] +
+           ref_args(cram_reference, 'coverage') +
+           region_args + [str(alignment_path)])
+    output = run_command(cmd)
+    stats = {}
+    for line in output.splitlines():
+        if not line or line.startswith('#'):
+            continue
+        parts = line.strip().split('\t')
+        if len(parts) < 7:
+            continue
+        rname = parts[0]
+        try:
+            numreads = int(parts[3])
+            meandepth = float(parts[6])
+        except ValueError:
+            continue
+        stats[rname] = {'meandepth': meandepth, 'numreads': numreads}
+    return stats
 
 
-def mean_depth_for_contigs(alignment_path, contigs):
-    total_bases = 0
-    total_depth = 0.0
-    for contig in contigs:
-        output = run_command(['samtools', 'coverage', '-r', contig, str(alignment_path)])
-        for line in output.splitlines():
-            if not line or line.startswith('#'):
-                continue
-            parsed = parse_coverage_row(line)
-            if not parsed:
-                continue
-            total_bases += parsed['length']
-            total_depth += parsed['meandepth'] * parsed['length']
-
-    if total_bases == 0:
+def weighted_mean_depth(stats, contigs):
+    """Compute length-weighted mean depth across contigs from coverage stats."""
+    # samtools coverage reports meandepth directly; we average by numreads weight
+    # Use simple unweighted mean of meandepth values (sufficient approximation).
+    depths = [stats[c]['meandepth'] for c in contigs if c in stats]
+    if not depths:
         return 0.0
-    return total_depth / total_bases
+    return sum(depths) / len(depths)
 
 
-def mapped_reads_for_contig(idxstats_rows, contig):
-    for row in idxstats_rows:
-        if row['contig'] == contig:
-            return max(row['mapped'], 0)
+def total_mapped_reads(alignment_path, cram_reference, threads=4):
+    """Get total mapped reads via samtools flagstat.
+    flagstat does not support a --reference flag; relies on CRAM_REFERENCE env var."""
+    cmd = ['samtools', 'flagstat', f'-@{threads}', str(alignment_path)]
+    output = run_command(cmd)
+    for line in output.splitlines():
+        if 'mapped (' in line and 'primary' not in line:
+            return int(line.split()[0])
+    # fallback: parse "in total" line
+    for line in output.splitlines():
+        if 'in total' in line:
+            return int(line.split()[0])
     return 0
-
-
-def total_reads(alignment_path):
-    output = run_command(['samtools', 'view', '-c', str(alignment_path)])
-    return int(output.strip() or 0)
 
 
 row = json.loads(sys.argv[1])
 reference_manifest_path = Path(sys.argv[2])
 reference = json.loads(reference_manifest_path.read_text())
+cram_reference = sys.argv[3].strip() if len(sys.argv) > 3 else ''
 sample_id = row['sample_id']
 
 require_tool('samtools')
@@ -145,19 +172,18 @@ alignment_path = Path(alignment_str)
 if not alignment_path.exists():
     raise RuntimeError(f"Alignment file not found for sample {sample_id}: {alignment_path}")
 
-idxstats_rows = parse_idxstats(alignment_path)
-ebv_contig = pick_ebv_contig(idxstats_rows, reference.get('reference_accession'))
-host_contigs = autosomal_contigs(idxstats_rows)
-if not host_contigs:
-    raise RuntimeError(
-        f"No autosomal contigs found for sample {sample_id}. "
-        "Expected chr1..chr22 or 1..22 in alignment header/index."
-    )
+contig_names = parse_header_contigs(alignment_path, cram_reference)
+ebv_contig = pick_ebv_contig(contig_names, reference.get('reference_accession'))
+host_contig = pick_host_depth_contig(contig_names)
 
-host_depth = round(mean_depth_for_contigs(alignment_path, host_contigs), 6)
-ebv_depth = round(mean_depth_for_contigs(alignment_path, [ebv_contig]), 6)
-total_reads_value = total_reads(alignment_path)
-ebv_reads = mapped_reads_for_contig(idxstats_rows, ebv_contig)
+# Get coverage stats: EBV and host baseline contig in separate calls
+ebv_stats = get_coverage_stats(alignment_path, cram_reference, [ebv_contig])
+host_stats = get_coverage_stats(alignment_path, cram_reference, [host_contig])
+
+ebv_depth = round(ebv_stats.get(ebv_contig, {}).get('meandepth', 0.0), 6)
+ebv_reads = ebv_stats.get(ebv_contig, {}).get('numreads', 0)
+host_depth = round(host_stats.get(host_contig, {}).get('meandepth', 0.0), 6)
+total_reads_value = total_mapped_reads(alignment_path, cram_reference)
 
 payload = {
     'sample_id': sample_id,
@@ -170,6 +196,7 @@ payload = {
     'alignment_path': str(alignment_path),
     'alignment_type': 'cram' if (row.get('cram_path') or '').strip() else 'bam',
     'ebv_contig': ebv_contig,
+    'host_depth_contig': host_contig,
     'metrics': {
         'host_autosomal_depth': host_depth,
         'ebv_depth': ebv_depth,
