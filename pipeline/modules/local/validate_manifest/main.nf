@@ -78,7 +78,11 @@ process VALIDATE_MANIFEST {
       pathlib.Path("manifest_validation_report.json").write_text(json.dumps(report, indent=2))
       raise SystemExit("Manifest validation failed; see manifest_validation_report.json")
 
-  output_cols = sorted({key for row in rows for key in row.keys()})
+  output_cols = list(header)
+  for row in rows:
+      for key in row.keys():
+          if key not in output_cols:
+              output_cols.append(key)
   with pathlib.Path("validated_manifest.csv").open("w", newline="") as handle:
       writer = csv.DictWriter(handle, fieldnames=output_cols)
       writer.writeheader()

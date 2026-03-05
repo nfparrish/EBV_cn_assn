@@ -50,8 +50,31 @@ Run from repo root:
   `nextflow run pipeline/main.nf --workflow assoc --manifest <manifest.csv> --host_variant_input <host_variants.tsv> -profile standard`
 - RNA integration:  
   `nextflow run pipeline/main.nf --workflow rna --manifest <manifest.csv> -profile standard`
-- Reporting bundle/dashboard/reproducibility:  
+- Reporting bundle/dashboard/reproducibility:
   `nextflow run pipeline/main.nf --workflow report --manifest <manifest.csv> --host_variant_input <host_variants.tsv> -profile standard`
+- Heritability (parent-offspring trio analysis):  
+  `nextflow run pipeline/main.nf --workflow heritability --manifest <pedigree_manifest.csv> --cram_reference_fasta <GRCh38.fa> -profile standard`
+
+## Heritability analysis
+
+The `heritability` workflow estimates h² for EBV copy number using parent-offspring trios.
+Requires a manifest with pedigree columns (`family_id`, `father_id`, `mother_id`, `relationship`).
+
+Methods (following Houldcroft et al. PLOS ONE 2014; Mandage et al. PLOS ONE 2017):
+- Mid-parent regression (Falconer's method): h² = slope(offspring_CN ~ mid_parent_CN)
+- Intraclass correlation (ICC) among family members
+- Permutation test (10,000 shuffles) for empirical p-value
+- Bootstrap (1,000 resamples) for 95% CI
+
+Pedigree manifests can be generated from the 1000G `.ped` file:
+```bash
+python pipeline/scripts/build_pedigree_manifest.py manifests/1000g_pedigree.ped output.csv --max-trios 34
+```
+
+Key parameters:
+- `--heritability_n_permutations` (default: 10000)
+- `--heritability_n_bootstrap` (default: 1000)
+- `--cram_reference_fasta` — required when using remote CRAMs (e.g., GRCh38 reference for 1000G 30x data)
 
 ## RNA modes
 
@@ -100,7 +123,14 @@ Tracked core implementation files currently include:
 - Reporting/dashboard: `pipeline/docs/reporting-bundle.md`, `pipeline/docs/report-dashboard.md`
 - Portability/reproducibility: `pipeline/docs/hpc-portability.md`, `pipeline/docs/reproducibility-checks.md`
 
+## Trio manifests
+
+- `manifests/trio_100_30x_manifest.csv` — 102 samples (34 trios) with 1000G 30x CRAM FTP URLs
+- `manifests/all_trios_30x_manifest.csv` — 1910 samples (641 trios) for full heritability analysis
+- `manifests/1000g_pedigree.ped` — 1000 Genomes pedigree file (3501 individuals)
+
 ## Notes
 
 - Large local test datasets are intentionally excluded from git (`pipeline/tests/data/` is ignored).
 - Nextflow `work/` and local runtime logs are excluded from version control.
+- The `--cram_reference_fasta` parameter is required when processing remote CRAMs (samtools needs the reference for CRAM decoding).

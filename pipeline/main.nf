@@ -6,6 +6,7 @@ include { EBV_VARIANT_LAYER } from './workflows/ebv_variant_layer'
 include { WGS_ASSOCIATION } from './workflows/wgs_association'
 include { RNA_INTEGRATION } from './workflows/rna_integration'
 include { REPORTING_BUNDLE } from './workflows/reporting_bundle'
+include { HERITABILITY } from './workflows/heritability'
 
 workflow {
   if (!params.manifest) {
@@ -33,7 +34,10 @@ workflow {
   else if (params.workflow == 'report') {
     REPORTING_BUNDLE(params.manifest)
   }
+  else if (params.workflow == 'heritability') {
+    HERITABILITY(params.manifest)
+  }
   else {
-    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', 'assoc', 'wgs_only', 'rna', or 'report'."
+    error "Unsupported --workflow '${params.workflow}'. Use 'intake', 'cn', 'variant', 'assoc', 'wgs_only', 'rna', 'report', or 'heritability'."
   }
 }

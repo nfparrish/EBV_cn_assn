@@ -23,6 +23,12 @@ Optional:
 - `md5` — checksum string for source file validation
 - `notes` — free-text provenance annotations
 - `rna_read1_path`, `rna_read2_path` — optional RNA-specific FASTQ paths used by RNA recount workflows; when present, these are preferred over `read1_path`/`read2_path` for RNA ingestion.
+- `family_id` — pedigree family identifier (matches `.ped` file Family ID)
+- `father_id` — sample_id of father (`0` if unknown)
+- `mother_id` — sample_id of mother (`0` if unknown)
+- `relationship` — `father`, `mother`, `child`, or `unrelated`
+
+These pedigree columns enable trio identification for parent-offspring heritability estimation without a separate sidecar mapping.
 
 ## Behavior
 
