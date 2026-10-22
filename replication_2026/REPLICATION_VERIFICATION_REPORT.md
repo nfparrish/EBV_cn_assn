@@ -20,3 +20,5 @@ Generated automatically by `uv run replication_2026/reproduce_all.py` from `repl
 | 5. Aim 3 | Zero-sample-overlap vector alignment (24 pops -> IBS vs GBR) | `All 20,154 genes r=+0.7086 (R²=50.2%) | 6,087 CN-sig genes r=+0.8444 (R²=71.3%)` | **PASS** |
 | 6. Aim 4 | Viral-conditioned trio heritability (n=570 clean trios) | `M1 r_pp=+0.1815 -> M4 r_pp=+0.1119 (-38.3%) | M4 h²=+0.0578 (95% CI [-0.122, +0.228])` | **PASS** |
 | 6. Aim 4 | Genome-wide 7.62M host GWAS & DNMT3B lytic switch candidate | `GWAS P<5e-8: PopAdj=1 -> ViralCond=0 (max PVE=1.05%) | DNMT3B IE/Lat P=1.63e-06 (q=0.0220)` | **PASS** |
+| 7. Biobank vs LCL | Immune-masked TWAS sub-threshold concordance & LCL TWAS-mRNA sign agreement | `Exact LCL P: HLA-B=0.959, ERAP2=0.347 | Masked Tier1 TWAS r=+0.5348 | LCL TWAS-mRNA (PIP>=0.5) sign=71.0% (P=0.0013)` | **PASS** |
+| 7. Biobank vs LCL | Saliva lytic block concordance & UKB/AoU in vivo viral variant origins | `Saliva->BGLF5 mean-chi2 rho=+0.0582 (P=2e-05); IE/Lat top10% OR=1.615 | 12129:T>A UKB=80.0%/AoU=86.0% vs 163858:G>T UKB=1.75%` | **PASS** |

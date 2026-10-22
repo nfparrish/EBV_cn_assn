@@ -400,6 +400,50 @@ def run_verification():
            f"GWAS P<5e-8: PopAdj={w_pop['n_gw_sig_5e8']} -> ViralCond={w_vc['n_gw_sig_5e8']} (max PVE={w_vc['lead_pve_pct']}%) | DNMT3B IE/Lat P={float(dnmt3b_ielat['p']):.2e} (q={dnmt3b_ielat['q_cand55']})",
            int(w_vc["n_gw_sig_5e8"]) == 0 and dnmt3b_ielat["gene"] == "DNMT3B" and float(dnmt3b_ielat["q_cand55"]) < 0.05)
 
+    # 7. Aim 5: Biobank (UKB + All of Us Blood & Saliva) vs. LCL Viral-Conditioned Architecture
+    print("\n--- SECTION 7: Aim 5 — Biobank (UKB+AoU Blood & Saliva) vs. LCL Cross-Study Architecture ---")
+    bio_loci = {}
+    with open(os.path.join(DATA_DIR, "biobank_ebv_loci_comparison.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            bio_loci[row["gene"]] = row
+
+    bio_signed = []
+    with open(os.path.join(DATA_DIR, "biobank_signed_block_and_twas_concordance.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            bio_signed.append(row)
+
+    # Check 17: Top Biobank MHC/Immune peaks (HLA-B, ERAP2) null in LCLs, while Immune-Masked TWAS Tier 1 & LCL TWAS-mRNA are concordant
+    hlab_p = float(bio_loci["HLA-B"]["lcl_exact_blood_lead_CN_p"])
+    erap2_p = float(bio_loci["ERAP2"]["lcl_exact_blood_lead_CN_p"])
+    tier1_masked = [r for r in bio_signed if r["test_option"] == "Option2B_TWAS_CrossStudy_Sign_All_12544_eQTLs"
+                    and r["biobank_cohort"] == "Blood_UKB_AoU" and r["mask_mode"] == "Immune_MHC_Masked_SubThreshold"
+                    and r["lcl_phenotype"] == "WGS_CN_ViralCond" and r["biobank_tier"] == "Tier1_SubThreshold_P_lt_1e-3"][0]
+    twas_mrna = [r for r in bio_signed if r["test_option"] == "Option2B_LCL_GWAS_TWAS_vs_Observed_MAGE_mRNA"
+                 and r["mask_mode"] == "Immune_MHC_Masked_SubThreshold" and r["lcl_phenotype"] == "WGS_CN_ViralCond"
+                 and r["biobank_tier"] == "HighPIP_ge_0.5_and_Nominal_GWAS_P_lt_0.05"][0]
+    record("7. Biobank vs LCL", "Immune-masked TWAS sub-threshold concordance & LCL TWAS-mRNA sign agreement",
+           f"Exact LCL P: HLA-B={hlab_p:.3f}, ERAP2={erap2_p:.3f} | Masked Tier1 TWAS r={float(tier1_masked['z_pearson_r']):+.4f} | LCL TWAS-mRNA (PIP>=0.5) sign={float(twas_mrna['sign_concordance_frac'])*100:.1f}% (P={twas_mrna['binom_sign_p']})",
+           hlab_p > 0.3 and erap2_p > 0.3 and float(tier1_masked["z_pearson_r"]) > 0.50 and float(twas_mrna["sign_concordance_frac"]) > 0.70)
+
+    # Check 18: Unsigned Saliva lytic shedding block concordance & In Vivo Biobank viral variant origins (12,129:T>A vs B95-8 lab mutations)
+    bio_uns = []
+    with open(os.path.join(DATA_DIR, "biobank_unsigned_block_concordance.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            bio_uns.append(row)
+    sal_bglf5 = [r for r in bio_uns if r["biobank_cohort"] == "Saliva_AoU" and r["mask_mode"] == "Unmasked_All_Blocks"
+                 and r["lcl_phenotype"] == "RNA_BGLF5_ViralCond" and r["biobank_tier"] == "Tier1_SubThreshold_5e-8_to_1e-5"][0]
+    sal_ielat = [r for r in bio_uns if r["biobank_cohort"] == "Saliva_AoU" and r["mask_mode"] == "Immune_MHC_Masked_SubThreshold"
+                 and r["lcl_phenotype"] == "RNA_IELatRatio_ViralCond" and r["biobank_tier"] == "Tier1_SubThreshold_5e-8_to_1e-5"][0]
+    viral_bio = {}
+    with open(os.path.join(DATA_DIR, "biobank_vs_1kgp_viral_variants.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            viral_bio[row["variant_id"]] = row
+    v_12129 = viral_bio["12129:T>A"]
+    v_163858 = viral_bio["163858:G>T"]
+    record("7. Biobank vs LCL", "Saliva lytic block concordance & UKB/AoU in vivo viral variant origins",
+           f"Saliva->BGLF5 mean-chi2 rho={float(sal_bglf5['global_spearman_rho_mean_chisq']):+.4f} (P={sal_bglf5['global_spearman_p_mean_chisq']}); IE/Lat top10% OR={sal_ielat['top10pct_fisher_or']} | 12129:T>A UKB={float(v_12129['ukb_invivo_alt_freq'])*100:.1f}%/AoU={float(v_12129['aou_invivo_alt_freq'])*100:.1f}% vs 163858:G>T UKB={float(v_163858['ukb_invivo_alt_freq'])*100:.2f}%",
+           float(sal_bglf5["global_spearman_rho_mean_chisq"]) > 0.05 and float(v_12129["ukb_invivo_alt_freq"]) >= 0.75 and float(v_163858["ukb_invivo_alt_freq"]) < 0.02)
+
     # Write machine-readable verification report
     report_path = os.path.join(ROOT_DIR, "REPLICATION_VERIFICATION_REPORT.md")
     with open(report_path, "w") as out:
@@ -418,7 +462,12 @@ def run_verification():
 if __name__ == "__main__":
     ok = run_verification()
     if "--no-figures" not in sys.argv:
-        print("\n--- SECTION 6: Regenerating All 6 Publication Multi-Panel Figures ---")
+        print("\n--- SECTION 8: Regenerating All 8 Publication Multi-Panel Figures ---")
         import generate_figures
         generate_figures.main()
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+        import generate_fig7_host_genetics
+        generate_fig7_host_genetics.main()
+        import generate_fig8_biobank_vs_lcl
+        generate_fig8_biobank_vs_lcl.main()
     sys.exit(0 if ok else 1)
