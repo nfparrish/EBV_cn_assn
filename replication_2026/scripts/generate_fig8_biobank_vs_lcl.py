@@ -101,7 +101,7 @@ def main():
     axA.text(14.2, 2.0, "MHC Class I/II ($P_{\\mathrm{Blood}}<10^{-300}$): Exact lead SNPs null in LCLs", fontsize=7.6, color="#1f4e78", fontweight="bold", bbox=txt_box)
     axA.text(13.2, 10.6, "Cell-Extrinsic T/NK & ERAP1/2: 100% null at exact\nlead SNPs in T-cell-free B-cell monoculture", fontsize=7.6, color="#2c3e50", fontweight="bold", bbox=txt_box)
     axA.text(6.0, 15.1, "Shared Sub-Threshold\nB-Cell TFs (EBF1, IRF4,\nCIITA, CD40, PAX5)", fontsize=7.4, color="#9c640c", fontweight="bold", bbox=txt_box)
-    axA.text(8.2, 19.6, "B-Cell Epigenetic Silencers Unmasked in LCLs:\nDNMT3B ($q=0.022$), ZNF814 ($q=0.085$)", fontsize=7.6, color="#922b21", fontweight="bold", bbox=txt_box)
+    axA.text(8.2, 19.6, "Low-MAF (~2.3%) Indel Suggestive Tail:\nDNMT3B ($P_{\\mathrm{Spearman}}=5.8\\times 10^{-4}$), ZNF814 ($6.7\\times 10^{-4}$)", fontsize=7.4, color="#922b21", fontweight="bold", bbox=txt_box)
 
     axA.set_yticks(y_pos)
     axA.set_yticklabels([r["gene"] for r in plot_loci], fontweight="bold", fontsize=8.3)
@@ -120,9 +120,6 @@ def main():
         for r in csv.DictReader(f, delimiter="\t"):
             uns_rows.append(r)
 
-    # Plot LCL block-max chi-square ratio vs background across Biobank tiers for:
-    # 1. Blood Unmasked Tier0 vs Masked Tiers 1-4 (WGS_CN_ViralCond & RNA_LMP1_ViralCond)
-    # 2. Saliva Masked Tiers 1-4 (RNA_IELatRatio_ViralCond, RNA_BGLF5_ViralCond, WGS_CN_ViralCond)
     tier_Order = [
         ("Tier0_GWSig_or_MHC_P_lt_5e-8", "Tier 0: MHC /\nGWSig Immune\n($P < 5\\times 10^{-8}$)"),
         ("Tier1_SubThreshold_5e-8_to_1e-5", "Tier 1: Strong\nSub-Threshold\n($5\\times 10^{-8}$–$10^{-5}$)"),
@@ -147,68 +144,57 @@ def main():
     s_bld_pf = get_tier_series("Blood_UKB_AoU", "RNA_ProdFork_ViralCond")
 
     axB.plot(x_t, s_sal_cn, marker="o", linewidth=2.2, markersize=7, color="#2e8b57", label="Biobank Saliva $\\rightarrow$ LCL `WGS_CN_ViralCond` ($\\rho_{\\mathrm{mean}\\,\\chi^2}=+0.028, P=0.043$)")
-    axB.plot(x_t, s_sal_bg, marker="s", linewidth=2.2, markersize=6.5, color="#16a085", linestyle="--", label="Biobank Saliva $\\rightarrow$ LCL `RNA_BGLF5_ViralCond` ($\\rho_{\\mathrm{mean}\\,\\chi^2}=+0.058, P=2.0\\times 10^{-5}$)")
-    axB.plot(x_t, s_sal_ie, marker="^", linewidth=2.0, markersize=6.5, color="#27ae60", linestyle=":", label="Biobank Saliva $\\rightarrow$ LCL `RNA_IELatRatio` (Top-10% $\\mathrm{OR}=1.62, P=6.1\\times 10^{-4}$)")
-    axB.plot(x_t, s_bld_pf, marker="D", linewidth=2.2, markersize=6.5, color="#c0392b", label="Biobank Blood $\\rightarrow$ LCL `RNA_ProdFork` (Masked Top-10% $\\mathrm{OR}=1.41, P=0.016$)")
-    axB.plot(x_t, s_bld_cn, marker="v", linewidth=2.0, markersize=6.5, color="#2980b9", linestyle="-.", label="Biobank Blood $\\rightarrow$ LCL `WGS_CN_ViralCond` (Tier 1 $>$ Tier 0 Immune)")
+    axB.plot(x_t, s_sal_bg, marker="s", linewidth=2.2, markersize=6.5, color="#16a085", linestyle="--", label="Biobank Saliva $\\rightarrow$ LCL `RNA_BGLF5_ViralCond` ($\\rho_{\\mathrm{mean}\\,\\chi^2}=+0.060, P=2.0\\times 10^{-5}$)")
+    axB.plot(x_t, s_sal_ie, marker="^", linewidth=2.0, markersize=6.5, color="#27ae60", linestyle=":", label="Biobank Saliva $\\rightarrow$ LCL `RNA_IELatRatio` (SNP-adj Top-10% $\\mathrm{OR}=1.56, P=0.0018$)")
+    axB.plot(x_t, s_bld_pf, marker="D", linewidth=2.2, markersize=6.5, color="#c0392b", label="Biobank Blood $\\rightarrow$ LCL `RNA_ProdFork` ($\\rho_{\\mathrm{mean}\\,\\chi^2}=+0.0005, P=0.97$)")
+    axB.plot(x_t, s_bld_cn, marker="v", linewidth=2.0, markersize=6.5, color="#2980b9", linestyle="-.", label="Biobank Blood $\\rightarrow$ LCL `WGS_CN_ViralCond` ($\\rho_{\\mathrm{mean}\\,\\chi^2}=-0.019, P=0.18$)")
 
-    # Highlight the Tier 1 Sub-Threshold peak vs Tier 0 Immune peak
     axB.axvspan(0.65, 1.35, color="#f9ebea", alpha=0.55, zorder=0)
     axB.annotate(
-        "Sub-Threshold Non-Immune Tier 1\nExceeds Tier 0 MHC/Immune Peaks!\n(e.g., Saliva Tier 1: 30.8% vs 10.1% BG;\nBlood ProdFork Tier 1: 25.8% vs 17.3% Tier 0)",
+        "After SNP-Density Adjustment ($M_b$):\n• Saliva Lytic Shedding $\\leftrightarrow$ LCL `BGLF5`/`IELatRatio`\n  retains modest concordance ($\\rho_{\\mathrm{mean}}=+0.060, P=2\\times 10^{-5}$)\n• Blood $\\leftrightarrow$ LCL `WGS_CN` block-mean $\\overline{\\chi^2}$ is null ($\\rho=-0.019$)",
         xy=(1.0, 26.5),
-        xytext=(1.55, 27.2),
-        fontsize=8.0,
+        xytext=(1.42, 26.0),
+        fontsize=7.6,
         fontweight="bold",
-        color="#922b21",
-        bbox=dict(boxstyle="round,pad=0.3", facecolor="#fff8f6", edgecolor="#c0392b", alpha=0.95),
-        arrowprops=dict(arrowstyle="->", color="#c0392b", lw=1.3),
+        color="#2c3e50",
+        bbox=dict(boxstyle="round,pad=0.3", facecolor="#fff8f6", edgecolor="#2e8b57", alpha=0.95),
+        arrowprops=dict(arrowstyle="->", color="#2e8b57", lw=1.3),
     )
 
     axB.set_xticks(x_t)
     axB.set_xticklabels([lbl for _, lbl in tier_Order], fontsize=8.0, fontweight="bold")
     axB.set_ylabel("% of 500-kb Genomic Blocks with\nLCL Block-Lead $P < 10^{-3}$", fontweight="bold")
     axB.set_ylim(1.5, 33.8)
-    axB.set_title("B. Unsigned Quantized 500-kb Block Test (MHC/Immune Masked)", fontweight="bold", loc="left", pad=8)
-    axB.legend(loc="lower left", frameon=True, facecolor="white", edgecolor="#cccccc", framealpha=0.95, fontsize=7.2)
+    axB.set_title("B. Unsigned Quantized 500-kb Block Test (SNP-Density Controlled)", fontweight="bold", loc="left", pad=8)
+    axB.legend(loc="lower left", frameon=True, facecolor="white", edgecolor="#cccccc", framealpha=0.95, fontsize=7.0)
 
     # =========================================================================
-    # PANEL C: Signed Quantized Block & TWAS Tests (Both Options 2A and 2B)
+    # PANEL C: Signed Quantized Block & TWAS Tests (Deduplicated & Unweighted)
     # =========================================================================
     axC = fig.add_subplot(gs[1, 0])
-    # Show side-by-side:
-    # Left group (4 bars): Cross-Study Germline TWAS Correlation r(Z_TWAS_Bio, Z_TWAS_LCL)
-    #   1. Unmasked Tier 0 GWSig Immune Peaks (Blood -> WGS_CN_PopAdj: r = -0.254, P = 2.4e-4)
-    #   2. Unmasked Tier 0 GWSig Immune Peaks (Blood -> WGS_CN_ViralCond: r = -0.133, P = 0.059)
-    #   3. Immune-Masked Sub-Threshold Tier 1 (Blood P < 1e-3 -> WGS_CN_ViralCond: r = +0.535, P = 4.3e-10)
-    #   4. Immune-Masked Sub-Threshold Tier 1 (Blood P < 1e-3 -> RNA_BGLF5_ViralCond: r = +0.424, P = 1.7e-6)
-    #   5. Immune-Masked Dual-Nominal eQTLs (Blood & LCL P < 0.05 -> RNA_IELatRatio: r = +0.473, P = 0.0031, 64.9% sign)
-    #   6. Option 2A Saliva Dual-Nominal 500-kb Blocks (Saliva & LCL P < 0.05 -> RNA_BGLF5: r = +0.143, P = 0.047, 57.0% sign)
-    #   7. Option 2B-2 LCL Germline TWAS vs Observed MAGE mRNA (Nominal P<0.05, n=124: r = +0.347, P = 8.0e-5, 66.9% sign)
-    #   8. Option 2B-2 LCL Germline TWAS vs Observed MAGE mRNA (PIP>=0.5 & P<0.05, n=62: r = +0.423, P = 6.1e-4, 71.0% sign)
 
     c_labels = [
-        "Unmasked Tier 0 Immune Peaks ($P<5\\times 10^{-8}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_PopAdj` ($n=204$)",
-        "Unmasked Tier 0 Immune Peaks ($P<5\\times 10^{-8}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_ViralCond` ($n=204$)",
-        "Immune-Masked Sub-Threshold Tier 1 ($P<10^{-3}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_ViralCond` ($n=118$)",
-        "Immune-Masked Sub-Threshold Tier 1 ($P<10^{-3}$)\nBlood $\\leftrightarrow$ LCL `RNA_BGLF5_ViralCond` ($n=118$)",
-        "Immune-Masked Dual-Nominal eQTLs ($P<0.05$)\nBlood $\\leftrightarrow$ LCL `RNA_IELatRatio` ($n=37$)",
+        "Unmasked Tier 0 Immune Peaks ($P<5\\times 10^{-8}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_PopAdj` ($n=197$ unique eQTLs)",
+        "Unmasked Tier 0 Immune Peaks ($P<5\\times 10^{-8}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_ViralCond` ($n=197$ unique eQTLs)",
+        "Immune-Masked Sub-Threshold Tier 1 ($P<10^{-3}$)\nBlood $\\leftrightarrow$ LCL `WGS_CN_ViralCond` ($n=105$ unique eQTLs)",
+        "Immune-Masked Sub-Threshold Tier 1 ($P<10^{-3}$)\nBlood $\\leftrightarrow$ LCL `RNA_BGLF5_ViralCond` ($n=105$ unique eQTLs)",
+        "Unmasked Dual-Nominal eQTLs ($P<0.05$)\nBlood $\\leftrightarrow$ LCL `RNA_IELatRatio` ($n=51$ unique eQTLs)",
         "Option 2A Dual-Nominal 500-kb Blocks ($P<0.05$)\nSaliva $\\leftrightarrow$ LCL `RNA_BGLF5` ($n=193$ blocks)",
-        "Option 2B-2: LCL TWAS vs. MAGE mRNA Coupling\nNominal LCL eQTLs ($P<0.05, n=124$ genes)",
-        "Option 2B-2: LCL TWAS vs. MAGE mRNA Coupling\nFine-Mapped $\\mathrm{PIP}\\geq 0.5$ ($P<0.05, n=62$ genes)",
+        "Option 2B-2 Zero-Overlap: Biobank Blood TWAS\nvs. MAGE mRNA ($P<0.05, n=261$ genes)",
+        "Option 2B-2 In-Sample Overlap Artifact ($N=717$):\nLCL TWAS vs. Same-Donor MAGE mRNA ($n=87$)",
     ]
-    c_rvals = [-0.2543, -0.1325, +0.5348, +0.4241, +0.4729, +0.1431, +0.3469, +0.4230]
+    c_rvals = [-0.2803, -0.2588, +0.1710, +0.0976, +0.2926, +0.1431, -0.0801, +0.2722]
     c_sign_txt = [
-        "41.7% sign ($P=0.021$, $r=-0.25, P=2.4\\times 10^{-4}$)",
-        "44.1% sign ($r=-0.13, P=0.059$)",
-        "54.2% sign ($r=+0.53, P=4.3\\times 10^{-10}$)",
-        "58.5% sign ($r=+0.42, P=1.7\\times 10^{-6}$)",
-        "64.9% sign ($24/37, r=+0.47, P=0.0031$)",
+        "42.1% sign ($P=0.032$, $r=-0.28, P=7.0\\times 10^{-5}$)",
+        "44.7% sign ($r=-0.26, P=2.4\\times 10^{-4}, \\rho=-0.20$)",
+        "53.3% sign ($r=+0.17, P=0.081, \\rho=+0.23, P=0.018$)",
+        "57.1% sign ($r=+0.10, P=0.32, \\rho=+0.15, P=0.12$)",
+        "66.7% sign ($34/51, P=0.024, r=+0.29, P=0.037$)",
         "57.0% sign ($110/193, r=+0.14, P=0.047$)",
-        "66.9% sign ($83/124, P_{\\mathrm{bin}}=2.0\\times 10^{-4}$)",
-        "71.0% sign ($44/62, P_{\\mathrm{bin}}=0.0013$)",
+        "45.6% sign ($r=-0.08, P=0.20$: Zero-Overlap Null!)",
+        "60.9% sign ($r=+0.27$: Same-Sample Overlap Bias)",
     ]
-    c_colors = ["#7f8c8d", "#95a5a6", "#1f4e78", "#2980b9", "#d35400", "#2e8b57", "#8e44ad", "#6c3483"]
+    c_colors = ["#7f8c8d", "#95a5a6", "#1f4e78", "#2980b9", "#d35400", "#2e8b57", "#27ae60", "#8e44ad"]
 
     yc = np.arange(len(c_labels))
     bars = axC.barh(yc, c_rvals, height=0.62, color=c_colors, alpha=0.92, edgecolor="black", linewidth=0.6)
@@ -218,16 +204,16 @@ def main():
 
     for i, (val, txt) in enumerate(zip(c_rvals, c_sign_txt)):
         if val >= 0:
-            axC.text(val + 0.018, i, txt, va="center", ha="left", fontsize=7.5, fontweight="bold", color="#1a1a1a")
+            axC.text(val + 0.015, i, txt, va="center", ha="left", fontsize=7.3, fontweight="bold", color="#1a1a1a")
         else:
-            axC.text(0.018, i, txt, va="center", ha="left", fontsize=7.5, fontweight="bold", color="#555555")
+            axC.text(0.015, i, txt, va="center", ha="left", fontsize=7.3, fontweight="bold", color="#555555")
 
     axC.set_yticks(yc)
-    axC.set_yticklabels(c_labels, fontsize=7.9, fontweight="bold")
+    axC.set_yticklabels(c_labels, fontsize=7.7, fontweight="bold")
     axC.invert_yaxis()
-    axC.set_xlim(-0.34, 1.05)
-    axC.set_xlabel("Signed Effect Correlation ($r$ of $Z_{\\mathrm{TWAS}}$ or Block Allelic $Z$)", fontweight="bold")
-    axC.set_title("C. Signed Quantized Block & TWAS Concordance (Options 2A & 2B)", fontweight="bold", loc="left", pad=8)
+    axC.set_xlim(-0.34, 0.92)
+    axC.set_xlabel("Unweighted Signed Effect Correlation ($r$ of $Z_{\\mathrm{TWAS}}$ or Block Allelic $Z$)", fontweight="bold")
+    axC.set_title("C. Signed Block & Deduplicated TWAS Concordance (Options 2A & 2B)", fontweight="bold", loc="left", pad=8)
 
     # =========================================================================
     # PANEL D: Gene Program Heritability Partition & Viral Variant In Vivo Origins
@@ -239,12 +225,12 @@ def main():
             prog_rows.append(r)
 
     prog_order = [
-        ("1_MHC_and_Antigen_Processing_HLA_ERAP", "1. MHC & ERAP\nAntigen Pres.\n[256 eQTLs]"),
-        ("2_Biobank_T_NK_Cell_Extrinsic_Immune_Loci", "2. Non-HLA\nT/NK Immune\n[24 eQTLs]"),
-        ("4_BCell_Identity_and_Zp_Rp_Lytic_Switch_TFs", "3. B-Cell & Zp\nLytic TFs\n[17 eQTLs]"),
-        ("3_Epigenetic_CpG_Methylation_KZNF_Episome_Silencers", "4. Epigenetic\nCpG / KZNF\n[380 eQTLs]"),
-        ("6_MAGE_BGLF5_Lytic_Shutoff_Coupled_Program_Top500", "5. MAGE BGLF5\nLytic Top 500\n[341 eQTLs]"),
-        ("5_MAGE_LMP1_NFkB_Activated_Host_Program_Top500", "6. MAGE LMP1\nNF-$\\kappa$B Top 500\n[381 eQTLs]"),
+        ("1_MHC_and_Antigen_Processing_HLA_ERAP", "1. MHC & ERAP\n[163 genes,\n22 blocks]"),
+        ("2_Biobank_T_NK_Cell_Extrinsic_Immune_Loci", "2. Non-HLA\nT/NK Immune\n[18 genes]"),
+        ("4_BCell_Identity_and_Zp_Rp_Lytic_Switch_TFs", "3. B-Cell & Zp\nLytic TFs\n[14 genes]"),
+        ("3_Epigenetic_CpG_Methylation_KZNF_Episome_Silencers", "4. Epigenetic\nCpG / KZNF\n[270 genes]"),
+        ("6_MAGE_BGLF5_Lytic_Shutoff_Coupled_Program_Top500", "5. MAGE BGLF5\nLytic Top 500\n[234 genes]"),
+        ("5_MAGE_LMP1_NFkB_Activated_Host_Program_Top500", "6. MAGE LMP1|\nBGLF5 Top 500\n[263 genes]"),
     ]
 
     def get_prog_enrich(prog_key, trait_key):
@@ -271,21 +257,21 @@ def main():
 
     axD.axhline(1.0, color="#333333", linestyle="--", linewidth=1.0, label="Non-MHC Background ($1.0\\times$)")
 
-    # Add inset box summarizing Analysis 4B: In Vivo Biobank (UKB+AoU) vs 1kGP Viral Variant Origins
+    # Add inset box summarizing Analysis 4B: In Vivo Biobank (UKB+AoU) vs 1kGP Viral Variant Origins (86 SNVs; 26 Indels excluded from single-base pileup)
     inset_txt = (
-        "In Vivo Biobank (UKB+AoU) vs. 1kGP Viral Variants (112 Loci):\n"
-        "• Wild-Type Polymorphic In Vivo & LCLs (12 loci, $\\mathrm{AF}\\geq 5\\%$):\n"
+        "In Vivo Biobank (UKB+AoU) vs. 1kGP Viral Variants (86 Biallelic SNVs):\n"
+        "• Wild-Type Polymorphic In Vivo & LCLs (11 SNVs, $\\mathrm{AF}\\geq 5\\%$):\n"
         "  - `12,129:T>A` (IR1/Wp #1 CN QTL): 80.0% UKB, 86.0% AoU\n"
         "  - `36,480:T>C` & `36,494:G>C` (EBNA-2): 32.6% UKB, 44.9% AoU\n"
-        "• B95-8 Lab Culture-Specific Mutations (<1.8% in UKB/AoU):\n"
-        "  - `65,739:AT>A` (BORF2), `154,091:A>G` (BALF5), `163,858:G>T`,\n"
-        "    `91,192:G>A` (BRLF1), `132,965:G>GC`: 0.0%–1.75% in vivo"
+        "• B95-8 Lab Culture-Enriched SNVs (<0.5% in UKB/AoU, 71 SNVs):\n"
+        "  - `154,091:A>G` (BALF5), `163,858:G>T`, `91,192:G>A` (BRLF1): 0.0% in vivo\n"
+        "• 26 Indels (e.g. `65,739:AT>A`, `132,965:G>GC`): Not assayed in ACGT pileup"
     )
     axD.text(
         0.99, 0.78, inset_txt,
         transform=axD.transAxes,
         ha="right", va="top",
-        fontsize=6.6,
+        fontsize=6.5,
         bbox=dict(boxstyle="round,pad=0.32", facecolor="#f8f9f9", edgecolor="#2c3e50", alpha=0.96),
     )
 
