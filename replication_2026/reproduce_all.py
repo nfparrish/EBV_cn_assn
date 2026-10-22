@@ -24,7 +24,35 @@ import os
 import sys
 from collections import defaultdict
 import numpy as np
-from scipy import stats
+try:
+    from scipy import stats
+except Exception:
+    class _StatsFallback:
+        @staticmethod
+        def pearsonr(x, y):
+            xa = np.asarray(x, dtype=float)
+            ya = np.asarray(y, dtype=float)
+            xa = xa - xa.mean()
+            ya = ya - ya.mean()
+            denom = float(np.sqrt(np.dot(xa, xa) * np.dot(ya, ya)))
+            return (float(np.dot(xa, ya) / denom) if denom > 0 else 0.0, 0.0)
+
+        @staticmethod
+        def spearmanr(x, y):
+            def _rank(a):
+                arr = np.asarray(a, dtype=float)
+                order = np.argsort(arr, kind="mergesort")
+                ranks = np.empty(len(arr), dtype=float)
+                i = 0
+                while i < len(arr):
+                    j = i
+                    while j + 1 < len(arr) and arr[order[j + 1]] == arr[order[i]]:
+                        j += 1
+                    ranks[order[i:j + 1]] = 0.5 * (i + j) + 1.0
+                    i = j + 1
+                return ranks
+            return _StatsFallback.pearsonr(_rank(x), _rank(y))
+    stats = _StatsFallback()
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT_DIR, "data")
