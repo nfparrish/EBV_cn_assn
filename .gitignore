@@ -4,3 +4,4 @@ get-shit-done/
 .nextflow.log*
 work/
 pipeline/tests/data/
+__pycache__/
