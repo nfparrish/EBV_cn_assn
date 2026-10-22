@@ -1,0 +1,7 @@
+model	n_trios	r_parent_child	r_spouse	midparent_slope	h2_spouse_corrected	h2_se	h2_ci95_lo	h2_ci95_hi	resid_sd
+M0_Raw_Pooled_log2CN	569	0.3517	0.3517	0.5246	0.0000	0.0819	-0.1658	0.1572	1.1342
+M1_Within_Pop_log2CN	569	0.1864	0.1815	0.3198	0.0097	0.0950	-0.1812	0.1916	1.0414
+M2_Within_Pop_plus_IR1_CN	569	0.1608	0.1499	0.2818	0.0218	0.1017	-0.1734	0.2199	0.9876
+M3_Within_Pop_plus_IR1_and_12129_163858	569	0.1348	0.1180	0.2355	0.0335	0.0948	-0.1481	0.2070	0.9505
+M4_Within_Pop_plus_Full_Viral_Genetics_11SNPs_IR1	569	0.1408	0.1119	0.2442	0.0578	0.0920	-0.1223	0.2283	0.9478
+Viral_IR1_Repeat_Count_Within_Pop_Control	569	-0.0117	0.1294	-0.0195	-0.2823	0.1517	-0.5931	0.0014	1.3955

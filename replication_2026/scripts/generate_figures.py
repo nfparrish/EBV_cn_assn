@@ -1041,6 +1041,183 @@ def make_figure_6():
     print("Saved fig6_population_vector_alignment_ibs_gbr.(png/pdf)")
 
 
+# ==============================================================================
+# FIGURE 7: Aim 4 — Viral-Conditioned Host Genetic Architecture (Layers A, B, & C)
+# ==============================================================================
+def make_figure_7():
+    fig, axes = plt.subplots(2, 2, figsize=(13.5, 10.0))
+    fig.subplots_adjust(hspace=0.38, wspace=0.28)
+
+    # Panel A: Layer A — Nested Viral-Conditioned Trio Heritability (n = 570 clean trios)
+    ax = axes[0, 0]
+    add_panel_label(ax, "A")
+    trio_rows = []
+    with open(os.path.join(DATA_DIR, "trio_heritability_viral_conditioned.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            if not row["model"].startswith("Viral_IR1"):
+                trio_rows.append(row)
+
+    labels_a = [
+        "M0: Pooled\nRaw CN",
+        "M1: Within-Pop\nCentered",
+        "M2: +Viral\nIR1 CN",
+        "M3: +IR1 &\n12129/163858",
+        "M4: +Full 11-SNP\nViral Barcode"
+    ]
+    x_a = np.arange(len(trio_rows))
+    r_sp = [float(r["r_parent_child"]) for r in trio_rows]
+    r_pp = [float(r["r_spouse"]) for r in trio_rows]
+    h2_v = [float(r["h2_spouse_corrected"]) for r in trio_rows]
+    h2_lo = [float(r["h2_ci95_lo"]) for r in trio_rows]
+    h2_hi = [float(r["h2_ci95_hi"]) for r in trio_rows]
+
+    w_a = 0.26
+    ax.bar(x_a - w_a, r_sp, w_a, color="#0072B2", alpha=0.88, label=r"Parent–Child $r_{\mathrm{sp}}$")
+    ax.bar(x_a, r_pp, w_a, color="#E69F00", alpha=0.88, label=r"Spouse (Mother–Father) $r_{\mathrm{pp}}$")
+    ax.bar(x_a + w_a, h2_v, w_a, color="#009E73", alpha=0.88, label=r"Host $h^2 = 2(r_{\mathrm{sp}} - r_{\mathrm{pp}})$")
+    ax.errorbar(x_a + w_a, h2_v,
+                yerr=[[h - l for h, l in zip(h2_v, h2_lo)], [u - h for h, u in zip(h2_v, h2_hi)]],
+                fmt="none", ecolor="#111111", elinewidth=1.2, capsize=3)
+    ax.axhline(0, color="#444444", ls="--", lw=0.9)
+    ax.annotate("Spouse r_pp drops -38.3%\n(+0.181 -> +0.112)\nas viral sub-lot genetics\nare conditioned out!",
+                xy=(4.0, r_pp[4] + 0.005), xytext=(0.95, 0.27),
+                fontsize=7.4, fontweight="bold", color="#B22222",
+                arrowprops=dict(arrowstyle="->", color="#B22222", lw=1.1),
+                bbox=dict(boxstyle="round,pad=0.25", fc="#FFF8F0", ec="#E69F00", lw=0.8))
+    ax.set_xticks(x_a)
+    ax.set_xticklabels(labels_a, fontsize=7.5)
+    ax.set_ylim(-0.23, 0.45)
+    ax.set_ylabel("Correlation / Narrow-Sense Heritability (n = 570 Trios)")
+    ax.set_title("Layer A: Trio Heritability After Viral Genetic Conditioning")
+    ax.legend(loc="upper right", frameon=False, fontsize=7.3)
+
+    # Panel B: Layer C — Genome-Wide Common Host Variant Scan (7.62M Autosomal SNPs, MAF >= 5%)
+    ax = axes[0, 1]
+    add_panel_label(ax, "B")
+    gw_rows = {}
+    with open(os.path.join(DATA_DIR, "host_gwas_genomewide_summary.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            gw_rows[row["phenotype"]] = row
+
+    traits_b = [
+        ("WGS_CN_PopAdj", "WGS CN\n(Uncond)"),
+        ("WGS_CN_ViralCond", "WGS CN\n(+Viral)"),
+        ("RNA_BGLF5_ViralCond", "BGLF5\n(+Viral)"),
+        ("RNA_BZLF1_ViralCond", "BZLF1\n(+Viral)"),
+        ("RNA_IELatRatio_ViralCond", "IE/Lat\n(+Viral)"),
+        ("RNA_ProdFork_ViralCond", "Prod Fork\n(+Viral)"),
+        ("RNA_LMP1_ViralCond", "LMP1\n(+Viral)"),
+        ("RNA_Latent_ViralCond", "Latent\n(+Viral)"),
+    ]
+    x_b = np.arange(len(traits_b))
+    min_log10p = [-math.log10(float(gw_rows[t[0]]["lead_p"])) for t in traits_b]
+    pve_max = [float(gw_rows[t[0]]["lead_pve_pct"]) for t in traits_b]
+    colors_b = ["#E69F00"] + ["#0072B2"] + ["#D55E00"]*4 + ["#009E73"]*2
+
+    bars_b = ax.bar(x_b, min_log10p, width=0.56, color=colors_b, alpha=0.88, edgecolor="#222222", lw=0.6)
+    ax.axhline(-math.log10(5e-8), color="#B22222", ls="--", lw=1.3, label=r"Genome-Wide Significance ($P = 5 \times 10^{-8}$)")
+    ax.axhline(-math.log10(1e-6), color="#666666", ls=":", lw=1.0, label=r"Suggestive Threshold ($P = 1 \times 10^{-6}$)")
+    for idx, (rect, pve) in enumerate(zip(bars_b, pve_max)):
+        h = rect.get_height()
+        ax.text(rect.get_x() + rect.get_width()/2, h + 0.12, f"PVE\n{pve:.1f}%",
+                ha="center", va="bottom", fontsize=6.8, fontweight="bold")
+    ax.annotate("chr12:101.4Mb drops\n4.8e-8 -> 3.8e-7\n(0 hits < 5e-8 after\nviral conditioning!)",
+                xy=(1.0, min_log10p[1] + 0.05), xytext=(1.55, 7.65),
+                fontsize=7.3, fontweight="bold", color="#B22222",
+                arrowprops=dict(arrowstyle="->", color="#B22222", lw=1.0),
+                bbox=dict(boxstyle="round,pad=0.25", fc="#FFF5F5", ec="#B22222", lw=0.8))
+    ax.set_xticks(x_b)
+    ax.set_xticklabels([t[1] for t in traits_b], fontsize=7.4)
+    ax.set_ylim(0, 9.4)
+    ax.set_ylabel(r"Strongest Genome-Wide Signal $-\log_{10}(P_{\min})$ (7.62M SNPs)")
+    ax.set_title("Layer C: 7.62M Common Host Variant GWAS Upper Bounds")
+    ax.legend(loc="lower right", frameon=True, facecolor="white", edgecolor="#CCCCCC", framealpha=0.94, fontsize=7.2)
+
+    # Panel C: Layer B2 — Targeted Scan of 54 Canonical Host EBV Regulators (+/- 100 kb)
+    ax = axes[1, 0]
+    add_panel_label(ax, "C")
+    cand_by_pheno = defaultdict(list)
+    with open(os.path.join(DATA_DIR, "host_candidate55_scan.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            cand_by_pheno[row["phenotype"]].append(row)
+
+    # Plot top 12 candidate genes ranked by minimum raw P across viral-conditioned traits
+    gene_min_p = {}
+    gene_info = {}
+    focal_phenos = [
+        ("RNA_IELatRatio_ViralCond", "IE/Latent Ratio (Viral-Cond)", "#D55E00", "o"),
+        ("RNA_BGLF5_ViralCond", "BGLF5 Lytic RNA (Viral-Cond)", "#CC79A7", "s"),
+        ("RNA_LMP1_ViralCond", "LMP1 Latent RNA (Viral-Cond)", "#009E73", "^"),
+        ("WGS_CN_ViralCond", "WGS EBV CN (Viral-Cond)", "#0072B2", "D"),
+    ]
+    for ph, _, _, _ in focal_phenos:
+        for r in cand_by_pheno[ph]:
+            g = r["gene"]
+            pv = float(r["p"])
+            if g not in gene_min_p or pv < gene_min_p[g]:
+                gene_min_p[g] = pv
+            gene_info[(ph, g)] = r
+
+    top12_genes = [g for g, _ in sorted(gene_min_p.items(), key=lambda x: x[1])[:12]][::-1]
+    y_c = np.arange(len(top12_genes))
+    for ph, lbl, col, mk in focal_phenos:
+        xs_c = [-math.log10(float(gene_info[(ph, g)]["p"])) for g in top12_genes]
+        ax.plot(xs_c, y_c, marker=mk, ls="none", color=col, markersize=6.8, alpha=0.9, label=lbl)
+
+    # Approximate raw P threshold corresponding to candidate-wide q < 0.05 (~2.0e-6)
+    ax.axvline(-math.log10(2.0e-6), color="#B22222", ls="--", lw=1.1, label="Candidate-Wide FDR q < 0.05")
+    ax.annotate("DNMT3B (de novo CpG methylase\nrequired for BZLF1 meZRE binding!)\nIE/Lat P = 1.63e-6 (FDR q = 0.022)\n#1 in IE/Lat, BGLF5, & BZLF1!",
+                xy=(-math.log10(1.63e-6) - 0.05, len(top12_genes)-1), xytext=(1.32, len(top12_genes)-1.15),
+                fontsize=7.1, fontweight="bold", color="#B22222", va="top",
+                arrowprops=dict(arrowstyle="->", color="#B22222", lw=1.0),
+                bbox=dict(boxstyle="round,pad=0.25", fc="#FFF5F5", ec="#D55E00", lw=0.8))
+    ax.set_yticks(y_c)
+    ax.set_yticklabels(top12_genes, fontsize=8.0, fontweight="bold")
+    ax.set_ylim(-0.6, len(top12_genes) + 0.5)
+    ax.set_xlim(1.2, 6.45)
+    ax.set_xlabel(r"Lead Variant $-\log_{10}(P)$ Within $\pm 100$ kb of Host Regulator")
+    ax.set_title("Layer B2: 54 Canonical Host EBV Regulators Unmask DNMT3B")
+    ax.legend(loc="lower right", frameon=False, fontsize=7.1)
+
+    # Panel D: Convergent Host Transcriptome Validation of Top Genetic Candidates (n = 717 MAGE Donors)
+    ax = axes[1, 1]
+    add_panel_label(ax, "D")
+    med_map = {}
+    with open(os.path.join(DATA_DIR, "host_viral_mediation_20154.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            med_map[row["gene_symbol"]] = row
+
+    cand_genes_d = [
+        ("DNMT3B", "DNMT3B\n(Cand #1)"),
+        ("DNMT1", "DNMT1\n(CpG Maint)"),
+        ("ZNF814", "ZNF814\n(Fork eQTL)"),
+        ("TRIM28", "TRIM28\n(KAP1 Corep)"),
+        ("IRF4", "IRF4\n(CN Cand #1)"),
+        ("MED21", "MED21\n(LMP1 eQTL)"),
+    ]
+    x_d = np.arange(len(cand_genes_d))
+    r_cn_d = [float(med_map[g[0]]["r_wgs_cn"]) for g in cand_genes_d]
+    r_bg_d = [float(med_map[g[0]]["r_bglf5"]) for g in cand_genes_d]
+    r_lm_d = [float(med_map[g[0]]["r_lmp1"]) for g in cand_genes_d]
+
+    w_d = 0.26
+    ax.bar(x_d - w_d, r_cn_d, w_d, color="#0072B2", alpha=0.88, label="WGS DNA log2(EBV CN)")
+    ax.bar(x_d, r_bg_d, w_d, color="#D55E00", alpha=0.88, label="Lytic BGLF5 Viral RNA")
+    ax.bar(x_d + w_d, r_lm_d, w_d, color="#009E73", alpha=0.88, label="Latent LMP1 Viral RNA")
+    ax.axhline(0, color="#444444", ls="--", lw=0.9)
+    ax.set_xticks(x_d)
+    ax.set_xticklabels([g[1] for g in cand_genes_d], fontsize=7.4)
+    ax.set_ylim(-0.55, 0.46)
+    ax.set_ylabel("Within-Pop/Batch Host–Viral mRNA Correlation r (n = 717)")
+    ax.set_title("Layer B1/B2 Convergent Host mRNA Expression Coupling")
+    ax.legend(loc="lower left", frameon=False, fontsize=7.4)
+
+    for ext in ("png", "pdf"):
+        fig.savefig(os.path.join(FIG_DIR, f"fig7_viral_conditioned_host_genetics.{ext}"), bbox_inches="tight")
+    plt.close(fig)
+    print("Saved fig7_viral_conditioned_host_genetics.(png/pdf)")
+
+
 def main():
     print("Loading master tables from:", DATA_DIR)
     D = load_core_data()
@@ -1050,7 +1227,8 @@ def main():
     make_figure_4(D)
     make_figure_5()
     make_figure_6()
-    print("All 6 multi-panel figures generated successfully in:", FIG_DIR)
+    make_figure_7()
+    print("All 7 multi-panel figures generated successfully in:", FIG_DIR)
 
 
 if __name__ == "__main__":

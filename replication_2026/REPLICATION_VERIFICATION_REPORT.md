@@ -18,3 +18,5 @@ Generated automatically by `uv run replication_2026/reproduce_all.py` from `repl
 | 4. Aim 2 | Within-sample cis-ASE at 91,192:G>A & Latency III vs I splicing | `91192:G>A RNA=541/2633 (0.205) vs DNA=0.192 | Qp_to_EBNA1=0/59 vs CpWp_U_to_EBNA1=59/59` | **PASS** |
 | 5. Aim 3 | Host discovery boost & exogenous IR1 instrument alignment | `q<0.05: WGS_CN=6,087, BZLF1=9,819, BGLF5=10,580, LMP1=13,800, IR1_DNA=663 (vector r=+0.7636)` | **PASS** |
 | 5. Aim 3 | Zero-sample-overlap vector alignment (24 pops -> IBS vs GBR) | `All 20,154 genes r=+0.7086 (R²=50.2%) | 6,087 CN-sig genes r=+0.8444 (R²=71.3%)` | **PASS** |
+| 6. Aim 4 | Viral-conditioned trio heritability (n=570 clean trios) | `M1 r_pp=+0.1815 -> M4 r_pp=+0.1119 (-38.3%) | M4 h²=+0.0578 (95% CI [-0.122, +0.228])` | **PASS** |
+| 6. Aim 4 | Genome-wide 7.62M host GWAS & DNMT3B lytic switch candidate | `GWAS P<5e-8: PopAdj=1 -> ViralCond=0 (max PVE=1.05%) | DNMT3B IE/Lat P=1.63e-06 (q=0.0220)` | **PASS** |

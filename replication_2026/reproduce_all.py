@@ -372,6 +372,34 @@ def run_verification():
            f"All 20,154 genes r={r_vec_all:+.4f} (R²={r_vec_all**2*100:.1f}%) | 6,087 CN-sig genes r={r_vec_sig:+.4f} (R²={r_vec_sig**2*100:.1f}%)",
            abs(r_vec_all - 0.7086) < 0.01 and abs(r_vec_sig - 0.8444) < 0.01)
 
+    # 6. Aim 4: Viral-Conditioned Host Genetic Scan (Layers A, B1, B2, B3, & C)
+    print("\n--- SECTION 6: Aim 4 — Viral-Conditioned Host Genetic Architecture (Layers A, B1–B3, & C) ---")
+    trio_vc = {}
+    with open(os.path.join(DATA_DIR, "trio_heritability_viral_conditioned.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            trio_vc[row["model"]] = row
+    m1_t = trio_vc["M1_Within_Pop_log2CN"]
+    m4_t = trio_vc["M4_Within_Pop_plus_Full_Viral_Genetics_11SNPs_IR1"]
+    record("6. Aim 4", "Viral-conditioned trio heritability (n=570 clean trios)",
+           f"M1 r_pp={float(m1_t['r_spouse']):+.4f} -> M4 r_pp={float(m4_t['r_spouse']):+.4f} (-38.3%) | M4 h²={float(m4_t['h2_spouse_corrected']):+.4f} (95% CI [{float(m4_t['h2_ci95_lo']):+.3f}, {float(m4_t['h2_ci95_hi']):+.3f}])",
+           abs(float(m4_t["r_spouse"]) - 0.1119) < 0.005 and abs(float(m4_t["h2_spouse_corrected"]) - 0.0578) < 0.005)
+
+    gw_host = {}
+    with open(os.path.join(DATA_DIR, "host_gwas_genomewide_summary.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            gw_host[row["phenotype"]] = row
+    cand_host = defaultdict(list)
+    with open(os.path.join(DATA_DIR, "host_candidate55_scan.tsv")) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            cand_host[row["phenotype"]].append(row)
+
+    w_pop = gw_host["WGS_CN_PopAdj"]
+    w_vc = gw_host["WGS_CN_ViralCond"]
+    dnmt3b_ielat = cand_host["RNA_IELatRatio_ViralCond"][0]
+    record("6. Aim 4", "Genome-wide 7.62M host GWAS & DNMT3B lytic switch candidate",
+           f"GWAS P<5e-8: PopAdj={w_pop['n_gw_sig_5e8']} -> ViralCond={w_vc['n_gw_sig_5e8']} (max PVE={w_vc['lead_pve_pct']}%) | DNMT3B IE/Lat P={float(dnmt3b_ielat['p']):.2e} (q={dnmt3b_ielat['q_cand55']})",
+           int(w_vc["n_gw_sig_5e8"]) == 0 and dnmt3b_ielat["gene"] == "DNMT3B" and float(dnmt3b_ielat["q_cand55"]) < 0.05)
+
     # Write machine-readable verification report
     report_path = os.path.join(ROOT_DIR, "REPLICATION_VERIFICATION_REPORT.md")
     with open(report_path, "w") as out:
