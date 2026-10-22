@@ -1,0 +1,481 @@
+iid	in_orderplan	in_table_s1	pop	sex	fam	member	ln2	dataset	n_cells	sheets	cn_30x	cn_ont	cn_lowcov	wt_fraction	ir1_30x	ir1_ont	mage_lytic_ie_rpkm	mage_latent_rpkm	mage_bzlf1_spliced_reads	key_viral_variants
+HG00107	0	1	GBR	M				scHHMorpheus	490		53.20	47.65	37.59	0.0000	11.11	10.37				132965:G>GC(0.057);168963:T>G(0.042)
+HG00108	0	1	GBR	M				scHHMorpheus	527		55.25		37.03	0.0000	11.68		6.59	27.85	113	36470:T>C(0.118);132965:G>GC(0.017)
+HG00109	0	1	GBR	M				scHHMorpheus	570		66.74		78.67	0.0000	9.98					36470:T>C(0.167);132965:G>GC(0.149)
+HG00111	0	1	GBR	F				scHHMorpheus	491		62.88	49.39	37.73	0.0000	10.64	11.52				132965:G>GC(0.197)
+HG00112	0	1	GBR	M				scHHMorpheus	544		30.87		15.88	0.0000	11.66					132965:G>GC(0.100)
+HG00113	0	1	GBR	M				scHHMorpheus	514		30.52		37.48	0.0000	12.03		5.50	45.51	60	36470:T>C(0.141);132965:G>GC(0.047)
+HG00115	0	1	GBR	M				scHHMorpheus	455		19.36		24.73	0.0012	11.76					36470:T>C(0.090);132965:G>GC(0.205)
+HG00116	0	1	GBR	M				scHHMorpheus	480		79.04		90.35	0.0000	11.33					132965:G>GC(0.236)
+HG00117	0	1	GBR	M				scHHMorpheus	536		38.93	41.36	35.53	0.0000	13.48	12.64				91192:G>A(0.138);132965:G>GC(0.090)
+HG00118	0	1	GBR	F				scHHMorpheus	538		12.99		11.03	0.0000	12.05					132965:G>GC(0.080)
+HG00120	0	1	GBR	F				scHHMorpheus	580		17.37	18.04	16.05	0.0000	11.09	11.32				36470:T>C(0.109);91192:G>A(0.429);132965:G>GC(0.063);163858:G>T(0.033)
+HG00121	0	1	GBR	F				scHHMorpheus	410		19.04		26.96	0.0000	11.28		7.08	58.80	54	36470:T>C(0.130);132965:G>GC(0.066)
+HG00125	0	1	GBR	F				scHHMorpheus	395		19.96	25.47	8.39	0.0000	9.46	8.63				36470:T>C(0.183);132965:G>GC(0.301)
+HG00127	0	1	GBR	F				scHHMorpheus	394		6.65		4.98	0.0000	9.94		4.01	57.60	15	36470:T>C(0.167);132965:G>GC(0.200)
+HG00154	0	1	GBR	F				scHHMorpheus	664		52.97		27.15	0.0000	12.18					36470:T>C(0.127);132965:G>GC(0.112);168963:T>G(0.065)
+HG00171	1	1	FIN	female	HG00171		G8-right	scHHTrinity	397	sheet2,sheet3	19.44	27.72	21.30	0.0000	9.50	9.47				
+HG00173	1	1	FIN	female	HG00173			scHHTrinity	242	sheet2,sheet3	56.49	40.24	27.96	0.0000	10.51	8.61				36470:T>C(0.197);168963:T>G(0.043)
+HG00174	1	1	FIN	female	HG00174			scHHTrinity	467	sheet2,sheet3	26.09		21.97	0.0001	10.13					132965:G>GC(0.046)
+HG00176	1	1	FIN	female	HG00176			scHHTrinity	339	sheet2,sheet3	62.66		19.23	0.0000	10.46					12129:T>A(0.059);36470:T>C(0.127)
+HG00177	1	1	FIN	female	HG00177			scHHTrinity	289	sheet2,sheet3	91.33		44.51	0.0000	10.35		15.48	34.20	315	90976:GTT>G(0.013)
+HG00178	1	1	FIN	female	HG00178			scHHTrinity	333	sheet2,sheet3	27.20		25.95	0.0000	10.09					36470:T>C(0.161)
+HG00179	1	1	FIN	female	HG00179			scHHTrinity	414	sheet2,sheet4	79.45		32.21	0.0000	8.84		11.59	35.94	229	168963:T>G(0.046)
+HG00180	1	1	FIN	female	HG00180			scHHTrinity	288	sheet2,sheet4	36.33		17.81	0.0000	9.66					36470:T>C(0.128);36494:G>C(0.140)
+HG00181	1	1	FIN	male	HG00181			scHHTrinity	502	sheet2,sheet3	35.77		25.20	0.0000	10.59					36494:G>C(0.100)
+HG00182	1	1	FIN	male	HG00182			scHHTrinity	413	sheet2,sheet3	14.95		12.48	0.0000	11.39					
+HG00183	1	1	FIN	male	HG00183		G7-left	scHHTrinity	586	sheet2,sheet3	51.00		23.66	0.0000	13.14		11.65	33.00	145	36470:T>C(0.078)
+HG00185	1	1	FIN	male	HG00185			scHHTrinity	495	sheet2,sheet3	46.91		28.29	0.0000	10.80		5.28	48.12	121	168963:T>G(0.045)
+HG00186	1	1	FIN	male	HG00186			scHHTrinity	686	sheet2,sheet3	11.33		9.94	0.0000	9.12		5.82	38.42	78	36470:T>C(0.208);168963:T>G(0.036)
+HG00187	1	1	FIN	male	HG00187			scHHTrinity	555	sheet2,sheet3	33.54		36.33	0.0000	9.55					168963:T>G(0.044)
+HG00188	1	1	FIN	male	HG00188			scHHTrinity	540	sheet2,sheet4	35.76	52.47	34.69	0.0000	12.91	8.44	9.76	60.99	192	36470:T>C(0.140)
+HG00189	1	1	FIN	male	HG00189			scHHTrinity	342	sheet2,sheet4	58.56		53.95	0.0000	10.71		22.92	25.20	586	36470:T>C(0.133)
+HG00190	1	1	FIN	male	HG00190			scHHTrinity	445	sheet2,sheet4	48.64	88.52	58.69	0.0000	10.00	9.43	18.23	40.85	458	132965:G>GC(0.020)
+HG00231	0	1	GBR	F				scHHMorpheus	434		74.33		28.86	0.0000	11.39					12129:T>A(0.063);36494:G>C(0.125);132965:G>GC(0.052);168963:T>G(0.038)
+HG00266	1	1	FIN	female	HG00266			scHHTrinity	333	sheet2,sheet4	29.77		6.40	0.0000	11.13					36470:T>C(0.170)
+HG00267	1	1	FIN	male	HG00267			scHHTrinity	199	sheet2,sheet4	55.46		33.14	0.0000	9.88					36470:T>C(0.182);168963:T>G(0.040)
+HG00268	1	1	FIN	female	HG00268			scHHTrinity	509	sheet2,sheet4	55.31	48.82	55.53	0.0000	10.81	9.02				36470:T>C(0.160)
+HG00269	1	1	FIN	female	HG00269		G7-right	scHHTrinity	269	sheet2,sheet4	54.03	81.68	60.23	0.0000	9.04	9.05	24.14	61.83	375	36470:T>C(0.129)
+HG00271	1	1	FIN	male	HG00271			scHHTrinity	395	sheet2,sheet4	39.43	41.20	44.03	0.0000	9.33	9.88				36470:T>C(0.132)
+HG00272	1	1	FIN	female	HG00272			scHHTrinity	284	sheet2,sheet4	119.92		102.79	0.0000	10.52					
+HG00273	1	1	FIN	male	HG00273			scHHTrinity	269	sheet2,sheet4	25.20	25.14	28.66	0.0000	9.74	9.33				168963:T>G(0.038)
+HG00274	1	1	FIN	female	HG00274			scHHTrinity	306	sheet2,sheet6	38.17	107.85	18.83	0.0000	9.80	9.56				168963:T>G(0.034)
+HG00275	1	1	FIN	female	HG00275			scHHTrinity	631	sheet2,sheet6	22.34		13.93	0.0000	10.00					
+HG00276	1	1	FIN	female	HG00276			scHHTrinity	620	sheet2,sheet6	27.40		12.26	0.0000	10.27					36470:T>C(0.135)
+HG00277	1	1	FIN	male	HG00277			scHHTrinity	393	sheet2,sheet6	47.06		22.09	0.0000	11.62		15.49	58.05	191	36470:T>C(0.102)
+HG00278	1	1	FIN	male	HG00278			scHHTrinity	259	sheet2,sheet6	50.63	80.56	42.36	0.0000	10.53	9.40				36470:T>C(0.222)
+HG00280	1	1	FIN	male	HG00280			scHHTrinity	516	sheet2,sheet6	62.91		41.53	0.0000	11.37					168963:T>G(0.039)
+HG00281	1	1	FIN	female	HG00281			scHHTrinity	403	sheet2,sheet6	33.04		34.08	0.0000	11.14					
+HG00282	1	1	FIN	female	HG00282			scHHTrinity	568	sheet2,sheet6	64.53	80.40	23.08	0.0000	9.87	9.45				
+HG00284	1	1	FIN	male	HG00284			scHHTrinity	510	sheet2,sheet6	38.22	41.46	17.57	0.0000	10.69	9.50				36470:T>C(0.203);36494:G>C(0.139);168963:T>G(0.044)
+HG00285	1	1	FIN	female	HG00285			scHHTrinity	303	sheet2,sheet6	52.11		27.21	0.0000	10.63		13.80	72.41	380	36470:T>C(0.129)
+HG00288	1	1	FIN	female	HG00288			scHHTrinity	587	sheet2,sheet6	40.56		32.23	0.0000	9.72					168963:T>G(0.042)
+HG00290	1	1	FIN	male	HG00290			scHHTrinity	787	sheet2,sheet6	259.19		215.83	0.0000	10.75		64.97	46.09	1145	
+HG00304	1	1	FIN	female	HG00304			scHHTrinity	275	sheet2,sheet5	35.87		43.42	0.0000	10.32		9.25	55.98	110	36470:T>C(0.125)
+HG00306	1	1	FIN	female	HG00306			scHHTrinity	341	sheet2,sheet5	217.15		433.46	0.0000	11.39					36470:T>C(0.149)
+HG00308	1	1	FIN	male	HG00308			scHHTrinity	541	sheet2,sheet5	90.34		129.00	0.0000	10.04					
+HG00309	1	1	FIN	female	HG00309			scHHTrinity	431	sheet2,sheet5	37.54		46.37	0.0000	10.23					
+HG00310	1	1	FIN	male	HG00310			scHHTrinity	257	sheet2,sheet5	19.36		26.95	0.0000	9.30					36470:T>C(0.151)
+HG00311	1	1	FIN	male	HG00311			scHHTrinity	534	sheet2,sheet5	25.24	16.20	53.55	0.0001	10.80	9.33	10.02	52.75	71	36470:T>C(0.146)
+HG00321	1	1	FIN	male	HG00321			scHHTrinity	471	sheet2,sheet5	60.94	121.30	37.41	0.0000	10.77	10.51				36470:T>C(0.077)
+HG00325	1	1	FIN	male	HG00325			scHHTrinity	279	sheet2,sheet5	270.80	291.58	108.77	0.0000	9.95	7.90	27.21	109.60	692	36494:G>C(0.157)
+HG00329	1	1	FIN	male	HG00329			scHHTrinity	452	sheet2,sheet5	45.75		22.65	0.0000	9.67					36470:T>C(0.167)
+HG00335	1	1	FIN	male	HG00335			scHHTrinity	861	sheet2,sheet5	59.90	34.40	56.73	0.0000	9.28	7.98	12.30	62.17	744	36470:T>C(0.130)
+HG00336	1	1	FIN	male	HG00336		26	scHHTrinity	491	sheet2,sheet5	51.45	43.02	23.13	0.0000	10.06	10.26				
+HG00338	1	1	FIN	male	HG00338		22	scHHTrinity	507	sheet2,sheet5	59.63	137.35	22.96	0.0000	8.73	9.28				36470:T>C(0.169)
+HG00404	0	1	CHS	F				scHHMorpheus	514		19.08	17.99	6.75	0.0000	13.79	13.44	10.11	49.81	110	
+HG00406	0	1	CHS	M				scHHMorpheus	480		10.01		8.67	0.0000	12.86					36470:T>C(0.111)
+HG00407	0	1	CHS	F				scHHMorpheus	488		36.84	50.03	38.47	0.0000	13.76	12.66				
+HG00418	1	1	CHS	male	SH006	father	C2	scHHTrinity	207	sheet2,sheet3	51.94			0.0000						
+HG00419	1	1	CHS	female	SH006	mother		scHHTrinity	337	sheet2,sheet3	60.93	30.86	26.11	0.0000	12.37	10.24				12129:T>A(0.070);36470:T>C(0.123);163858:G>T(0.034);168963:T>G(0.042)
+HG00420	1	1	CHS	male	SH006	child		scHHTrinity	326	sheet2,sheet3	39.99			0.0000						
+HG00421	1	1	CHS	male	SH007	father		scHHTrinity	270	sheet2,sheet3	29.69		21.28	0.0000	14.04					
+HG00422	1	1	CHS	female	SH007	mother		scHHTrinity	298	sheet2,sheet3	23.07		18.13	0.0000	11.71					36470:T>C(0.102);168963:T>G(0.042)
+HG00423	1	1	CHS	female	SH007	child		scHHTrinity	375	sheet2,sheet3	61.41			0.0000						
+HG00428	0	1	CHS	F				scHHMorpheus	669		27.62		22.88	0.0000	11.86					36470:T>C(0.143)
+HG00436	1	1	CHS	male	SH012	father		scHHTrinity	324	sheet2,sheet3	16.69	42.13	0.00	0.0000	13.73	13.28				
+HG00437	1	1	CHS	female	SH012	mother		scHHTrinity	258	sheet2,sheet3	22.94		21.98	0.0000	13.08					36470:T>C(0.128)
+HG00438	1	1	CHS	female	SH012	child		scHHTrinity	364	sheet2,sheet3	30.86			0.0000						
+HG00442	0	1	CHS	M				scHHMorpheus	469		11.57	17.73	9.59	0.0000	12.12	13.00	6.10	42.83	66	36494:G>C(0.134)
+HG00443	0	1	CHS	F				scHHMorpheus	477		15.79	42.62	22.32	0.0000	12.82	13.40				36470:T>C(0.188)
+HG00445	1	1	CHS	male	SH015	father		scHHTrinity	443	sheet2,sheet3	74.93		87.86	0.0000	11.81					
+HG00446	1	1	CHS	female	SH015	mother		scHHTrinity	455	sheet2,sheet3	16.75	11.90	18.93	0.0000	12.57	10.52				36470:T>C(0.135)
+HG00447	1	1	CHS	female	SH015	child		scHHTrinity	421	sheet2,sheet3	78.42			0.0000						
+HG00448	1	1	CHS	male	SH016	father		scHHTrinity	610	sheet2,sheet3	11.44		13.33	0.0000	11.55					163858:G>T(0.039)
+HG00449	1	1	CHS	female	SH016	mother		scHHTrinity	838	sheet2,sheet3	33.17	22.77	8.35	0.0000	13.56	12.40				36470:T>C(0.108)
+HG00450	1	1	CHS	female	SH016	child		scHHTrinity	370	sheet2,sheet3	55.33			0.0000						
+HG00451	0	1	CHS	M				scHHMorpheus	368		22.13		14.79	0.0000	11.74					36470:T>C(0.100);168963:T>G(0.045)
+HG00457	1	1	CHS	male	SH019	father		scHHTrinity	232	sheet2,sheet3	22.45		26.36	0.0000	13.28					36470:T>C(0.111)
+HG00458	1	1	CHS	female	SH019	mother		scHHTrinity	439	sheet2,sheet3	33.75		43.17	0.0000	13.26					36470:T>C(0.161)
+HG00459	1	1	CHS	male	SH019	child		scHHTrinity	458	sheet2,sheet3	95.44			0.0000						
+HG00463	0	1	CHS	M				scHHMorpheus	387		30.16		0.00	0.0001	13.99		5.53	45.24	35	36470:T>C(0.145)
+HG00464	0	1	CHS	F				scHHMorpheus	585		14.78	17.56	0.00	0.0000	12.32	11.31				36470:T>C(0.180)
+HG00472	1	1	CHS	male	SH024	father		scHHTrinity	472	sheet2,sheet3	51.97	81.50	61.28	0.0000	13.68	12.56				36470:T>C(0.154)
+HG00473	1	1	CHS	female	SH024	mother		scHHTrinity	279	sheet2,sheet3	46.92		59.61	0.0001	12.93		5.81	29.19	32	36470:T>C(0.092);168963:T>G(0.038)
+HG00474	1	1	CHS	male	SH024	child	C1	scHHTrinity	391	sheet2,sheet3	52.25			0.0000						
+HG00476	0	1	CHS	F				scHHMorpheus	556		64.30		68.19	0.0000	14.02					36470:T>C(0.117);168963:T>G(0.044)
+HG00478	0	1	CHS	M				scHHMorpheus	502		46.79		58.31	0.0000	12.02					
+HG00479	0	1	CHS	F				scHHMorpheus	580		23.55	32.16	29.08	0.0000	13.29	13.77				
+HG00500	1	1	CHS	male	SH028	father		scHHTrinity	287	sheet2,sheet4	15.28		14.63	0.0000	11.34					
+HG00501	1	1	CHS	female	SH028	mother		scHHTrinity	147	sheet2,sheet4	58.61			0.0000						
+HG00502	1	1	CHS	male	SH028	child		scHHTrinity	264	sheet2,sheet4	36.23			0.0000						
+HG00513	0	1	CHS	F				scHHMorpheus	499		148.38	310.81	0.00	0.0000	13.74	12.25	90.86	77.93	1690	36470:T>C(0.214)
+HG00524	1	1	CHS	male	SH036	father		scHHTrinity	162	sheet2,sheet4	64.41		0.00	0.0000	12.45					36470:T>C(0.175);163858:G>T(0.031);168963:T>G(0.042)
+HG00525	1	1	CHS	female	SH036	mother		scHHTrinity	323	sheet2,sheet4	79.05		92.85	0.0000	11.25		18.24	28.02	543	36494:G>C(0.090)
+HG00526	1	1	CHS	male	SH036	child		scHHTrinity	245	sheet2,sheet4	51.94			0.0000						
+HG00530	0	1	CHS	M				scHHMorpheus	517		22.71	34.20		0.0000	12.85	12.05				36470:T>C(0.123)
+HG00533	0	1	CHS	M				scHHMorpheus	534		22.67		21.98	0.0000	12.81		5.83	40.94	60	36470:T>C(0.200);36494:G>C(0.113)
+HG00536	0	1	CHS	M				scHHMorpheus	516		13.71		10.24	0.0000	13.33					36470:T>C(0.100);36494:G>C(0.089)
+HG00542	1	1	CHS	male	SH042	father		scHHTrinity	459	sheet2,sheet4	74.28		0.00	0.0000	12.79					36470:T>C(0.138)
+HG00543	1	1	CHS	female	SH042	mother		scHHTrinity	217	sheet2,sheet4	56.25		50.88	0.0000	11.98					36470:T>C(0.140)
+HG00544	1	1	CHS	female	SH042	child		scHHTrinity	272	sheet2,sheet4	48.45			0.0000						
+HG00556	1	1	CHS	male	SH045	father		scHHTrinity	929	sheet2,sheet4	10.36		13.82	0.0000	11.99		14.12	75.49	128	36470:T>C(0.116);36494:G>C(0.082)
+HG00557	1	1	CHS	female	SH045	mother		scHHTrinity	349	sheet2,sheet4	23.23		27.83	0.0000	12.80					36470:T>C(0.153)
+HG00558	1	1	CHS	female	SH045	child		scHHTrinity	488	sheet2,sheet4	16.77			0.0000						
+HG00559	1	1	CHS	male	SH046	father		scHHTrinity	206	sheet2,sheet4	48.23		29.86	0.0000	14.20					
+HG00560	1	1	CHS	female	SH046	mother		scHHTrinity	303	sheet2,sheet4	35.35		24.93	0.0000	13.45					
+HG00561	1	1	CHS	female	SH046	child		scHHTrinity	183	sheet2,sheet4	44.38			0.0000						
+HG00565	1	1	CHS	male	SH048	father		scHHTrinity	220	sheet2,sheet4	17.63	18.91	10.80	0.0000	12.09	11.26	6.56	30.20	154	
+HG00566	1	1	CHS	female	SH048	mother		scHHTrinity	178	sheet2,sheet4	30.22	21.67	18.95	0.0000	13.57	11.15				36470:T>C(0.123)
+HG00567	1	1	CHS	male	SH048	child		scHHTrinity	336	sheet2,sheet4	27.67			0.0000						
+HG00577	1	1	CHS	male	SH052	father		scHHTrinity	319	sheet2,sheet4	29.52			0.0000						
+HG00578	1	1	CHS	female	SH052	mother	D6-mid	scHHTrinity	164	sheet2,sheet4	55.75			0.0000						
+HG00579	1	1	CHS	female	SH052	child		scHHTrinity	178	sheet2,sheet4	49.30			0.0000						
+HG00580	1	1	CHS	male	SH053	father		scHHTrinity	298	sheet2,sheet5	14.71		15.91	0.0000	11.14					36470:T>C(0.122)
+HG00581	1	1	CHS	female	SH053	mother		scHHTrinity	114	sheet2,sheet5	18.90		19.35	0.0000	12.51		7.75	29.51	134	36470:T>C(0.213)
+HG00582	1	1	CHS	female	SH053	child		scHHTrinity	166	sheet2,sheet5	67.71			0.0000						
+HG00583	1	1	CHS	male	SH054	father		scHHTrinity	456	sheet2,sheet5	10.12	13.80	9.53	0.0000	9.95	10.90	12.82	62.84	246	
+HG00584	1	1	CHS	female	SH054	mother		scHHTrinity	462	sheet2,sheet5	65.60	74.05	56.45	0.0000	8.80	9.89				36470:T>C(0.179)
+HG00585	1	1	CHS	female	SH054	child		scHHTrinity	400	sheet2,sheet5	23.48			0.0000						
+HG00589	1	1	CHS	male	SH056	father		scHHTrinity	408	sheet2,sheet5	10.64	18.40	11.14	0.0000	10.36	11.05	5.48	42.09	26	36470:T>C(0.118);168963:T>G(0.040)
+HG00590	1	1	CHS	female	SH056	mother		scHHTrinity	648	sheet2,sheet5	26.82		27.51	0.0000	14.08		11.20	42.92	186	36470:T>C(0.086)
+HG00591	1	1	CHS	male	SH056	child	D6-right	scHHTrinity	356	sheet2,sheet5	38.12			0.0000						
+HG00592	1	1	CHS	male	SH057	father		scHHTrinity	839	sheet2,sheet5	25.95		13.94	0.0000	11.75					36470:T>C(0.176);168963:T>G(0.040)
+HG00593	1	1	CHS	female	SH057	mother		scHHTrinity	271	sheet2,sheet5	38.24		27.17	0.0000	12.62					
+HG00594	1	1	CHS	male	SH057	child		scHHTrinity	643	sheet2,sheet5	63.65			0.0000						
+HG00595	1	1	CHS	male	SH058	father		scHHTrinity	635	sheet2,sheet5	23.84		20.39	0.0000	12.56					36470:T>C(0.161)
+HG00596	1	1	CHS	female	SH058	mother		scHHTrinity	324	sheet2,sheet5	49.98	45.65	12.26	0.0000	14.19	11.76	8.70	35.11	101	12129:T>A(0.058);36470:T>C(0.200)
+HG00597	1	1	CHS	female	SH058	child		scHHTrinity	366	sheet2,sheet5	25.41			0.0000						
+HG00607	1	1	CHS	male	SH062	father		scHHTrinity	194	sheet2,sheet5	78.85	85.35	75.85	0.0000	14.67	13.07	19.67	34.03	403	36494:G>C(0.091)
+HG00608	1	1	CHS	female	SH062	mother		scHHTrinity	410	sheet2,sheet5	24.40	82.27	41.13	0.0000	14.24	13.03				163858:G>T(0.031);168963:T>G(0.042)
+HG00609	1	1	CHS	male	SH062	child		scHHTrinity	269	sheet2,sheet5	56.10			0.0000						
+HG00610	1	1	CHS	male	SH063	father	D5-mid	scHHTrinity	54	sheet2,sheet6	44.87	89.16	10.39	0.0000	11.44	11.69				36470:T>C(0.100)
+HG00611	1	1	CHS	female	SH063	mother		scHHTrinity	351	sheet2,sheet6	57.35		15.40	0.0000	12.17					36470:T>C(0.296)
+HG00612	1	1	CHS	female	SH063	child		scHHTrinity	239	sheet2,sheet6	53.08			0.0000						
+HG00613	1	1	CHS	male	SH064	father		scHHTrinity	181	sheet2,sheet6	37.83		33.30	0.0000	13.75					36470:T>C(0.131)
+HG00614	1	1	CHS	female	SH064	mother		scHHTrinity	239	sheet2,sheet6	14.99		42.63	0.0000	12.22					36470:T>C(0.208)
+HG00615	1	1	CHS	female	SH064	child		scHHTrinity	547	sheet2,sheet6	34.50			0.0000						
+HG00619	1	1	CHS	male	SH066	father		scHHTrinity	166	sheet2,sheet6										
+HG00620	1	1	CHS	female	SH066	mother		scHHTrinity	184	sheet2,sheet6										
+HG00621	1	1	CHS	male	SH066	child		scHHTrinity	246	sheet2,sheet6	36.18			0.0000						
+HG00625	1	1	CHS	male	SH068	father		scHHTrinity	226	sheet2,sheet6	40.82		12.33	0.0000	12.43		6.94	49.09	67	168963:T>G(0.044)
+HG00626	1	1	CHS	female	SH068	mother	D5-right	scHHTrinity	209	sheet2,sheet6	24.13	16.66	6.34	0.0000	12.52	11.92				36470:T>C(0.178)
+HG00627	1	1	CHS	male	SH068	child		scHHTrinity	320	sheet2,sheet6	76.93			0.0000						
+HG00628	1	1	CHS	male	SH069	father		scHHTrinity	265	sheet2,sheet6	26.28		5.15	0.0000	14.22		6.91	30.34	59	36470:T>C(0.208);168963:T>G(0.045)
+HG00629	1	1	CHS	female	SH069	mother		scHHTrinity	235	sheet2,sheet6	47.03		11.58	0.0000	13.82					36470:T>C(0.167)
+HG00630	1	1	CHS	male	SH069	child		scHHTrinity	256	sheet2,sheet6	7.64			0.0000						
+HG00634	1	1	CHS	male	SH071	father		scHHTrinity	275	sheet2,sheet6	13.47	13.10	3.54	0.0000	13.17	13.22				36470:T>C(0.196)
+HG00635	1	1	CHS	female	SH071	mother		scHHTrinity	220	sheet2,sheet6	48.98			0.0000						
+HG00636	1	1	CHS	male	SH071	child		scHHTrinity	289	sheet2,sheet6	16.83			0.0000						
+HG00650	1	1	CHS	male	SH072	father		scHHTrinity	332	sheet2,sheet6	16.69	17.88	16.21	0.0000	12.36	11.72				36470:T>C(0.123);168963:T>G(0.043)
+HG00651	1	1	CHS	female	SH072	mother		scHHTrinity	408	sheet2,sheet6	36.95	39.82	38.25	0.0000	14.13	13.19				36470:T>C(0.159)
+HG00652	1	1	CHS	female	SH072	child	D4-mid	scHHTrinity	214	sheet2,sheet6	61.45			0.0000						
+HG00656	1	1	CHS	male	SH074	father		scHHTrinity	357	sheet2,sheet5	17.92		15.90	0.0000	13.08					
+HG00657	1	1	CHS	female	SH074	mother	42	scHHTrinity	271	sheet2,sheet5	41.56	54.44	24.45	0.0001	13.75	12.43	18.48	48.17	552	
+HG00658	1	1	CHS	male	SH074	child	42	scHHTrinity	223	sheet2,sheet5	30.70			0.0000						
+HG01507	0	1	IBS	F				scHHNeo	281		301.42	467.09	538.92	0.0000	11.16	9.93				
+HG01518	0	1	IBS	M				scHHNeo	169		100.57	144.73	64.87	0.0000	10.32	8.45	33.66	49.06	824	36470:T>C(0.143);91192:G>A(0.327)
+HG01519	0	1	IBS	F				scHHNeo	837		93.80	158.26	67.83	0.0000	11.55	9.78				
+HG01530	0	1	IBS	M				scHHNeo	173		79.27	98.90	60.29	0.0000	8.51	6.50				168963:T>G(0.047)
+HG01531	0	1	IBS	F				scHHNeo	135		30.80		19.98	0.0000	9.80					36470:T>C(0.220)
+HG01565	1	1	PEL	male	PEL001	father	D4-mid	scHHTrinity	562	sheet2,sheet3	45.59		46.50	0.0001	14.17					
+HG01566	1	1	PEL	female	PEL001	mother		scHHTrinity	461	sheet2,sheet3	19.03	19.72	29.81	0.0012	12.30	12.85				
+HG01567	1	1	PEL	female	PEL001	child		scHHTrinity	268	sheet2,sheet3	37.80			0.0000						
+HG01571	1	1	PEL	male	PEL003	father		scHHTrinity	272	sheet2,sheet3	51.02	111.34	105.27	0.0000	13.30	13.14				12129:T>A(0.067);36470:T>C(0.117)
+HG01572	1	1	PEL	female	PEL003	mother		scHHTrinity	631	sheet2,sheet3	64.41	110.14	88.35	0.0000	13.59	12.41				36470:T>C(0.127)
+HG01573	1	1	PEL	female	PEL003	child		scHHTrinity	2151	sheet2,sheet3	113.69			0.0000						
+HG01577	1	1	PEL	male	PEL005	father	D4-right	scHHTrinity	1671	sheet2,sheet3	20.47	39.83	38.67	0.0000	12.20	12.80				
+HG01578	1	1	PEL	female	PEL005	mother		scHHTrinity	492	sheet2,sheet3	55.82	132.81	81.77	0.0000	13.11	12.49	15.57	42.01	309	36470:T>C(0.148)
+HG01579	1	1	PEL	male	PEL005	child		scHHTrinity	368	sheet2,sheet3	12.86			0.0000						
+HG01607	0	1	IBS	F				scHHNeo	116		64.14		39.95	0.0000	13.50		12.44	46.17	329	36470:T>C(0.138);91192:G>A(0.279);163858:G>T(0.032)
+HG01610	0	1	IBS	M				scHHNeo	240		174.45		114.16	0.0000	10.55		54.07	41.38	1014	36470:T>C(0.211);91192:G>A(0.355)
+HG01675	0	1	IBS	M				scHHNeo	349		140.51		103.09	0.0000	12.61					12129:T>A(0.071);36470:T>C(0.289);91192:G>A(0.140)
+HG01680	0	1	IBS	M				scHHNeo	355		81.42	136.20	42.13	0.0000	11.79	11.85				36494:G>C(0.182);91192:G>A(0.250)
+HG01707	0	1	IBS	F				scHHNeo	220		322.50		465.41	0.0000	11.59					36470:T>C(0.206)
+HG01756	0	1	IBS	M				scHHNeo	129		162.06	142.84	124.42	0.0000	10.52	8.62				91192:G>A(0.322)
+HG01765	0	1	IBS	M				scHHNeo	186		86.86	95.51	114.25	0.0000	10.10	9.41	20.02	70.58	350	36470:T>C(0.253);91192:G>A(0.082)
+HG01770	0	1	IBS	F				scHHNeo	802		83.52		84.59	0.0000	11.68					36470:T>C(0.119);36494:G>C(0.104);91192:G>A(0.038)
+HG01784	0	1	IBS	F				scHHNeo	372		113.96		83.01	0.0000	12.07					36494:G>C(0.078);91192:G>A(0.209)
+HG01785	0	1	IBS	M				scHHNeo	136		84.51		76.74	0.0000	10.30		23.16	26.20	535	36470:T>C(0.183);91192:G>A(0.147)
+HG01786	0	1	IBS	F				scHHNeo	275		140.40	83.55	152.19	0.0000	11.24	9.83				36470:T>C(0.148);91192:G>A(0.128)
+HG01879	1	1	ACB	male	BB01	father		scHHTrinity	153	sheet2,sheet3	11.19	12.12	9.98	0.0000	11.80	12.73	6.44	48.39	65	36470:T>C(0.177);163858:G>T(0.032)
+HG01880	1	1	ACB	female	BB01	mother		scHHTrinity	498	sheet2,sheet3	9.42	6.21	9.34	0.0000	12.30	9.12				
+HG01881	1	1	ACB	female	BB01	child	E11-right	scHHTrinity	194	sheet2,sheet3	12.41			0.0000						
+HG01882	1	1	ACB	male	BB02	father		scHHTrinity	324	sheet2,sheet3	39.85		55.98	0.0017	14.14					36470:T>C(0.133)
+HG01883	1	1	ACB	female	BB02	mother		scHHTrinity	247	sheet2,sheet3	10.96	13.27	15.32	0.0000	12.37	11.29				
+HG01884	1	1	ACB	female	BB03	child		scHHTrinity	52	sheet2,sheet3	9.41			0.0000						
+HG01885	1	1	ACB	male	BB03	father		scHHTrinity	109	sheet2,sheet3	8.09		12.22	0.0000	11.83					36470:T>C(0.170);36494:G>C(0.106);168963:T>G(0.043)
+HG01886	1	1	ACB	female	BB04	mother		scHHTrinity	209	sheet2,sheet3	40.88		0.00	0.0000	13.24					36470:T>C(0.164);36494:G>C(0.094)
+HG01887	1	1	ACB	male	BB04	child		scHHTrinity	364	sheet2,sheet3	15.84			0.0000						
+HG01888	1	1	ACB	male	BB02	child		scHHTrinity	310	sheet2,sheet3	83.07			0.0000						
+HG01889	1	1	ACB	female	BB05	mother	E10-mid	scHHTrinity	470	sheet2,sheet3	44.23		0.00	0.0000	13.27					36470:T>C(0.109);36494:G>C(0.138)
+HG01890	1	1	ACB	male	BB05	father		scHHTrinity	837	sheet2,sheet3	27.28	24.34	0.00	0.0000	14.93	11.93	19.89	31.93	409	
+HG01891	1	1	ACB	female	BB05	child		scHHTrinity	436	sheet2,sheet3	45.84			0.0000						
+HG01892	1	1	PEL	male	PEL007	father		scHHTrinity	504	sheet2,sheet3	8.30		0.00	0.0000	13.68					36470:T>C(0.145)
+HG01893	1	1	PEL	female	PEL007	mother		scHHTrinity	340	sheet2,sheet3	15.46		0.00	0.0003	14.28		5.95	64.50	66	36470:T>C(0.224)
+HG01894	1	1	ACB	female	BB06	mother		scHHTrinity	176	sheet2,sheet3	22.34	24.45	0.00	0.0001	13.90	11.73				
+HG01895	1	1	ACB	male	BB06	child		scHHTrinity	574	sheet2,sheet3	35.53			0.0001						
+HG01896	1	1	ACB	female	BB07	mother		scHHTrinity	412	sheet2,sheet3	21.65	20.99	17.92	0.0000	13.89	11.66				36470:T>C(0.143)
+HG01897	1	1	ACB	male	BB07	child		scHHTrinity	1052	sheet2,sheet3	26.08			0.0000						
+HG01898	1	1	PEL	female	PEL007	child		scHHTrinity	385	sheet2,sheet3	13.81			0.0000						
+HG01912	1	1	ACB	male	BB06	father		scHHTrinity	650	sheet2,sheet3	42.24		0.00	0.0000	15.66		7.72	43.67	115	36470:T>C(0.164);36494:G>C(0.160)
+HG01914	1	1	ACB	male	BB09	father		scHHTrinity	896	sheet2,sheet4	30.12		22.93	0.0000	13.65					36470:T>C(0.211)
+HG01915	1	1	ACB	female	BB09	mother	E10-right	scHHTrinity	744	sheet2,sheet4	10.98	15.41	11.87	0.0000	12.14	10.87				36470:T>C(0.163)
+HG01916	1	1	ACB	female	BB09	child		scHHTrinity	502	sheet2,sheet4	20.95			0.0000						
+HG01917	1	1	PEL	male	PEL006	father		scHHTrinity	1013	sheet2,sheet3	12.00	11.65	0.00	0.0000	12.35	9.80				36470:T>C(0.102)
+HG01918	1	1	PEL	female	PEL006	mother		scHHTrinity	667	sheet2,sheet3	22.10	21.00	0.00	0.0000	12.95	10.78	10.77	63.72	217	
+HG01919	1	1	PEL	female	PEL006	child		scHHTrinity	424	sheet2,sheet3	22.75			0.0000						
+HG01920	1	1	PEL	male	PEL009	father		scHHTrinity	404	sheet2,sheet4	26.80		0.00	0.0000	13.14		11.13	65.30	93	36470:T>C(0.156);36494:G>C(0.105);163858:G>T(0.047)
+HG01921	1	1	PEL	female	PEL009	mother	D3-mid	scHHTrinity	831	sheet2,sheet4	12.30		0.00	0.0007	12.99		6.85	44.23	44	36470:T>C(0.179)
+HG01922	1	1	PEL	female	PEL009	child		scHHTrinity	942	sheet2,sheet4	73.45			0.0000						
+HG01923	1	1	PEL	male	PEL010	father		scHHTrinity	449	sheet2,sheet4	38.84	29.58	59.56	0.0000	12.94	10.40				
+HG01924	1	1	PEL	female	PEL010	mother		scHHTrinity	923	sheet2,sheet4	85.62		34.78	0.0000	13.26					
+HG01925	1	1	PEL	female	PEL010	child		scHHTrinity	544	sheet2,sheet4	26.82			0.0000						
+HG01926	1	1	PEL	male	PEL011	father		scHHTrinity	466	sheet2,sheet3	43.39		68.38	0.0000	13.01					36470:T>C(0.192);168963:T>G(0.049)
+HG01927	1	1	PEL	female	PEL011	mother		scHHTrinity	471	sheet2,sheet3	10.75		18.18	0.0000	12.92					36470:T>C(0.118);36494:G>C(0.077)
+HG01928	1	1	PEL	male	PEL011	child		scHHTrinity	524	sheet2,sheet3	45.34			0.0001						
+HG01932	1	1	PEL	male	PEL013	father		scHHTrinity	328	sheet2,sheet3	18.56	26.87	26.61	0.0000	13.31	11.49	7.94	41.14	94	36470:T>C(0.128);91397:T>G(0.044);168963:T>G(0.045)
+HG01933	1	1	PEL	female	PEL013	mother		scHHTrinity	351	sheet2,sheet3	36.45	79.09	60.86	0.0005	14.04	13.26				36470:T>C(0.226);163858:G>T(0.032)
+HG01934	1	1	PEL	male	PEL013	child	D3-right	scHHTrinity	452	sheet2,sheet3	21.03			0.0000						
+HG01935	1	1	PEL	male	PEL014	father		scHHTrinity	414	sheet2,sheet4	44.97	88.60	65.31	0.0000	13.36	11.77				36470:T>C(0.159);168963:T>G(0.051)
+HG01936	1	1	PEL	female	PEL014	mother		scHHTrinity	451	sheet2,sheet4	32.18		54.45	0.0000	13.50					36470:T>C(0.203)
+HG01937	1	1	PEL	male	PEL014	child		scHHTrinity	568	sheet2,sheet4	26.04			0.0000						
+HG01938	1	1	PEL	male	PEL015	father		scHHTrinity	337	sheet2,sheet4	16.93		17.12	0.0001	13.53					36470:T>C(0.138)
+HG01939	1	1	PEL	female	PEL015	mother		scHHTrinity	309	sheet2,sheet4	30.59	30.44	47.16	0.0000	14.03	11.83	19.10	43.63	385	36470:T>C(0.161)
+HG01940	1	1	PEL	female	PEL015	child		scHHTrinity	403	sheet2,sheet4	61.78			0.0000						
+HG01941	1	1	PEL	male	PEL016	father		scHHTrinity	291	sheet2,sheet4	14.47		23.34	0.0003	12.80					
+HG01942	1	1	PEL	female	PEL016	mother		scHHTrinity	226	sheet2,sheet4	37.76	35.04	45.55	0.0004	12.48	11.80				12129:T>A(0.060)
+HG01943	1	1	PEL	male	PEL016	child		scHHTrinity	553	sheet2,sheet4	38.26			0.0000						
+HG01944	1	1	PEL	male	PEL017	father	D2-left	scHHTrinity	464	sheet2,sheet4	23.37		30.81	0.0011	13.97					36470:T>C(0.148);36494:G>C(0.164)
+HG01945	1	1	PEL	female	PEL017	mother		scHHTrinity	418	sheet2,sheet4	27.75	38.94	38.97	0.0004	12.96	10.89	13.49	33.62	349	36494:G>C(0.072)
+HG01946	1	1	PEL	male	PEL017	child		scHHTrinity	368	sheet2,sheet4	24.50			0.0002						
+HG01947	1	1	PEL	male	PEL018	father		scHHTrinity	192	sheet2,sheet4	24.09	20.64	47.17	0.0000	11.93	8.70				36470:T>C(0.136);168963:T>G(0.042)
+HG01948	1	1	PEL	female	PEL018	mother		scHHTrinity	502	sheet2,sheet4	24.32	30.92	36.43	0.0000	13.41	11.47				
+HG01949	1	1	PEL	female	PEL018	child		scHHTrinity	394	sheet2,sheet4	101.76			0.0000						
+HG01950	1	1	PEL	male	PEL019	father		scHHTrinity	674	sheet2,sheet5	12.56	12.10	20.66	0.0000	13.28	10.89	5.71	42.67	60	36470:T>C(0.130)
+HG01951	1	1	PEL	female	PEL019	mother		scHHTrinity	171	sheet2,sheet5	27.63	41.56	48.11	0.0000	12.06	11.38	50.00	48.83	1359	36470:T>C(0.106);163858:G>T(0.033)
+HG01952	1	1	PEL	male	PEL019	child		scHHTrinity	237	sheet2,sheet5	123.42			0.0000						
+HG01953	1	1	PEL	male	PEL020	father		scHHTrinity	284	sheet2,sheet5	78.20	64.18	0.00	0.0001	12.85	10.39	12.86	44.42	323	36470:T>C(0.190);168963:T>G(0.047)
+HG01954	1	1	PEL	female	PEL020	mother	D2-right	scHHTrinity	1000	sheet2,sheet5	14.77		0.00	0.0000	13.77					
+HG01955	1	1	PEL	female	PEL020	child		scHHTrinity	474	sheet2,sheet5	40.02			0.0000						
+HG01956	1	1	ACB	female	BB03	mother		scHHTrinity	325	sheet2,sheet3	23.44		42.98	0.0000	13.47					
+HG01958	1	1	ACB	female	BB10	mother		scHHTrinity	184	sheet2,sheet4	22.42		21.12	0.0000	15.42					36470:T>C(0.069)
+HG01959	1	1	ACB	female	BB10	child		scHHTrinity	392	sheet2,sheet4	16.51			0.0000						
+HG01960	1	1	ACB	female	BB11	child		scHHTrinity	681	sheet2,sheet4	41.58			0.0000						
+HG01967	1	1	PEL	male	PEL023	father		scHHTrinity	1469	sheet2,sheet5	27.50	48.74	0.00	0.0000	13.68	11.93				36470:T>C(0.162);36494:G>C(0.182)
+HG01968	1	1	PEL	female	PEL023	mother		scHHTrinity	637	sheet2,sheet5	34.18		0.00	0.0000	15.47					36470:T>C(0.100);168963:T>G(0.041)
+HG01969	1	1	PEL	female	PEL023	child		scHHTrinity	1097	sheet2,sheet5	18.82			0.0000						
+HG01970	1	1	PEL	male	PEL024	father		scHHTrinity	333	sheet2,sheet5	15.62		0.00	0.0000	14.22		7.64	60.99	99	36470:T>C(0.206);168963:T>G(0.037)
+HG01971	1	1	PEL	female	PEL024	mother		scHHTrinity	340	sheet2,sheet5	30.20	63.60	0.00	0.0000	13.39	13.43				36470:T>C(0.172)
+HG01972	1	1	PEL	female	PEL024	child		scHHTrinity	730	sheet2,sheet5	22.81			0.0000						
+HG01973	1	1	PEL	female	PEL25	mother		scHHTrinity	566	sheet2,sheet5	50.03		0.00	0.0000	14.84		21.18	42.20	455	36470:T>C(0.137)
+HG01974	1	1	PEL	male	PEL25	father		scHHTrinity	418	sheet2,sheet5	76.43		0.00	0.0000	14.24					
+HG01975	1	1	PEL	female	PEL25	child	D1-left	scHHTrinity	514	sheet2,sheet5	35.34			0.0000						
+HG01976	1	1	PEL	female	PEL26	mother		scHHTrinity	833	sheet2,sheet5	52.82		0.00	0.0029	15.43					36470:T>C(0.125)
+HG01977	1	1	PEL	male	PEL26	father		scHHTrinity	490	sheet2,sheet5	36.16	60.53	0.00	0.0000	15.07	11.89				36470:T>C(0.170)
+HG01978	1	1	PEL	female	PEL26	child		scHHTrinity	705	sheet2,sheet5	47.80			0.0000						
+HG01979	1	1	PEL	male	PEL27	father		scHHTrinity	762	sheet2,sheet6	16.92		0.00	0.0000	13.99					36470:T>C(0.159)
+HG01980	1	1	PEL	female	PEL27	mother		scHHTrinity	263	sheet2,sheet6	40.65		0.00	0.0178	14.23					36494:G>C(0.125);91271:C>T(0.038);91366:T>C(0.041);92904:G>GTAT(0.022);163858:G>T(0.045)
+HG01981	1	1	PEL	female	PEL27	child		scHHTrinity	419	sheet2,sheet6	27.86			0.0000						
+HG01982	1	1	PEL	male	PEL28	father		scHHTrinity	757	sheet2,sheet5	19.31	24.25	11.94	0.0000	11.74	9.80				36470:T>C(0.174)
+HG01983	1	1	PEL	female	PEL28	mother		scHHTrinity	489	sheet2,sheet5	37.59			0.0002						
+HG01984	1	1	PEL	male	PEL28	child		scHHTrinity	413	sheet2,sheet5	37.91			0.0000						
+HG01986	1	1	ACB	male	BB10	father		scHHTrinity	214	sheet2,sheet4	7.34		5.15	0.0000	11.89					36470:T>C(0.149);36494:G>C(0.143)
+HG01987	1	1	ACB	male	BB12	child		scHHTrinity	464	sheet2,sheet4	47.13			0.0001						
+HG01988	1	1	ACB	male	BB11	father		scHHTrinity	457	sheet2,sheet4	55.64	102.53	0.01	0.0000	15.73	14.31	7.96	42.41	227	
+HG01989	1	1	ACB	female	BB11	mother		scHHTrinity	253	sheet2,sheet4	13.18		0.00	0.0000	13.68					
+HG01990	1	1	ACB	male	BB12	father		scHHTrinity	313	sheet2,sheet4	16.87	13.72	25.65	0.0000	14.76	10.81				36470:T>C(0.167);163858:G>T(0.031)
+HG01991	1	1	PEL	male	PEL29	father	D1-right	scHHTrinity	330	sheet2,sheet6	46.06	34.51	0.01	0.0000	13.41	12.60				12129:T>A(0.064);36470:T>C(0.123);36494:G>C(0.073);163858:G>T(0.042)
+HG01992	1	1	PEL	female	PEL29	mother		scHHTrinity	259	sheet2,sheet6	34.84	77.22	0.00	0.0000	15.08	12.64				36470:T>C(0.120);36494:G>C(0.068)
+HG01993	1	1	PEL	female	PEL29	child		scHHTrinity	379	sheet2,sheet6	28.11			0.0000						
+HG02002	1	1	PEL	male	PEL33	father		scHHTrinity	1343	sheet2,sheet6	36.46		38.87	0.0000	14.43					36470:T>C(0.156)
+HG02003	1	1	PEL	female	PEL33	mother		scHHTrinity	700	sheet2,sheet6	23.17	40.52	31.24	0.0000	12.47	11.22				36470:T>C(0.094)
+HG02004	1	1	PEL	female	PEL33	child		scHHTrinity	467	sheet2,sheet6	30.15			0.0000						
+HG02009	1	1	ACB	male	BB13	father		scHHTrinity	148	sheet2,sheet4	30.60	28.44	0.00	0.0004	13.50	10.63				36470:T>C(0.209)
+HG02010	1	1	ACB	female	BB13	mother		scHHTrinity	137	sheet2,sheet4	20.49	20.65	0.00	0.0000	15.17	11.90				
+HG02011	1	1	ACB	male	BB13	child		scHHTrinity	319	sheet2,sheet4	50.71			0.0000						
+HG02012	1	1	ACB	female	BB12	mother	E9-mid	scHHTrinity	141	sheet2,sheet4	48.74	40.69	31.10	0.0002	13.89	13.07				36470:T>C(0.104)
+HG02013	1	1	ACB	male	BB07	father		scHHTrinity	150	sheet2,sheet3	9.85	10.04	7.36	0.0000	11.16	9.45				
+HG02014	1	1	ACB	male	BB04	father		scHHTrinity	366	sheet2,sheet3	64.30	99.52	0.00	0.0000	15.67	13.79				36470:T>C(0.169);163858:G>T(0.036);168963:T>G(0.037)
+HG02016	0	1	KHV	F				scHHNeo	261		61.13	157.18	53.13	0.0000	16.09	13.52				36470:T>C(0.140)
+HG02017	0	1	KHV	M				scHHNeo	279		16.01	23.78	16.26	0.0000	12.80	11.41				36470:T>C(0.180)
+HG02029	0	1	KHV	M				scHHNeo	147		29.43		42.32	0.0000	14.27					36494:G>C(0.117)
+HG02031	0	1	KHV	F				scHHNeo	317		25.62	31.24	81.79	0.0000	12.92	11.44	26.88	63.70	353	36470:T>C(0.155)
+HG02032	0	1	KHV	M				scHHNeo	348		35.24		17.42	0.0001	12.74					
+HG02053	1	1	ACB	male	BB15	father		scHHTrinity	373	sheet2,sheet4	39.94	30.67	53.49	0.0000	14.69	11.83	13.25	31.51	215	36470:T>C(0.141);168963:T>G(0.031)
+HG02054	1	1	ACB	female	BB15	mother		scHHTrinity	2083	sheet2,sheet4	18.16		36.30	0.0000	13.53					36494:G>C(0.182)
+HG02055	1	1	ACB	male	BB15	child		scHHTrinity	926	sheet2,sheet4	27.01			0.0000						
+HG02057	0	1	KHV	F				scHHNeo	263		29.97		0.00	0.0000	13.91					36470:T>C(0.138);36494:G>C(0.103)
+HG02072	0	1	KHV	F				scHHNeo	314		27.21	40.84	0.00	0.0000	13.68	12.42				36470:T>C(0.146);168963:T>G(0.037)
+HG02073	0	1	KHV	M				scHHNeo	254		36.03		0.00	0.0000	13.82					36470:T>C(0.170)
+HG02075	0	1	KHV	F				scHHNeo	620		64.67		0.00	0.0000	13.97					36470:T>C(0.188)
+HG02076	0	1	KHV	M				scHHNeo	142		30.49		0.00	0.0008	13.16					36470:T>C(0.255);36494:G>C(0.127);168963:T>G(0.034)
+HG02082	0	1	KHV	M				scHHNeo	281		13.31	26.85	18.31	0.0000	13.96	10.79				36470:T>C(0.179);36494:G>C(0.141)
+HG02089	1	1	PEL	female	PEL35	mother		scHHTrinity	959	sheet2,sheet6	21.35	19.61	34.68	0.0000	14.48	11.36	17.69	28.36	524	36470:T>C(0.121)
+HG02090	1	1	PEL	male	PEL35	father		scHHTrinity	1284	sheet2,sheet6	61.41		125.24	0.0000	15.19		15.92	19.65	792	36470:T>C(0.141);36494:G>C(0.136)
+HG02091	1	1	PEL	female	PEL35	child		scHHTrinity	370	sheet2,sheet6	73.00			0.0000						
+HG02122	0	1	KHV	M				scHHNeo	218		32.01		0.00	0.0001	15.00					36470:T>C(0.134)
+HG02128	0	1	KHV	M				scHHNeo	334		17.49	20.36	0.00	0.0001	13.05	11.93	7.46	37.15	153	36470:T>C(0.228)
+HG02131	0	1	KHV	M				scHHNeo	160		35.35		19.02	0.0000	13.53					36470:T>C(0.139)
+HG02133	0	1	KHV	F				scHHNeo	149		38.63	49.60	24.28	0.0001	13.48	11.43				36470:T>C(0.149);36494:G>C(0.076);168963:T>G(0.047)
+HG02143	1	1	ACB	male	BB20	father		scHHTrinity	154	sheet2,sheet4	16.53	13.04	23.66	0.0007	12.37	11.54				
+HG02144	1	1	ACB	female	BB20	mother		scHHTrinity	153	sheet2,sheet4	29.03	32.84	54.45	0.0000	13.11	11.65				36470:T>C(0.091);168963:T>G(0.039)
+HG02145	1	1	ACB	male	BB20	child		scHHTrinity	562	sheet2,sheet4	48.07			0.0000						
+HG02255	1	1	ACB	male	BB21	father	E9-right	scHHTrinity	629	sheet2,sheet5	26.82		39.48	0.0000	12.58					36470:T>C(0.109)
+HG02256	1	1	ACB	female	BB21	mother		scHHTrinity	374	sheet2,sheet5	32.73		54.20	0.0000	14.66					168963:T>G(0.045)
+HG02257	1	1	ACB	female	BB21	child		scHHTrinity	459	sheet2,sheet5	38.44			0.0000						
+HG02258	1	1	ACB	male	BB22	child		scHHTrinity	291	sheet2,sheet5	25.01			0.0000						
+HG02259	1	1	PEL	male	PEL42	father		scHHTrinity	511	sheet2,sheet6	34.15		43.97	0.0000	11.49					12129:T>A(0.075);36470:T>C(0.167);168963:T>G(0.046)
+HG02260	1	1	PEL	female	PEL42	mother	E11-mid	scHHTrinity	285	sheet2,sheet6	137.97		187.97	0.0000	12.71					12129:T>A(0.059);168963:T>G(0.039)
+HG02261	1	1	PEL	male	PEL42	child		scHHTrinity	440	sheet2,sheet6	166.24			0.0000						
+HG02277	1	1	PEL	male	PEL48	father		scHHTrinity	421	sheet2,sheet6	28.48	38.94	60.37	0.0001	14.00	13.15				36494:G>C(0.164)
+HG02278	1	1	PEL	female	PEL48	mother		scHHTrinity	554	sheet2,sheet6	32.22		55.66	0.0000	12.09					36470:T>C(0.204)
+HG02279	1	1	PEL	male	PEL48	child		scHHTrinity	978	sheet2,sheet6	72.11			0.0000						
+HG02280	1	1	ACB	female	BB23	child		scHHTrinity	267	sheet2,sheet5	18.61			0.0000						
+HG02281	1	1	ACB	male	BB24	father		scHHTrinity	134	sheet2,sheet5	34.56		0.00	0.0000	14.00		8.28	94.28	34	36470:T>C(0.138);91397:T>G(0.038);168963:T>G(0.044)
+HG02282	1	1	ACB	female	BB24	mother	F11-mid	scHHTrinity	188	sheet2,sheet5	136.16		0.00	0.0000	14.21		60.60	82.35	936	
+HG02298	1	1	PEL	female	PEL52	mother		scHHTrinity	511	sheet2,sheet6	11.30		7.28	0.0000	12.52					36470:T>C(0.188);36494:G>C(0.145)
+HG02299	1	1	PEL	male	PEL52	father	39	scHHTrinity	391	sheet2,sheet6	25.43		17.35	0.0000	12.92					36470:T>C(0.170)
+HG02300	1	1	PEL	male	PEL52	child	45	scHHTrinity	299	sheet2,sheet6	22.16			0.0000						
+HG02307	1	1	ACB	male	BB23	father		scHHTrinity	546	sheet2,sheet5	45.13	39.24	83.76	0.0053	14.13	9.99	14.01	33.17	267	
+HG02308	1	1	ACB	female	BB23	mother		scHHTrinity	509	sheet2,sheet5	38.10	43.65	77.96	0.0001	14.39	11.50				36470:T>C(0.083)
+HG02314	1	1	ACB	male	BB22	father		scHHTrinity	159	sheet2,sheet5	14.18	13.22	23.81	0.0000	12.95	11.20				36470:T>C(0.158);168963:T>G(0.039)
+HG02315	1	1	ACB	female	BB22	mother		scHHTrinity	85	sheet2,sheet5	21.75		39.95	0.0000	13.02					36470:T>C(0.182)
+HG02316	1	1	ACB	male	BB27	child		scHHTrinity	298	sheet2,sheet5	44.37			0.0001						
+HG02317	1	1	ACB	male	BB27	father		scHHTrinity	652	sheet2,sheet5	14.19		11.44	0.0000	13.24					36470:T>C(0.103)
+HG02318	1	1	ACB	female	BB27	mother		scHHTrinity	78	sheet2,sheet5	61.74	70.15	224.35	0.0000	13.49	11.45				36470:T>C(0.203)
+HG02321	1	1	ACB	female	BB24	child		scHHTrinity	570	sheet2,sheet5	105.34			0.0000						
+HG02449	1	1	ACB	male	BB46	father		scHHTrinity	423	sheet2,sheet5	63.07		46.74	0.0000	13.08		18.49	50.08	512	36470:T>C(0.163)
+HG02450	1	1	ACB	female	BB46	mother	30	scHHTrinity	141	sheet2,sheet5	13.49		10.85	0.0000	11.58		9.81	88.06	78	36470:T>C(0.200)
+HG02451	1	1	ACB	female	BB46	child	30	scHHTrinity	156	sheet2,sheet5	102.72			0.0000						
+HG02522	0	1	KHV	F				scHHNeo	172		70.93	64.71	121.72	0.0000	12.72	11.07				
+HG02922	0	1	ESN	F				scHHNeo	253		17.73	23.49	21.68	0.0000	12.11	11.20				
+HG02943	0	1	ESN	F				scHHNeo	100		20.85	18.31	17.17	0.0000	11.63	10.63				36470:T>C(0.172);163858:G>T(0.043)
+HG02944	0	1	ESN	M				scHHNeo	125		72.17	149.57	55.24	0.0000	14.24	12.38				
+HG02952	0	1	ESN	F				scHHNeo	175		62.78		68.48	0.0017	13.10					36470:T>C(0.130)
+HG02970	0	1	ESN	F				scHHNeo	150		18.45	20.79	20.81	0.0000	12.06	12.84	7.52	52.64	193	163858:G>T(0.030)
+HG02971	0	1	ESN	M				scHHNeo	1180		57.85	74.72	63.77	0.0001	13.56	12.22				36470:T>C(0.145)
+HG02973	0	1	ESN	M				scHHNeo	225		32.04		22.89	0.0000	14.47					
+HG02977	0	1	ESN	M				scHHNeo	194		58.62		59.10	0.0000	13.43		13.58	47.12	220	36470:T>C(0.125)
+HG02979	0	1	ESN	F				scHHNeo	191		34.41		47.35	0.0277	12.87		13.41	41.89	277	36470:T>C(0.197);93469:G>A(0.030);168963:T>G(0.038)
+HG03006	1	1	BEB	male	BD01	father	G11-right	scHHTrinity	420	sheet2,sheet3	67.12		61.46	0.0000	13.37					36470:T>C(0.138)
+HG03007	1	1	BEB	female	BD01	mother		scHHTrinity	363	sheet2,sheet3	22.43		21.52	0.0000	11.06					36470:T>C(0.220)
+HG03008	1	1	BEB	male	BD01	child		scHHTrinity	374	sheet2,sheet3	89.81			0.0000						
+HG03054	1	1	MSL	male	SL02	father	F11-right	scHHTrinity	173	sheet2,sheet3	32.19		38.24	0.0180	12.25					36470:T>C(0.130)
+HG03055	1	1	MSL	female	SL02	mother		scHHTrinity	1179	sheet2,sheet3	20.67		26.80	0.0000	13.14					36470:T>C(0.090);163858:G>T(0.037)
+HG03056	1	1	MSL	male	SL02	child		scHHTrinity	572	sheet2,sheet3	24.18			0.0001						
+HG03063	1	1	MSL	male	SL05	father		scHHTrinity	310	sheet2,sheet3	15.98		19.52	0.0000	11.85					36470:T>C(0.133)
+HG03064	1	1	MSL	female	SL05	mother		scHHTrinity	214	sheet2,sheet3	21.06		33.54	0.0000	11.94		5.89	50.15	206	168963:T>G(0.034)
+HG03065	1	1	MSL	male	SL05	child		scHHTrinity	118	sheet2,sheet3	216.82			0.0001						
+HG03096	1	1	MSL	male	SL16	father		scHHTrinity	151	sheet2,sheet4	13.59		10.94	0.0000	12.66					
+HG03097	1	1	MSL	female	SL16	mother		scHHTrinity	93	sheet2,sheet4	13.43	13.82	9.61	0.0000	10.37	9.21	1.36	61.90	28	36470:T>C(0.111);168963:T>G(0.052)
+HG03098	1	1	MSL	male	SL16	child		scHHTrinity	84	sheet2,sheet4	29.15			0.0000						
+HG03109	0	1	ESN	M				scHHNeo	57		68.53	74.14	49.47	0.0000	14.13	12.96				36470:T>C(0.179)
+HG03111	0	1	ESN	F				scHHNeo	142		24.98	30.89	30.00	0.0157	13.94	12.63				12129:T>A(0.065)
+HG03126	0	1	ESN	F				scHHNeo	189		19.68		27.18	0.0000	13.70					36470:T>C(0.151);163858:G>T(0.039)
+HG03127	0	1	ESN	M				scHHNeo	115		17.71	18.08	23.49	0.0000	12.99	11.89	9.71	22.42	122	36470:T>C(0.151);168963:T>G(0.035)
+HG03162	0	1	ESN	F				scHHNeo	462		48.26		48.39	0.0000	15.49					36470:T>C(0.154);36494:G>C(0.121)
+HG03168	0	1	ESN	F				scHHNeo	230		28.99		31.84	0.0000	12.71					36470:T>C(0.167)
+HG03169	0	1	ESN	M				scHHNeo	102		94.57		110.55	0.0000	15.36					36470:T>C(0.151)
+HG03451	1	1	MSL	male	SL50	father		scHHTrinity	295	sheet2,sheet3	47.22		33.69	0.0000	16.19					
+HG03452	1	1	MSL	female	SL50	mother	F10-mid	scHHTrinity	820	sheet2,sheet3	23.42		19.26	0.0000	12.46					168963:T>G(0.039)
+HG03453	1	1	MSL	female	SL50	child		scHHTrinity	452	sheet2,sheet3	25.44			0.0000						
+HG03454	1	1	MSL	male	SL51	father		scHHTrinity	324	sheet2,sheet4	16.94			0.0000						
+HG03455	1	1	MSL	female	SL51	mother		scHHTrinity	240	sheet2,sheet4	33.96	33.91	33.24	0.0000	14.16	11.22				36470:T>C(0.176)
+HG03456	1	1	MSL	male	SL51	child		scHHTrinity	96	sheet2,sheet4	35.67			0.0000						
+HG03478	1	1	MSL	male	SL59	father		scHHTrinity	225	sheet2,sheet4	7.10		0.09	0.0000	11.48		4.76	50.95	44	36470:T>C(0.145)
+HG03479	1	1	MSL	female	SL59	mother		scHHTrinity	260	sheet2,sheet4	76.80		0.18	0.0000	13.63					36470:T>C(0.203);36494:G>C(0.103)
+HG03480	1	1	MSL	female	SL59	child		scHHTrinity	257	sheet2,sheet4	65.68			0.0000						
+HG03484	1	1	MSL	male	SL61	father		scHHTrinity	283	sheet2,sheet5	17.54	19.46	18.29	0.0000	12.49	12.40				36470:T>C(0.156);36494:GCCCCCACCA>G(0.027)
+HG03485	1	1	MSL	female	SL61	mother		scHHTrinity	124	sheet2,sheet5	14.42	15.32	14.70	0.0000	10.66	9.85	3.11	63.87	67	36470:T>C(0.192)
+HG03486	1	1	MSL	female	SL61	child	F10-right	scHHTrinity	189	sheet2,sheet5	9.90			0.0000						
+HG03574	1	1	MSL	male	SL71	father		scHHTrinity	324	sheet2,sheet5	14.93			0.0003						
+HG03575	1	1	MSL	female	SL71	mother		scHHTrinity	299	sheet2,sheet5	113.88		114.34	0.0008	18.37					12129:T>A(0.061)
+HG03576	1	1	MSL	female	SL71	child		scHHTrinity	492	sheet2,sheet5	128.84			0.0000						
+HG03577	1	1	MSL	male	SL72	father		scHHTrinity	259	sheet2,sheet5	240.21	293.61	245.86	0.0000	14.91	13.14				36470:T>C(0.132)
+HG03578	1	1	MSL	female	SL72	mother		scHHTrinity	531	sheet2,sheet5	19.78		19.83	0.3306	14.24		7.86	47.17	105	12129:T>A(0.298);91271:C>T(0.276);91366:T>C(0.284);91430:T>C(0.271);91438:C>T(0.269);93469:G>A(0.267);168963:T>G(0.032)
+HG03579	1	1	MSL	male	SL72	child		scHHTrinity	240	sheet2,sheet5	15.62			0.0000						
+HG03582	1	1	MSL	male	SL73	father		scHHTrinity	446	sheet2,sheet5	76.86			0.0000						
+HG03583	1	1	MSL	female	SL73	mother	15	scHHTrinity	129	sheet2,sheet5	115.29		122.58	0.0000	16.44					12129:T>A(0.064)
+HG03584	1	1	MSL	female	SL73	child	15	scHHTrinity	599	sheet2,sheet5	181.08			0.0000						
+HG03594	1	1	BEB	male	BD7	father		scHHTrinity	644	sheet2,sheet3	118.77		118.53	0.0001	11.51		60.21	59.88	705	
+HG03595	1	1	BEB	female	BD7	mother		scHHTrinity	532	sheet2,sheet3	61.40	58.07	63.08	0.0000	13.74	12.16	38.99	53.03	1038	
+HG03596	1	1	BEB	male	BD7	child		scHHTrinity	269	sheet2,sheet3	102.48			0.0001						
+HG03605	1	1	BEB	female	BD11	child		scHHTrinity	382	sheet2,sheet3	58.11			0.0000						
+HG03606	1	1	BEB	male	BD11	father		scHHTrinity	351	sheet2,sheet3	11.75			0.0058						
+HG03607	1	1	BEB	female	BD11	mother		scHHTrinity	435	sheet2,sheet3	53.46	42.52	54.73	0.0001	12.91	10.75				36470:T>C(0.167)
+HG03615	1	1	BEB	male	BD14	father		scHHTrinity	196	sheet2,sheet3	47.85		45.94	0.0001	13.58					36470:T>C(0.104)
+HG03616	1	1	BEB	female	BD14	mother	G10m	scHHTrinity	242	sheet2,sheet3	40.82		47.47	0.0000	13.84		31.98	43.45	811	36470:T>C(0.181)
+HG03617	1	1	BEB	female	BD14	child		scHHTrinity	367	sheet2,sheet3	183.07			0.0000						
+HG03793	1	1	BEB	female	BD15	mother		scHHTrinity	363	sheet2,sheet4	31.77	20.12	27.65	0.0000	14.81	11.70				36470:T>C(0.104)
+HG03794	1	1	BEB	male	BD15	father		scHHTrinity	114	sheet2,sheet4	120.21			0.0000						
+HG03795	1	1	BEB	male	BD15	child		scHHTrinity	2201	sheet2,sheet4	78.64			0.0000						
+HG03796	1	1	BEB	female	BD16	mother		scHHTrinity	99	sheet2,sheet4	51.76		60.02	0.0001	12.22					36470:T>C(0.184)
+HG03797	1	1	BEB	male	BD16	father		scHHTrinity	510	sheet2,sheet4	18.15			0.0000						
+HG03798	1	1	BEB	male	BD16	child		scHHTrinity	523	sheet2,sheet4	35.95			0.0000						
+HG03799	1	1	BEB	female	BD17	mother		scHHTrinity	287	sheet2,sheet4	17.95			0.0000						
+HG03800	1	1	BEB	male	BD17	father		scHHTrinity	575	sheet2,sheet4	21.14	21.27	19.32	0.0000	13.65	11.76				36470:T>C(0.204)
+HG03801	1	1	BEB	female	BD17	child	G10r	scHHTrinity	376	sheet2,sheet4	35.88			0.0000						
+HG03802	1	1	BEB	female	BD18	mother		scHHTrinity	301	sheet2,sheet4	73.52	74.75	70.61	0.0000	15.41	13.27				36470:T>C(0.164);168963:T>G(0.051)
+HG03803	1	1	BEB	male	BD18	father		scHHTrinity	134	sheet2,sheet4	170.93	187.44	171.05	0.0000	15.16	14.44	47.16	34.16	1129	
+HG03804	1	1	BEB	female	BD18	child		scHHTrinity	446	sheet2,sheet4	48.33			0.0001						
+HG03805	1	1	BEB	female	BD19	mother		scHHTrinity	326	sheet2,sheet5	20.67	26.70	20.87	0.0001	12.08	13.98				36470:T>C(0.157)
+HG03806	1	1	BEB	male	BD19	father		scHHTrinity	448	sheet2,sheet5	49.64			0.0000						
+HG03807	1	1	BEB	female	BD19	child		scHHTrinity	330	sheet2,sheet5	44.85			0.0000						
+HG03814	1	1	BEB	female	BD22	mother		scHHTrinity	536	sheet2,sheet5	33.56		35.20	0.0000	13.90					36470:T>C(0.180)
+HG03815	1	1	BEB	male	BD22	father		scHHTrinity	283	sheet2,sheet5	55.52		53.22	0.0000	14.35		29.36	39.48	562	12129:T>A(0.052);163858:G>T(0.043);168963:T>G(0.037)
+HG03816	1	1	BEB	female	BD22	child		scHHTrinity	409	sheet2,sheet5	36.68			0.0000						
+HG03823	1	1	BEB	female	BD25	mother	G9-mid	scHHTrinity	217	sheet2,sheet6	32.86		29.08	0.0000	12.59		14.21	53.02	161	36470:T>C(0.167)
+HG03824	1	1	BEB	male	BD25	father		scHHTrinity	424	sheet2,sheet6	45.04	58.79	39.30	0.0000	13.73	13.76				
+HG03825	1	1	BEB	female	BD25	child		scHHTrinity	309	sheet2,sheet6	25.21			0.0000						
+HG03829	1	1	BEB	female	BD27	mother		scHHTrinity	785	sheet2,sheet6	21.63		24.29	0.0000	11.24					36470:T>C(0.113)
+HG03830	1	1	BEB	male	BD27	father		scHHTrinity	412	sheet2,sheet6	25.99	24.68	25.30	0.0000	13.22	10.72				36470:T>C(0.164);90989:TAA>T(0.014)
+HG03831	1	1	BEB	female	BD27	child		scHHTrinity	649	sheet2,sheet6	28.30			0.0000						
+HG03904	1	1	BEB	female	BD30	mother		scHHTrinity	293	sheet2,sheet5	44.99			0.0000						
+HG03905	1	1	BEB	male	BD30	father		scHHTrinity	189	sheet2,sheet5	41.63		44.85	0.0000	13.28					36470:T>C(0.176);163858:G>T(0.032)
+HG03906	1	1	BEB	male	BD30	child		scHHTrinity	457	sheet2,sheet5	22.95			0.0000						
+HG03907	1	1	BEB	female	BD31	mother		scHHTrinity	517	sheet2,sheet5	49.68		49.34	0.0000	12.59					36470:T>C(0.101)
+HG03908	1	1	BEB	male	BD31	father		scHHTrinity	275	sheet2,sheet5	22.94		24.34	0.0001	12.48					36470:T>C(0.172);36494:G>C(0.090)
+HG03909	1	1	BEB	male	BD31	child		scHHTrinity	519	sheet2,sheet5	38.13			0.0000						
+HG03940	1	1	BEB	female	BD42	mother		scHHTrinity	398	sheet2,sheet6	56.51	44.41	59.95	0.0000	15.69	11.04				36470:T>C(0.159)
+HG03941	1	1	BEB	male	BD42	father		scHHTrinity	186	sheet2,sheet6	34.57	33.39	36.94	0.0000	12.84	11.39				36470:T>C(0.169)
+HG03942	1	1	BEB	male	BD42	child		scHHTrinity	184	sheet2,sheet6	13.04			0.0000						
+HG04155	1	1	BEB	male	BD52	father		scHHTrinity	1058	sheet2,sheet6	15.38		16.90	0.0000	12.06		8.49	32.81	185	36470:T>C(0.151)
+HG04156	1	1	BEB	female	BD52	mother	24	scHHTrinity	461	sheet2,sheet6	25.57	32.97	26.72	0.0000	12.52	11.44	6.31	37.05	144	36470:T>C(0.217)
+HG04157	1	1	BEB	male	BD52	child	24	scHHTrinity	412	sheet2,sheet6	22.15			0.0000						
+NA19020	0	1	LWK	M				scHHMorpheus	276		9.33		40.52	0.0000	12.89					
+NA19024	0	1	LWK	F				scHHMorpheus	569		9.51	13.98	7.84	0.0000	13.11	12.08				
+NA19028	0	1	LWK	M				scHHMorpheus	474		16.74	19.58	26.79	0.0000	12.84	12.56	8.21	50.52	67	36470:T>C(0.170)
+NA19031	0	1	LWK	M				scHHMorpheus	524		11.18	12.05	28.20	0.0000	12.96	14.04				36470:T>C(0.138);36494:G>C(0.085)
+NA19043	0	1	LWK	M				scHHMorpheus	450		86.50	79.98	69.19	0.0000	15.04	12.16				36470:T>C(0.151)
+NA19307	0	1	LWK	M				scHHMorpheus	696		108.31	127.53	316.31	0.0000	13.62	11.99				36470:T>C(0.105)
+NA19310	0	1	LWK	F				scHHMorpheus	526		67.95	73.24	76.07	0.0000	15.13	12.63				
+NA19315	0	1	LWK	F				scHHMorpheus	516		43.15	5.51	31.04	0.2648	13.01	9.63				12129:T>A(0.242);36470:T>C(0.167);93469:G>A(0.259)
+NA19318	0	1	LWK	M				scHHMorpheus	496		50.28		35.01	0.0000	15.96					36470:T>C(0.106)
+NA19327	0	1	LWK	F				scHHMorpheus	451		63.97	95.41	43.60	0.0004	13.46	15.87				36470:T>C(0.130)
+NA19328	0	1	LWK	F				scHHMorpheus	600		34.68	24.47	24.40	0.0000	14.70	15.21				
+NA19379	0	1	LWK	F				scHHMorpheus	464		15.44		9.50	0.0000	12.75					
+NA19391	0	1	LWK	F				scHHMorpheus	594		68.35	45.21	41.44	0.0000	16.56	12.34				168963:T>G(0.041)
+NA19399	0	1	LWK	F				scHHMorpheus	358		4.51	4.90	3.38	0.0000	13.38	8.57				
+NA19430	0	1	LWK	M				scHHMorpheus	603		10.61		3.82	0.0000	12.05		3.39	44.31	81	
+NA19443	0	1	LWK	M				scHHMorpheus	459		23.20		68.37	0.0017	15.73		7.77	45.58	37	
+NA19700	1	1	ASW	male	2367	father	F9-mid	scHHTrinity	210	sheet2	9.79	17.81	6.75	0.0000	11.92	9.91				36470:T>C(0.109);91397:T>G(0.038)
+NA19701	1	1	ASW	female	2367	mother		scHHTrinity	114	sheet2	15.10	15.73	10.63	0.0098	12.94	12.54				
+NA19702	1	1	ASW	male	2367	child		scHHTrinity	523	sheet2	16.88			0.0001						
+NA19703	1	1	ASW	male	2368	father		scHHTrinity	34	sheet2	25.71	34.48	15.97	0.0001	14.30	17.16				36470:T>C(0.148);168963:T>G(0.048)
+NA19704	1	1	ASW	female	2368	mother		scHHTrinity	206	sheet2	22.35		4.64	0.0000	12.22		5.26	35.00	59	
+NA19705	1	1	ASW	male	2368	child		scHHTrinity	194	sheet2	42.96			0.0000						
+NA19818	1	1	ASW	male	2418	father		scHHTrinity	103	sheet2	122.57	116.61	309.23	0.0000	13.85	12.40	29.99	40.88	785	
+NA19819	1	1	ASW	female	2418	mother		scHHTrinity	74	sheet2	74.37	145.77	83.12	0.0000	13.89	13.15				36470:T>C(0.123)
+NA19828	1	1	ASW	male	2418	child		scHHTrinity	282	sheet2	23.37			0.0000						
+NA19834	1	1	ASW	male	2424	father		scHHTrinity	550	sheet2	58.10	32.67	79.08	0.0000	15.08	12.27				36470:T>C(0.105);168963:T>G(0.038)
+NA19835	1	1	ASW	female	2424	mother	F9-righ	scHHTrinity	535	sheet2	110.99	62.95	97.81	0.0000	14.90	13.57	30.86	57.05	606	36470:T>C(0.182)
+NA19836	1	1	ASW	female	2424	child		scHHTrinity	644	sheet2	85.32			0.0000						
+NA19900	1	1	ASW	male	2425	father		scHHTrinity	1243	sheet2	33.55	33.52	48.49	0.0000	11.29	10.18				36470:T>C(0.136)
+NA19901	1	1	ASW	female	2425	mother		scHHTrinity	66	sheet2	27.88	26.34	17.96	0.0000	13.33	11.04	34.98	36.12	861	36470:T>C(0.191);168963:T>G(0.031)
+NA19902	1	1	ASW	female	2425	child		scHHTrinity	717	sheet2	18.18			0.0000						
+NA19908	1	1	ASW	male	2427	father		scHHTrinity	189	sheet2	9.32	10.89	5.31	0.0000	10.96	9.39	5.55	34.30	31	36470:T>C(0.129)
+NA19909	1	1	ASW	female	2427	mother		scHHTrinity	75	sheet2	32.02	24.50	54.49	0.0000	13.28	10.01				
+NA19916	1	1	ASW	male	2431	father		scHHTrinity	256	sheet2	44.50	44.76	21.64	0.0000	15.35	10.86				36494:G>C(0.143)
+NA19917	1	1	ASW	female	2431	mother		scHHTrinity	244	sheet2	24.15		1.32	0.0000	12.57		10.96	65.07	159	
+NA19918	1	1	ASW	male	2431	child		scHHTrinity	744	sheet2	12.90			0.0000						
+NA19919	1	1	ASW	male	2427	child	G11-mid	scHHTrinity	275	sheet2	16.38			0.0000						
+NA19920	1	1	ASW	male	2433	father		scHHTrinity	135	sheet2	102.58		36.05	0.0000	13.18					91397:T>G(0.032)
+NA19921	1	1	ASW	female	2433	mother		scHHTrinity	204	sheet2	31.79	27.60	11.36	0.0001	14.89	12.43				36470:T>C(0.213)
+NA20126	1	1	ASW	male	2446	father		scHHTrinity	249	sheet2	84.53		62.34	0.0000	12.21					168963:T>G(0.037)
+NA20127	1	1	ASW	female	2446	mother		scHHTrinity	155	sheet2	10.70	10.28	8.87	0.0000	12.15	11.10				36470:T>C(0.115)
+NA20128	1	1	ASW	female	2446	child		scHHTrinity	137	sheet2	78.21			0.0000						
+NA20129	1	1	ASW	female	2433	child		scHHTrinity	43	sheet2	51.55			0.0000						
+NA20356	1	1	ASW	male	2494	father		scHHTrinity	134	sheet2	88.79	84.11	92.91	0.0000	15.66	13.76				36470:T>C(0.118);168963:T>G(0.044)
+NA20357	1	1	ASW	female	2494	mother	16	scHHTrinity	111	sheet2	376.84	115.88	302.60	0.0000	8.66	9.32				36470:T>C(0.174)
+NA20358	1	1	ASW	male	2494	child	14	scHHTrinity	211	sheet2	31.16			0.0000						

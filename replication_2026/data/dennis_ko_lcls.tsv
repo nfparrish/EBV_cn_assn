@@ -1,0 +1,481 @@
+iid	in_orderplan	in_table_s1	pop	sex	fam	member	ln2	dataset	n_cells	sheets
+HG00107	0	1	GBR	M				scHHMorpheus	490	
+HG00108	0	1	GBR	M				scHHMorpheus	527	
+HG00109	0	1	GBR	M				scHHMorpheus	570	
+HG00111	0	1	GBR	F				scHHMorpheus	491	
+HG00112	0	1	GBR	M				scHHMorpheus	544	
+HG00113	0	1	GBR	M				scHHMorpheus	514	
+HG00115	0	1	GBR	M				scHHMorpheus	455	
+HG00116	0	1	GBR	M				scHHMorpheus	480	
+HG00117	0	1	GBR	M				scHHMorpheus	536	
+HG00118	0	1	GBR	F				scHHMorpheus	538	
+HG00120	0	1	GBR	F				scHHMorpheus	580	
+HG00121	0	1	GBR	F				scHHMorpheus	410	
+HG00125	0	1	GBR	F				scHHMorpheus	395	
+HG00127	0	1	GBR	F				scHHMorpheus	394	
+HG00154	0	1	GBR	F				scHHMorpheus	664	
+HG00171	1	1	FIN	female	HG00171		G8-right	scHHTrinity	397	sheet2,sheet3
+HG00173	1	1	FIN	female	HG00173			scHHTrinity	242	sheet2,sheet3
+HG00174	1	1	FIN	female	HG00174			scHHTrinity	467	sheet2,sheet3
+HG00176	1	1	FIN	female	HG00176			scHHTrinity	339	sheet2,sheet3
+HG00177	1	1	FIN	female	HG00177			scHHTrinity	289	sheet2,sheet3
+HG00178	1	1	FIN	female	HG00178			scHHTrinity	333	sheet2,sheet3
+HG00179	1	1	FIN	female	HG00179			scHHTrinity	414	sheet2,sheet4
+HG00180	1	1	FIN	female	HG00180			scHHTrinity	288	sheet2,sheet4
+HG00181	1	1	FIN	male	HG00181			scHHTrinity	502	sheet2,sheet3
+HG00182	1	1	FIN	male	HG00182			scHHTrinity	413	sheet2,sheet3
+HG00183	1	1	FIN	male	HG00183		G7-left	scHHTrinity	586	sheet2,sheet3
+HG00185	1	1	FIN	male	HG00185			scHHTrinity	495	sheet2,sheet3
+HG00186	1	1	FIN	male	HG00186			scHHTrinity	686	sheet2,sheet3
+HG00187	1	1	FIN	male	HG00187			scHHTrinity	555	sheet2,sheet3
+HG00188	1	1	FIN	male	HG00188			scHHTrinity	540	sheet2,sheet4
+HG00189	1	1	FIN	male	HG00189			scHHTrinity	342	sheet2,sheet4
+HG00190	1	1	FIN	male	HG00190			scHHTrinity	445	sheet2,sheet4
+HG00231	0	1	GBR	F				scHHMorpheus	434	
+HG00266	1	1	FIN	female	HG00266			scHHTrinity	333	sheet2,sheet4
+HG00267	1	1	FIN	male	HG00267			scHHTrinity	199	sheet2,sheet4
+HG00268	1	1	FIN	female	HG00268			scHHTrinity	509	sheet2,sheet4
+HG00269	1	1	FIN	female	HG00269		G7-right	scHHTrinity	269	sheet2,sheet4
+HG00271	1	1	FIN	male	HG00271			scHHTrinity	395	sheet2,sheet4
+HG00272	1	1	FIN	female	HG00272			scHHTrinity	284	sheet2,sheet4
+HG00273	1	1	FIN	male	HG00273			scHHTrinity	269	sheet2,sheet4
+HG00274	1	1	FIN	female	HG00274			scHHTrinity	306	sheet2,sheet6
+HG00275	1	1	FIN	female	HG00275			scHHTrinity	631	sheet2,sheet6
+HG00276	1	1	FIN	female	HG00276			scHHTrinity	620	sheet2,sheet6
+HG00277	1	1	FIN	male	HG00277			scHHTrinity	393	sheet2,sheet6
+HG00278	1	1	FIN	male	HG00278			scHHTrinity	259	sheet2,sheet6
+HG00280	1	1	FIN	male	HG00280			scHHTrinity	516	sheet2,sheet6
+HG00281	1	1	FIN	female	HG00281			scHHTrinity	403	sheet2,sheet6
+HG00282	1	1	FIN	female	HG00282			scHHTrinity	568	sheet2,sheet6
+HG00284	1	1	FIN	male	HG00284			scHHTrinity	510	sheet2,sheet6
+HG00285	1	1	FIN	female	HG00285			scHHTrinity	303	sheet2,sheet6
+HG00288	1	1	FIN	female	HG00288			scHHTrinity	587	sheet2,sheet6
+HG00290	1	1	FIN	male	HG00290			scHHTrinity	787	sheet2,sheet6
+HG00304	1	1	FIN	female	HG00304			scHHTrinity	275	sheet2,sheet5
+HG00306	1	1	FIN	female	HG00306			scHHTrinity	341	sheet2,sheet5
+HG00308	1	1	FIN	male	HG00308			scHHTrinity	541	sheet2,sheet5
+HG00309	1	1	FIN	female	HG00309			scHHTrinity	431	sheet2,sheet5
+HG00310	1	1	FIN	male	HG00310			scHHTrinity	257	sheet2,sheet5
+HG00311	1	1	FIN	male	HG00311			scHHTrinity	534	sheet2,sheet5
+HG00321	1	1	FIN	male	HG00321			scHHTrinity	471	sheet2,sheet5
+HG00325	1	1	FIN	male	HG00325			scHHTrinity	279	sheet2,sheet5
+HG00329	1	1	FIN	male	HG00329			scHHTrinity	452	sheet2,sheet5
+HG00335	1	1	FIN	male	HG00335			scHHTrinity	861	sheet2,sheet5
+HG00336	1	1	FIN	male	HG00336		26	scHHTrinity	491	sheet2,sheet5
+HG00338	1	1	FIN	male	HG00338		22	scHHTrinity	507	sheet2,sheet5
+HG00404	0	1	CHS	F				scHHMorpheus	514	
+HG00406	0	1	CHS	M				scHHMorpheus	480	
+HG00407	0	1	CHS	F				scHHMorpheus	488	
+HG00418	1	1	CHS	male	SH006	father	C2	scHHTrinity	207	sheet2,sheet3
+HG00419	1	1	CHS	female	SH006	mother		scHHTrinity	337	sheet2,sheet3
+HG00420	1	1	CHS	male	SH006	child		scHHTrinity	326	sheet2,sheet3
+HG00421	1	1	CHS	male	SH007	father		scHHTrinity	270	sheet2,sheet3
+HG00422	1	1	CHS	female	SH007	mother		scHHTrinity	298	sheet2,sheet3
+HG00423	1	1	CHS	female	SH007	child		scHHTrinity	375	sheet2,sheet3
+HG00428	0	1	CHS	F				scHHMorpheus	669	
+HG00436	1	1	CHS	male	SH012	father		scHHTrinity	324	sheet2,sheet3
+HG00437	1	1	CHS	female	SH012	mother		scHHTrinity	258	sheet2,sheet3
+HG00438	1	1	CHS	female	SH012	child		scHHTrinity	364	sheet2,sheet3
+HG00442	0	1	CHS	M				scHHMorpheus	469	
+HG00443	0	1	CHS	F				scHHMorpheus	477	
+HG00445	1	1	CHS	male	SH015	father		scHHTrinity	443	sheet2,sheet3
+HG00446	1	1	CHS	female	SH015	mother		scHHTrinity	455	sheet2,sheet3
+HG00447	1	1	CHS	female	SH015	child		scHHTrinity	421	sheet2,sheet3
+HG00448	1	1	CHS	male	SH016	father		scHHTrinity	610	sheet2,sheet3
+HG00449	1	1	CHS	female	SH016	mother		scHHTrinity	838	sheet2,sheet3
+HG00450	1	1	CHS	female	SH016	child		scHHTrinity	370	sheet2,sheet3
+HG00451	0	1	CHS	M				scHHMorpheus	368	
+HG00457	1	1	CHS	male	SH019	father		scHHTrinity	232	sheet2,sheet3
+HG00458	1	1	CHS	female	SH019	mother		scHHTrinity	439	sheet2,sheet3
+HG00459	1	1	CHS	male	SH019	child		scHHTrinity	458	sheet2,sheet3
+HG00463	0	1	CHS	M				scHHMorpheus	387	
+HG00464	0	1	CHS	F				scHHMorpheus	585	
+HG00472	1	1	CHS	male	SH024	father		scHHTrinity	472	sheet2,sheet3
+HG00473	1	1	CHS	female	SH024	mother		scHHTrinity	279	sheet2,sheet3
+HG00474	1	1	CHS	male	SH024	child	C1	scHHTrinity	391	sheet2,sheet3
+HG00476	0	1	CHS	F				scHHMorpheus	556	
+HG00478	0	1	CHS	M				scHHMorpheus	502	
+HG00479	0	1	CHS	F				scHHMorpheus	580	
+HG00500	1	1	CHS	male	SH028	father		scHHTrinity	287	sheet2,sheet4
+HG00501	1	1	CHS	female	SH028	mother		scHHTrinity	147	sheet2,sheet4
+HG00502	1	1	CHS	male	SH028	child		scHHTrinity	264	sheet2,sheet4
+HG00513	0	1	CHS	F				scHHMorpheus	499	
+HG00524	1	1	CHS	male	SH036	father		scHHTrinity	162	sheet2,sheet4
+HG00525	1	1	CHS	female	SH036	mother		scHHTrinity	323	sheet2,sheet4
+HG00526	1	1	CHS	male	SH036	child		scHHTrinity	245	sheet2,sheet4
+HG00530	0	1	CHS	M				scHHMorpheus	517	
+HG00533	0	1	CHS	M				scHHMorpheus	534	
+HG00536	0	1	CHS	M				scHHMorpheus	516	
+HG00542	1	1	CHS	male	SH042	father		scHHTrinity	459	sheet2,sheet4
+HG00543	1	1	CHS	female	SH042	mother		scHHTrinity	217	sheet2,sheet4
+HG00544	1	1	CHS	female	SH042	child		scHHTrinity	272	sheet2,sheet4
+HG00556	1	1	CHS	male	SH045	father		scHHTrinity	929	sheet2,sheet4
+HG00557	1	1	CHS	female	SH045	mother		scHHTrinity	349	sheet2,sheet4
+HG00558	1	1	CHS	female	SH045	child		scHHTrinity	488	sheet2,sheet4
+HG00559	1	1	CHS	male	SH046	father		scHHTrinity	206	sheet2,sheet4
+HG00560	1	1	CHS	female	SH046	mother		scHHTrinity	303	sheet2,sheet4
+HG00561	1	1	CHS	female	SH046	child		scHHTrinity	183	sheet2,sheet4
+HG00565	1	1	CHS	male	SH048	father		scHHTrinity	220	sheet2,sheet4
+HG00566	1	1	CHS	female	SH048	mother		scHHTrinity	178	sheet2,sheet4
+HG00567	1	1	CHS	male	SH048	child		scHHTrinity	336	sheet2,sheet4
+HG00577	1	1	CHS	male	SH052	father		scHHTrinity	319	sheet2,sheet4
+HG00578	1	1	CHS	female	SH052	mother	D6-mid	scHHTrinity	164	sheet2,sheet4
+HG00579	1	1	CHS	female	SH052	child		scHHTrinity	178	sheet2,sheet4
+HG00580	1	1	CHS	male	SH053	father		scHHTrinity	298	sheet2,sheet5
+HG00581	1	1	CHS	female	SH053	mother		scHHTrinity	114	sheet2,sheet5
+HG00582	1	1	CHS	female	SH053	child		scHHTrinity	166	sheet2,sheet5
+HG00583	1	1	CHS	male	SH054	father		scHHTrinity	456	sheet2,sheet5
+HG00584	1	1	CHS	female	SH054	mother		scHHTrinity	462	sheet2,sheet5
+HG00585	1	1	CHS	female	SH054	child		scHHTrinity	400	sheet2,sheet5
+HG00589	1	1	CHS	male	SH056	father		scHHTrinity	408	sheet2,sheet5
+HG00590	1	1	CHS	female	SH056	mother		scHHTrinity	648	sheet2,sheet5
+HG00591	1	1	CHS	male	SH056	child	D6-right	scHHTrinity	356	sheet2,sheet5
+HG00592	1	1	CHS	male	SH057	father		scHHTrinity	839	sheet2,sheet5
+HG00593	1	1	CHS	female	SH057	mother		scHHTrinity	271	sheet2,sheet5
+HG00594	1	1	CHS	male	SH057	child		scHHTrinity	643	sheet2,sheet5
+HG00595	1	1	CHS	male	SH058	father		scHHTrinity	635	sheet2,sheet5
+HG00596	1	1	CHS	female	SH058	mother		scHHTrinity	324	sheet2,sheet5
+HG00597	1	1	CHS	female	SH058	child		scHHTrinity	366	sheet2,sheet5
+HG00607	1	1	CHS	male	SH062	father		scHHTrinity	194	sheet2,sheet5
+HG00608	1	1	CHS	female	SH062	mother		scHHTrinity	410	sheet2,sheet5
+HG00609	1	1	CHS	male	SH062	child		scHHTrinity	269	sheet2,sheet5
+HG00610	1	1	CHS	male	SH063	father	D5-mid	scHHTrinity	54	sheet2,sheet6
+HG00611	1	1	CHS	female	SH063	mother		scHHTrinity	351	sheet2,sheet6
+HG00612	1	1	CHS	female	SH063	child		scHHTrinity	239	sheet2,sheet6
+HG00613	1	1	CHS	male	SH064	father		scHHTrinity	181	sheet2,sheet6
+HG00614	1	1	CHS	female	SH064	mother		scHHTrinity	239	sheet2,sheet6
+HG00615	1	1	CHS	female	SH064	child		scHHTrinity	547	sheet2,sheet6
+HG00619	1	1	CHS	male	SH066	father		scHHTrinity	166	sheet2,sheet6
+HG00620	1	1	CHS	female	SH066	mother		scHHTrinity	184	sheet2,sheet6
+HG00621	1	1	CHS	male	SH066	child		scHHTrinity	246	sheet2,sheet6
+HG00625	1	1	CHS	male	SH068	father		scHHTrinity	226	sheet2,sheet6
+HG00626	1	1	CHS	female	SH068	mother	D5-right	scHHTrinity	209	sheet2,sheet6
+HG00627	1	1	CHS	male	SH068	child		scHHTrinity	320	sheet2,sheet6
+HG00628	1	1	CHS	male	SH069	father		scHHTrinity	265	sheet2,sheet6
+HG00629	1	1	CHS	female	SH069	mother		scHHTrinity	235	sheet2,sheet6
+HG00630	1	1	CHS	male	SH069	child		scHHTrinity	256	sheet2,sheet6
+HG00634	1	1	CHS	male	SH071	father		scHHTrinity	275	sheet2,sheet6
+HG00635	1	1	CHS	female	SH071	mother		scHHTrinity	220	sheet2,sheet6
+HG00636	1	1	CHS	male	SH071	child		scHHTrinity	289	sheet2,sheet6
+HG00650	1	1	CHS	male	SH072	father		scHHTrinity	332	sheet2,sheet6
+HG00651	1	1	CHS	female	SH072	mother		scHHTrinity	408	sheet2,sheet6
+HG00652	1	1	CHS	female	SH072	child	D4-mid	scHHTrinity	214	sheet2,sheet6
+HG00656	1	1	CHS	male	SH074	father		scHHTrinity	357	sheet2,sheet5
+HG00657	1	1	CHS	female	SH074	mother	42	scHHTrinity	271	sheet2,sheet5
+HG00658	1	1	CHS	male	SH074	child	42	scHHTrinity	223	sheet2,sheet5
+HG01507	0	1	IBS	F				scHHNeo	281	
+HG01518	0	1	IBS	M				scHHNeo	169	
+HG01519	0	1	IBS	F				scHHNeo	837	
+HG01530	0	1	IBS	M				scHHNeo	173	
+HG01531	0	1	IBS	F				scHHNeo	135	
+HG01565	1	1	PEL	male	PEL001	father	D4-mid	scHHTrinity	562	sheet2,sheet3
+HG01566	1	1	PEL	female	PEL001	mother		scHHTrinity	461	sheet2,sheet3
+HG01567	1	1	PEL	female	PEL001	child		scHHTrinity	268	sheet2,sheet3
+HG01571	1	1	PEL	male	PEL003	father		scHHTrinity	272	sheet2,sheet3
+HG01572	1	1	PEL	female	PEL003	mother		scHHTrinity	631	sheet2,sheet3
+HG01573	1	1	PEL	female	PEL003	child		scHHTrinity	2151	sheet2,sheet3
+HG01577	1	1	PEL	male	PEL005	father	D4-right	scHHTrinity	1671	sheet2,sheet3
+HG01578	1	1	PEL	female	PEL005	mother		scHHTrinity	492	sheet2,sheet3
+HG01579	1	1	PEL	male	PEL005	child		scHHTrinity	368	sheet2,sheet3
+HG01607	0	1	IBS	F				scHHNeo	116	
+HG01610	0	1	IBS	M				scHHNeo	240	
+HG01675	0	1	IBS	M				scHHNeo	349	
+HG01680	0	1	IBS	M				scHHNeo	355	
+HG01707	0	1	IBS	F				scHHNeo	220	
+HG01756	0	1	IBS	M				scHHNeo	129	
+HG01765	0	1	IBS	M				scHHNeo	186	
+HG01770	0	1	IBS	F				scHHNeo	802	
+HG01784	0	1	IBS	F				scHHNeo	372	
+HG01785	0	1	IBS	M				scHHNeo	136	
+HG01786	0	1	IBS	F				scHHNeo	275	
+HG01879	1	1	ACB	male	BB01	father		scHHTrinity	153	sheet2,sheet3
+HG01880	1	1	ACB	female	BB01	mother		scHHTrinity	498	sheet2,sheet3
+HG01881	1	1	ACB	female	BB01	child	E11-right	scHHTrinity	194	sheet2,sheet3
+HG01882	1	1	ACB	male	BB02	father		scHHTrinity	324	sheet2,sheet3
+HG01883	1	1	ACB	female	BB02	mother		scHHTrinity	247	sheet2,sheet3
+HG01884	1	1	ACB	female	BB03	child		scHHTrinity	52	sheet2,sheet3
+HG01885	1	1	ACB	male	BB03	father		scHHTrinity	109	sheet2,sheet3
+HG01886	1	1	ACB	female	BB04	mother		scHHTrinity	209	sheet2,sheet3
+HG01887	1	1	ACB	male	BB04	child		scHHTrinity	364	sheet2,sheet3
+HG01888	1	1	ACB	male	BB02	child		scHHTrinity	310	sheet2,sheet3
+HG01889	1	1	ACB	female	BB05	mother	E10-mid	scHHTrinity	470	sheet2,sheet3
+HG01890	1	1	ACB	male	BB05	father		scHHTrinity	837	sheet2,sheet3
+HG01891	1	1	ACB	female	BB05	child		scHHTrinity	436	sheet2,sheet3
+HG01892	1	1	PEL	male	PEL007	father		scHHTrinity	504	sheet2,sheet3
+HG01893	1	1	PEL	female	PEL007	mother		scHHTrinity	340	sheet2,sheet3
+HG01894	1	1	ACB	female	BB06	mother		scHHTrinity	176	sheet2,sheet3
+HG01895	1	1	ACB	male	BB06	child		scHHTrinity	574	sheet2,sheet3
+HG01896	1	1	ACB	female	BB07	mother		scHHTrinity	412	sheet2,sheet3
+HG01897	1	1	ACB	male	BB07	child		scHHTrinity	1052	sheet2,sheet3
+HG01898	1	1	PEL	female	PEL007	child		scHHTrinity	385	sheet2,sheet3
+HG01912	1	1	ACB	male	BB06	father		scHHTrinity	650	sheet2,sheet3
+HG01914	1	1	ACB	male	BB09	father		scHHTrinity	896	sheet2,sheet4
+HG01915	1	1	ACB	female	BB09	mother	E10-right	scHHTrinity	744	sheet2,sheet4
+HG01916	1	1	ACB	female	BB09	child		scHHTrinity	502	sheet2,sheet4
+HG01917	1	1	PEL	male	PEL006	father		scHHTrinity	1013	sheet2,sheet3
+HG01918	1	1	PEL	female	PEL006	mother		scHHTrinity	667	sheet2,sheet3
+HG01919	1	1	PEL	female	PEL006	child		scHHTrinity	424	sheet2,sheet3
+HG01920	1	1	PEL	male	PEL009	father		scHHTrinity	404	sheet2,sheet4
+HG01921	1	1	PEL	female	PEL009	mother	D3-mid	scHHTrinity	831	sheet2,sheet4
+HG01922	1	1	PEL	female	PEL009	child		scHHTrinity	942	sheet2,sheet4
+HG01923	1	1	PEL	male	PEL010	father		scHHTrinity	449	sheet2,sheet4
+HG01924	1	1	PEL	female	PEL010	mother		scHHTrinity	923	sheet2,sheet4
+HG01925	1	1	PEL	female	PEL010	child		scHHTrinity	544	sheet2,sheet4
+HG01926	1	1	PEL	male	PEL011	father		scHHTrinity	466	sheet2,sheet3
+HG01927	1	1	PEL	female	PEL011	mother		scHHTrinity	471	sheet2,sheet3
+HG01928	1	1	PEL	male	PEL011	child		scHHTrinity	524	sheet2,sheet3
+HG01932	1	1	PEL	male	PEL013	father		scHHTrinity	328	sheet2,sheet3
+HG01933	1	1	PEL	female	PEL013	mother		scHHTrinity	351	sheet2,sheet3
+HG01934	1	1	PEL	male	PEL013	child	D3-right	scHHTrinity	452	sheet2,sheet3
+HG01935	1	1	PEL	male	PEL014	father		scHHTrinity	414	sheet2,sheet4
+HG01936	1	1	PEL	female	PEL014	mother		scHHTrinity	451	sheet2,sheet4
+HG01937	1	1	PEL	male	PEL014	child		scHHTrinity	568	sheet2,sheet4
+HG01938	1	1	PEL	male	PEL015	father		scHHTrinity	337	sheet2,sheet4
+HG01939	1	1	PEL	female	PEL015	mother		scHHTrinity	309	sheet2,sheet4
+HG01940	1	1	PEL	female	PEL015	child		scHHTrinity	403	sheet2,sheet4
+HG01941	1	1	PEL	male	PEL016	father		scHHTrinity	291	sheet2,sheet4
+HG01942	1	1	PEL	female	PEL016	mother		scHHTrinity	226	sheet2,sheet4
+HG01943	1	1	PEL	male	PEL016	child		scHHTrinity	553	sheet2,sheet4
+HG01944	1	1	PEL	male	PEL017	father	D2-left	scHHTrinity	464	sheet2,sheet4
+HG01945	1	1	PEL	female	PEL017	mother		scHHTrinity	418	sheet2,sheet4
+HG01946	1	1	PEL	male	PEL017	child		scHHTrinity	368	sheet2,sheet4
+HG01947	1	1	PEL	male	PEL018	father		scHHTrinity	192	sheet2,sheet4
+HG01948	1	1	PEL	female	PEL018	mother		scHHTrinity	502	sheet2,sheet4
+HG01949	1	1	PEL	female	PEL018	child		scHHTrinity	394	sheet2,sheet4
+HG01950	1	1	PEL	male	PEL019	father		scHHTrinity	674	sheet2,sheet5
+HG01951	1	1	PEL	female	PEL019	mother		scHHTrinity	171	sheet2,sheet5
+HG01952	1	1	PEL	male	PEL019	child		scHHTrinity	237	sheet2,sheet5
+HG01953	1	1	PEL	male	PEL020	father		scHHTrinity	284	sheet2,sheet5
+HG01954	1	1	PEL	female	PEL020	mother	D2-right	scHHTrinity	1000	sheet2,sheet5
+HG01955	1	1	PEL	female	PEL020	child		scHHTrinity	474	sheet2,sheet5
+HG01956	1	1	ACB	female	BB03	mother		scHHTrinity	325	sheet2,sheet3
+HG01958	1	1	ACB	female	BB10	mother		scHHTrinity	184	sheet2,sheet4
+HG01959	1	1	ACB	female	BB10	child		scHHTrinity	392	sheet2,sheet4
+HG01960	1	1	ACB	female	BB11	child		scHHTrinity	681	sheet2,sheet4
+HG01967	1	1	PEL	male	PEL023	father		scHHTrinity	1469	sheet2,sheet5
+HG01968	1	1	PEL	female	PEL023	mother		scHHTrinity	637	sheet2,sheet5
+HG01969	1	1	PEL	female	PEL023	child		scHHTrinity	1097	sheet2,sheet5
+HG01970	1	1	PEL	male	PEL024	father		scHHTrinity	333	sheet2,sheet5
+HG01971	1	1	PEL	female	PEL024	mother		scHHTrinity	340	sheet2,sheet5
+HG01972	1	1	PEL	female	PEL024	child		scHHTrinity	730	sheet2,sheet5
+HG01973	1	1	PEL	female	PEL25	mother		scHHTrinity	566	sheet2,sheet5
+HG01974	1	1	PEL	male	PEL25	father		scHHTrinity	418	sheet2,sheet5
+HG01975	1	1	PEL	female	PEL25	child	D1-left	scHHTrinity	514	sheet2,sheet5
+HG01976	1	1	PEL	female	PEL26	mother		scHHTrinity	833	sheet2,sheet5
+HG01977	1	1	PEL	male	PEL26	father		scHHTrinity	490	sheet2,sheet5
+HG01978	1	1	PEL	female	PEL26	child		scHHTrinity	705	sheet2,sheet5
+HG01979	1	1	PEL	male	PEL27	father		scHHTrinity	762	sheet2,sheet6
+HG01980	1	1	PEL	female	PEL27	mother		scHHTrinity	263	sheet2,sheet6
+HG01981	1	1	PEL	female	PEL27	child		scHHTrinity	419	sheet2,sheet6
+HG01982	1	1	PEL	male	PEL28	father		scHHTrinity	757	sheet2,sheet5
+HG01983	1	1	PEL	female	PEL28	mother		scHHTrinity	489	sheet2,sheet5
+HG01984	1	1	PEL	male	PEL28	child		scHHTrinity	413	sheet2,sheet5
+HG01986	1	1	ACB	male	BB10	father		scHHTrinity	214	sheet2,sheet4
+HG01987	1	1	ACB	male	BB12	child		scHHTrinity	464	sheet2,sheet4
+HG01988	1	1	ACB	male	BB11	father		scHHTrinity	457	sheet2,sheet4
+HG01989	1	1	ACB	female	BB11	mother		scHHTrinity	253	sheet2,sheet4
+HG01990	1	1	ACB	male	BB12	father		scHHTrinity	313	sheet2,sheet4
+HG01991	1	1	PEL	male	PEL29	father	D1-right	scHHTrinity	330	sheet2,sheet6
+HG01992	1	1	PEL	female	PEL29	mother		scHHTrinity	259	sheet2,sheet6
+HG01993	1	1	PEL	female	PEL29	child		scHHTrinity	379	sheet2,sheet6
+HG02002	1	1	PEL	male	PEL33	father		scHHTrinity	1343	sheet2,sheet6
+HG02003	1	1	PEL	female	PEL33	mother		scHHTrinity	700	sheet2,sheet6
+HG02004	1	1	PEL	female	PEL33	child		scHHTrinity	467	sheet2,sheet6
+HG02009	1	1	ACB	male	BB13	father		scHHTrinity	148	sheet2,sheet4
+HG02010	1	1	ACB	female	BB13	mother		scHHTrinity	137	sheet2,sheet4
+HG02011	1	1	ACB	male	BB13	child		scHHTrinity	319	sheet2,sheet4
+HG02012	1	1	ACB	female	BB12	mother	E9-mid	scHHTrinity	141	sheet2,sheet4
+HG02013	1	1	ACB	male	BB07	father		scHHTrinity	150	sheet2,sheet3
+HG02014	1	1	ACB	male	BB04	father		scHHTrinity	366	sheet2,sheet3
+HG02016	0	1	KHV	F				scHHNeo	261	
+HG02017	0	1	KHV	M				scHHNeo	279	
+HG02029	0	1	KHV	M				scHHNeo	147	
+HG02031	0	1	KHV	F				scHHNeo	317	
+HG02032	0	1	KHV	M				scHHNeo	348	
+HG02053	1	1	ACB	male	BB15	father		scHHTrinity	373	sheet2,sheet4
+HG02054	1	1	ACB	female	BB15	mother		scHHTrinity	2083	sheet2,sheet4
+HG02055	1	1	ACB	male	BB15	child		scHHTrinity	926	sheet2,sheet4
+HG02057	0	1	KHV	F				scHHNeo	263	
+HG02072	0	1	KHV	F				scHHNeo	314	
+HG02073	0	1	KHV	M				scHHNeo	254	
+HG02075	0	1	KHV	F				scHHNeo	620	
+HG02076	0	1	KHV	M				scHHNeo	142	
+HG02082	0	1	KHV	M				scHHNeo	281	
+HG02089	1	1	PEL	female	PEL35	mother		scHHTrinity	959	sheet2,sheet6
+HG02090	1	1	PEL	male	PEL35	father		scHHTrinity	1284	sheet2,sheet6
+HG02091	1	1	PEL	female	PEL35	child		scHHTrinity	370	sheet2,sheet6
+HG02122	0	1	KHV	M				scHHNeo	218	
+HG02128	0	1	KHV	M				scHHNeo	334	
+HG02131	0	1	KHV	M				scHHNeo	160	
+HG02133	0	1	KHV	F				scHHNeo	149	
+HG02143	1	1	ACB	male	BB20	father		scHHTrinity	154	sheet2,sheet4
+HG02144	1	1	ACB	female	BB20	mother		scHHTrinity	153	sheet2,sheet4
+HG02145	1	1	ACB	male	BB20	child		scHHTrinity	562	sheet2,sheet4
+HG02255	1	1	ACB	male	BB21	father	E9-right	scHHTrinity	629	sheet2,sheet5
+HG02256	1	1	ACB	female	BB21	mother		scHHTrinity	374	sheet2,sheet5
+HG02257	1	1	ACB	female	BB21	child		scHHTrinity	459	sheet2,sheet5
+HG02258	1	1	ACB	male	BB22	child		scHHTrinity	291	sheet2,sheet5
+HG02259	1	1	PEL	male	PEL42	father		scHHTrinity	511	sheet2,sheet6
+HG02260	1	1	PEL	female	PEL42	mother	E11-mid	scHHTrinity	285	sheet2,sheet6
+HG02261	1	1	PEL	male	PEL42	child		scHHTrinity	440	sheet2,sheet6
+HG02277	1	1	PEL	male	PEL48	father		scHHTrinity	421	sheet2,sheet6
+HG02278	1	1	PEL	female	PEL48	mother		scHHTrinity	554	sheet2,sheet6
+HG02279	1	1	PEL	male	PEL48	child		scHHTrinity	978	sheet2,sheet6
+HG02280	1	1	ACB	female	BB23	child		scHHTrinity	267	sheet2,sheet5
+HG02281	1	1	ACB	male	BB24	father		scHHTrinity	134	sheet2,sheet5
+HG02282	1	1	ACB	female	BB24	mother	F11-mid	scHHTrinity	188	sheet2,sheet5
+HG02298	1	1	PEL	female	PEL52	mother		scHHTrinity	511	sheet2,sheet6
+HG02299	1	1	PEL	male	PEL52	father	39	scHHTrinity	391	sheet2,sheet6
+HG02300	1	1	PEL	male	PEL52	child	45	scHHTrinity	299	sheet2,sheet6
+HG02307	1	1	ACB	male	BB23	father		scHHTrinity	546	sheet2,sheet5
+HG02308	1	1	ACB	female	BB23	mother		scHHTrinity	509	sheet2,sheet5
+HG02314	1	1	ACB	male	BB22	father		scHHTrinity	159	sheet2,sheet5
+HG02315	1	1	ACB	female	BB22	mother		scHHTrinity	85	sheet2,sheet5
+HG02316	1	1	ACB	male	BB27	child		scHHTrinity	298	sheet2,sheet5
+HG02317	1	1	ACB	male	BB27	father		scHHTrinity	652	sheet2,sheet5
+HG02318	1	1	ACB	female	BB27	mother		scHHTrinity	78	sheet2,sheet5
+HG02321	1	1	ACB	female	BB24	child		scHHTrinity	570	sheet2,sheet5
+HG02449	1	1	ACB	male	BB46	father		scHHTrinity	423	sheet2,sheet5
+HG02450	1	1	ACB	female	BB46	mother	30	scHHTrinity	141	sheet2,sheet5
+HG02451	1	1	ACB	female	BB46	child	30	scHHTrinity	156	sheet2,sheet5
+HG02522	0	1	KHV	F				scHHNeo	172	
+HG02922	0	1	ESN	F				scHHNeo	253	
+HG02943	0	1	ESN	F				scHHNeo	100	
+HG02944	0	1	ESN	M				scHHNeo	125	
+HG02952	0	1	ESN	F				scHHNeo	175	
+HG02970	0	1	ESN	F				scHHNeo	150	
+HG02971	0	1	ESN	M				scHHNeo	1180	
+HG02973	0	1	ESN	M				scHHNeo	225	
+HG02977	0	1	ESN	M				scHHNeo	194	
+HG02979	0	1	ESN	F				scHHNeo	191	
+HG03006	1	1	BEB	male	BD01	father	G11-right	scHHTrinity	420	sheet2,sheet3
+HG03007	1	1	BEB	female	BD01	mother		scHHTrinity	363	sheet2,sheet3
+HG03008	1	1	BEB	male	BD01	child		scHHTrinity	374	sheet2,sheet3
+HG03054	1	1	MSL	male	SL02	father	F11-right	scHHTrinity	173	sheet2,sheet3
+HG03055	1	1	MSL	female	SL02	mother		scHHTrinity	1179	sheet2,sheet3
+HG03056	1	1	MSL	male	SL02	child		scHHTrinity	572	sheet2,sheet3
+HG03063	1	1	MSL	male	SL05	father		scHHTrinity	310	sheet2,sheet3
+HG03064	1	1	MSL	female	SL05	mother		scHHTrinity	214	sheet2,sheet3
+HG03065	1	1	MSL	male	SL05	child		scHHTrinity	118	sheet2,sheet3
+HG03096	1	1	MSL	male	SL16	father		scHHTrinity	151	sheet2,sheet4
+HG03097	1	1	MSL	female	SL16	mother		scHHTrinity	93	sheet2,sheet4
+HG03098	1	1	MSL	male	SL16	child		scHHTrinity	84	sheet2,sheet4
+HG03109	0	1	ESN	M				scHHNeo	57	
+HG03111	0	1	ESN	F				scHHNeo	142	
+HG03126	0	1	ESN	F				scHHNeo	189	
+HG03127	0	1	ESN	M				scHHNeo	115	
+HG03162	0	1	ESN	F				scHHNeo	462	
+HG03168	0	1	ESN	F				scHHNeo	230	
+HG03169	0	1	ESN	M				scHHNeo	102	
+HG03451	1	1	MSL	male	SL50	father		scHHTrinity	295	sheet2,sheet3
+HG03452	1	1	MSL	female	SL50	mother	F10-mid	scHHTrinity	820	sheet2,sheet3
+HG03453	1	1	MSL	female	SL50	child		scHHTrinity	452	sheet2,sheet3
+HG03454	1	1	MSL	male	SL51	father		scHHTrinity	324	sheet2,sheet4
+HG03455	1	1	MSL	female	SL51	mother		scHHTrinity	240	sheet2,sheet4
+HG03456	1	1	MSL	male	SL51	child		scHHTrinity	96	sheet2,sheet4
+HG03478	1	1	MSL	male	SL59	father		scHHTrinity	225	sheet2,sheet4
+HG03479	1	1	MSL	female	SL59	mother		scHHTrinity	260	sheet2,sheet4
+HG03480	1	1	MSL	female	SL59	child		scHHTrinity	257	sheet2,sheet4
+HG03484	1	1	MSL	male	SL61	father		scHHTrinity	283	sheet2,sheet5
+HG03485	1	1	MSL	female	SL61	mother		scHHTrinity	124	sheet2,sheet5
+HG03486	1	1	MSL	female	SL61	child	F10-right	scHHTrinity	189	sheet2,sheet5
+HG03574	1	1	MSL	male	SL71	father		scHHTrinity	324	sheet2,sheet5
+HG03575	1	1	MSL	female	SL71	mother		scHHTrinity	299	sheet2,sheet5
+HG03576	1	1	MSL	female	SL71	child		scHHTrinity	492	sheet2,sheet5
+HG03577	1	1	MSL	male	SL72	father		scHHTrinity	259	sheet2,sheet5
+HG03578	1	1	MSL	female	SL72	mother		scHHTrinity	531	sheet2,sheet5
+HG03579	1	1	MSL	male	SL72	child		scHHTrinity	240	sheet2,sheet5
+HG03582	1	1	MSL	male	SL73	father		scHHTrinity	446	sheet2,sheet5
+HG03583	1	1	MSL	female	SL73	mother	15	scHHTrinity	129	sheet2,sheet5
+HG03584	1	1	MSL	female	SL73	child	15	scHHTrinity	599	sheet2,sheet5
+HG03594	1	1	BEB	male	BD7	father		scHHTrinity	644	sheet2,sheet3
+HG03595	1	1	BEB	female	BD7	mother		scHHTrinity	532	sheet2,sheet3
+HG03596	1	1	BEB	male	BD7	child		scHHTrinity	269	sheet2,sheet3
+HG03605	1	1	BEB	female	BD11	child		scHHTrinity	382	sheet2,sheet3
+HG03606	1	1	BEB	male	BD11	father		scHHTrinity	351	sheet2,sheet3
+HG03607	1	1	BEB	female	BD11	mother		scHHTrinity	435	sheet2,sheet3
+HG03615	1	1	BEB	male	BD14	father		scHHTrinity	196	sheet2,sheet3
+HG03616	1	1	BEB	female	BD14	mother	G10m	scHHTrinity	242	sheet2,sheet3
+HG03617	1	1	BEB	female	BD14	child		scHHTrinity	367	sheet2,sheet3
+HG03793	1	1	BEB	female	BD15	mother		scHHTrinity	363	sheet2,sheet4
+HG03794	1	1	BEB	male	BD15	father		scHHTrinity	114	sheet2,sheet4
+HG03795	1	1	BEB	male	BD15	child		scHHTrinity	2201	sheet2,sheet4
+HG03796	1	1	BEB	female	BD16	mother		scHHTrinity	99	sheet2,sheet4
+HG03797	1	1	BEB	male	BD16	father		scHHTrinity	510	sheet2,sheet4
+HG03798	1	1	BEB	male	BD16	child		scHHTrinity	523	sheet2,sheet4
+HG03799	1	1	BEB	female	BD17	mother		scHHTrinity	287	sheet2,sheet4
+HG03800	1	1	BEB	male	BD17	father		scHHTrinity	575	sheet2,sheet4
+HG03801	1	1	BEB	female	BD17	child	G10r	scHHTrinity	376	sheet2,sheet4
+HG03802	1	1	BEB	female	BD18	mother		scHHTrinity	301	sheet2,sheet4
+HG03803	1	1	BEB	male	BD18	father		scHHTrinity	134	sheet2,sheet4
+HG03804	1	1	BEB	female	BD18	child		scHHTrinity	446	sheet2,sheet4
+HG03805	1	1	BEB	female	BD19	mother		scHHTrinity	326	sheet2,sheet5
+HG03806	1	1	BEB	male	BD19	father		scHHTrinity	448	sheet2,sheet5
+HG03807	1	1	BEB	female	BD19	child		scHHTrinity	330	sheet2,sheet5
+HG03814	1	1	BEB	female	BD22	mother		scHHTrinity	536	sheet2,sheet5
+HG03815	1	1	BEB	male	BD22	father		scHHTrinity	283	sheet2,sheet5
+HG03816	1	1	BEB	female	BD22	child		scHHTrinity	409	sheet2,sheet5
+HG03823	1	1	BEB	female	BD25	mother	G9-mid	scHHTrinity	217	sheet2,sheet6
+HG03824	1	1	BEB	male	BD25	father		scHHTrinity	424	sheet2,sheet6
+HG03825	1	1	BEB	female	BD25	child		scHHTrinity	309	sheet2,sheet6
+HG03829	1	1	BEB	female	BD27	mother		scHHTrinity	785	sheet2,sheet6
+HG03830	1	1	BEB	male	BD27	father		scHHTrinity	412	sheet2,sheet6
+HG03831	1	1	BEB	female	BD27	child		scHHTrinity	649	sheet2,sheet6
+HG03904	1	1	BEB	female	BD30	mother		scHHTrinity	293	sheet2,sheet5
+HG03905	1	1	BEB	male	BD30	father		scHHTrinity	189	sheet2,sheet5
+HG03906	1	1	BEB	male	BD30	child		scHHTrinity	457	sheet2,sheet5
+HG03907	1	1	BEB	female	BD31	mother		scHHTrinity	517	sheet2,sheet5
+HG03908	1	1	BEB	male	BD31	father		scHHTrinity	275	sheet2,sheet5
+HG03909	1	1	BEB	male	BD31	child		scHHTrinity	519	sheet2,sheet5
+HG03940	1	1	BEB	female	BD42	mother		scHHTrinity	398	sheet2,sheet6
+HG03941	1	1	BEB	male	BD42	father		scHHTrinity	186	sheet2,sheet6
+HG03942	1	1	BEB	male	BD42	child		scHHTrinity	184	sheet2,sheet6
+HG04155	1	1	BEB	male	BD52	father		scHHTrinity	1058	sheet2,sheet6
+HG04156	1	1	BEB	female	BD52	mother	24	scHHTrinity	461	sheet2,sheet6
+HG04157	1	1	BEB	male	BD52	child	24	scHHTrinity	412	sheet2,sheet6
+NA19020	0	1	LWK	M				scHHMorpheus	276	
+NA19024	0	1	LWK	F				scHHMorpheus	569	
+NA19028	0	1	LWK	M				scHHMorpheus	474	
+NA19031	0	1	LWK	M				scHHMorpheus	524	
+NA19043	0	1	LWK	M				scHHMorpheus	450	
+NA19307	0	1	LWK	M				scHHMorpheus	696	
+NA19310	0	1	LWK	F				scHHMorpheus	526	
+NA19315	0	1	LWK	F				scHHMorpheus	516	
+NA19318	0	1	LWK	M				scHHMorpheus	496	
+NA19327	0	1	LWK	F				scHHMorpheus	451	
+NA19328	0	1	LWK	F				scHHMorpheus	600	
+NA19379	0	1	LWK	F				scHHMorpheus	464	
+NA19391	0	1	LWK	F				scHHMorpheus	594	
+NA19399	0	1	LWK	F				scHHMorpheus	358	
+NA19430	0	1	LWK	M				scHHMorpheus	603	
+NA19443	0	1	LWK	M				scHHMorpheus	459	
+NA19700	1	1	ASW	male	2367	father	F9-mid	scHHTrinity	210	sheet2
+NA19701	1	1	ASW	female	2367	mother		scHHTrinity	114	sheet2
+NA19702	1	1	ASW	male	2367	child		scHHTrinity	523	sheet2
+NA19703	1	1	ASW	male	2368	father		scHHTrinity	34	sheet2
+NA19704	1	1	ASW	female	2368	mother		scHHTrinity	206	sheet2
+NA19705	1	1	ASW	male	2368	child		scHHTrinity	194	sheet2
+NA19818	1	1	ASW	male	2418	father		scHHTrinity	103	sheet2
+NA19819	1	1	ASW	female	2418	mother		scHHTrinity	74	sheet2
+NA19828	1	1	ASW	male	2418	child		scHHTrinity	282	sheet2
+NA19834	1	1	ASW	male	2424	father		scHHTrinity	550	sheet2
+NA19835	1	1	ASW	female	2424	mother	F9-righ	scHHTrinity	535	sheet2
+NA19836	1	1	ASW	female	2424	child		scHHTrinity	644	sheet2
+NA19900	1	1	ASW	male	2425	father		scHHTrinity	1243	sheet2
+NA19901	1	1	ASW	female	2425	mother		scHHTrinity	66	sheet2
+NA19902	1	1	ASW	female	2425	child		scHHTrinity	717	sheet2
+NA19908	1	1	ASW	male	2427	father		scHHTrinity	189	sheet2
+NA19909	1	1	ASW	female	2427	mother		scHHTrinity	75	sheet2
+NA19916	1	1	ASW	male	2431	father		scHHTrinity	256	sheet2
+NA19917	1	1	ASW	female	2431	mother		scHHTrinity	244	sheet2
+NA19918	1	1	ASW	male	2431	child		scHHTrinity	744	sheet2
+NA19919	1	1	ASW	male	2427	child	G11-mid	scHHTrinity	275	sheet2
+NA19920	1	1	ASW	male	2433	father		scHHTrinity	135	sheet2
+NA19921	1	1	ASW	female	2433	mother		scHHTrinity	204	sheet2
+NA20126	1	1	ASW	male	2446	father		scHHTrinity	249	sheet2
+NA20127	1	1	ASW	female	2446	mother		scHHTrinity	155	sheet2
+NA20128	1	1	ASW	female	2446	child		scHHTrinity	137	sheet2
+NA20129	1	1	ASW	female	2433	child		scHHTrinity	43	sheet2
+NA20356	1	1	ASW	male	2494	father		scHHTrinity	134	sheet2
+NA20357	1	1	ASW	female	2494	mother	16	scHHTrinity	111	sheet2
+NA20358	1	1	ASW	male	2494	child	14	scHHTrinity	211	sheet2

@@ -2,8 +2,26 @@
 
 [![Docs](https://img.shields.io/badge/docs-index-blue)](pipeline/docs/INDEX.md)
 [![HPC WGS10](https://img.shields.io/badge/HPC-WGS10%20sbatch-green)](pipeline/scripts/dcc_wgs10_testset.sbatch)
+[![2026 Replication](https://img.shields.io/badge/Replication%202026-14%2F14%20Verified-brightgreen)](replication_2026/README.md)
 
-End-to-end Nextflow DSL2 pipeline for EBV copy-number and association analysis across WGS and RNA-seq, including reporting, dashboard generation, and reproducibility artifacts.
+End-to-end Nextflow DSL2 pipeline and 2026 full-cohort multi-omics analysis (`3,200` NYGC 30x WGS, `2,499` Phase 3 low-coverage WGS, `907` HPRC/1kGP ONT long-read WGS, and `779` MAGE RNA-seq LCLs) for Epstein-Barr virus (EBV) copy-number architecture, viral genetics, and host transcriptome mediation.
+
+## 2026 Full-Cohort Replication & Multi-Omics Package (`replication_2026/`)
+
+A self-contained turn-key replication bundle for all 2026 paper findings, master data tables, publication figures, and Duke Compute Cluster (DCC) Slurm orchestration is located in [`replication_2026/`](replication_2026/README.md):
+
+```bash
+# Verify all 14/14 headline statistical claims and regenerate all 6 publication figures (<15s)
+uv run replication_2026/reproduce_all.py
+```
+
+- **Turn-Key Verifier**: [`replication_2026/reproduce_all.py`](replication_2026/reproduce_all.py) -> generates [`replication_2026/REPLICATION_VERIFICATION_REPORT.md`](replication_2026/REPLICATION_VERIFICATION_REPORT.md)
+- **Figure Generator**: [`replication_2026/scripts/generate_figures.py`](replication_2026/scripts/generate_figures.py) -> outputs 6 multi-panel 300 DPI `.png` and `.pdf` figures in [`replication_2026/figures/`](replication_2026/figures/)
+- **DCC HPC Orchestrator**: [`replication_2026/scripts/run_dcc_pipeline.sh`](replication_2026/scripts/run_dcc_pipeline.sh) (`--stage wgs|rnaseq|downstream|verify|all`)
+- **Documentation & Claims Ledger**: [`replication_2026/docs/HANDOFF.md`](replication_2026/docs/HANDOFF.md) and [`replication_2026/docs/CLAIMS_LEDGER.md`](replication_2026/docs/CLAIMS_LEDGER.md)
+- **Persistent DCC Mirror**: `/hpc/group/parrishlab/EBV_1kGP_MAGE/` (`nfp8@dcc-login.oit.duke.edu`)
+
+---
 
 ## HPC quick start (Duke DCC)
 
